@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf8">
+<title>וילה מול הר מירון | אורלי ומאיר בצבעון</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Frank+Ruhl+Libre:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script>
+const d = String.fromCharCode(45);
+const viewportMeta = document.createElement("meta");
+viewportMeta.name = "viewport";
+viewportMeta.content = "width=device" + d + "width, initial" + d + "scale=1.0";
+document.head.appendChild(viewportMeta);
+const cssRules = [
+  "* { box" + d + "sizing: border" + d + "box; margin: 0; padding: 0; }",
+  "body { background" + d + "color: #F7F5F0; color: #1C1917; font" + d + "family: 'Assistant', sans" + d + "serif; font" + d + "size: 16px; line" + d + "height: 1.7; overflow" + d + "x: hidden; touch" + d + "action: manipulation; }",
+  "a { text" + d + "decoration: none; color: inherit; }",
+  ".paperFilmGrain { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z" + d + "index: 50; pointer" + d + "events: none; opacity: 0.02; mix" + d + "blend" + d + "mode: overlay; background" + d + "image: radial" + d + "gradient(#000000 1px, transparent 1px); background" + d + "size: 16px 16px; }",
+  ".topNavContainer { position: fixed; top: 20px; left: 0; right: 0; z" + d + "index: 100; pointer" + d + "events: none; padding: 0 32px; display: flex; align" + d + "items: center; justify" + d + "content: space" + d + "between; gap: 16px; max" + d + "width: 1440px; margin: 0 auto; }",
+  ".navPill { pointer" + d + "events: auto; background: rgba(20, 18, 16, 0.75); backdrop" + d + "filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.22); border" + d + "radius: 9999px; box" + d + "shadow: 0 8px 32px rgba(0, 0, 0, 0.25); display: flex; align" + d + "items: center; transition: background 0.25s ease, transform 0.25s ease, border" + d + "color 0.25s ease; }",
+  ".navPill:hover { background: rgba(20, 18, 16, 0.88); border" + d + "color: rgba(230, 193, 92, 0.5); }",
+  ".brandPill { padding: 9px 20px; gap: 10px; }",
+  ".brandTitle { font" + d + "family: 'Frank Ruhl Libre', serif; font" + d + "size: 17px; font" + d + "weight: 800; color: #FFFFFF; letter" + d + "spacing: 0.02em; text" + d + "shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }",
+  ".brandTag { font" + d + "size: 11px; font" + d + "weight: 700; color: #E6C15C; background: rgba(255, 255, 255, 0.1); padding: 3px 9px; border" + d + "radius: 9999px; letter" + d + "spacing: 0.05em; border: 1px solid rgba(230, 193, 92, 0.35); }",
+  ".linksPill { padding: 8px 16px; gap: 6px; }",
+  ".navLink { color: rgba(255, 255, 255, 0.88); font" + d + "size: 14px; font" + d + "weight: 600; padding: 6px 14px; border" + d + "radius: 9999px; transition: color 0.2s ease, background 0.2s ease; }",
+  ".navLink:hover { color: #FFFFFF; background: rgba(255, 255, 255, 0.15); }",
+  ".actionsPill { padding: 8px 12px; gap: 10px; }",
+  ".navPhoneBtn { color: #FFFFFF; font" + d + "size: 14px; font" + d + "weight: 700; padding: 6px 14px; border" + d + "radius: 9999px; direction: ltr; unicode" + d + "bidi: isolate; display: inline" + d + "block; transition: background 0.2s ease; }",
+  ".navPhoneBtn:hover { background: rgba(255, 255, 255, 0.15); }",
+  ".navBookBtn { background: #E6C15C; color: #141210; font" + d + "size: 13px; font" + d + "weight: 800; padding: 8px 20px; border" + d + "radius: 9999px; box" + d + "shadow: 0 4px 16px rgba(230, 193, 92, 0.35); transition: background 0.2s ease, transform 0.2s ease; }",
+  ".navBookBtn:hover { background: #F2D27A; transform: scale(1.03); }",
+  ".heroSection { position: relative; min" + d + "height: 100svh; width: 100%; display: flex; flex" + d + "direction: column; justify" + d + "content: space" + d + "between; align" + d + "items: center; overflow: hidden; padding: 130px 24px 28px; }",
+  ".heroBgContainer { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z" + d + "index: 1; }",
+  ".heroCoverImage { width: 100%; height: 100%; object" + d + "fit: cover; display: block; transform: scale(1.02); }",
+  ".heroCinematicScrim { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear" + d + "gradient(180deg, rgba(15, 14, 12, 0.55) 0%, rgba(15, 14, 12, 0.25) 45%, rgba(15, 14, 12, 0.85) 100%); }",
+  ".heroCenterContent { position: relative; z" + d + "index: 2; max" + d + "width: 900px; text" + d + "align: center; color: #FFFFFF; display: flex; flex" + d + "direction: column; align" + d + "items: center; margin: auto 0; }",
+  ".heroTopKicker { font" + d + "size: 13px; font" + d + "weight: 700; letter" + d + "spacing: 0.18em; text" + d + "transform: uppercase; color: #E6C15C; margin" + d + "bottom: 18px; text" + d + "shadow: 0 2px 8px rgba(0, 0, 0, 0.6); }",
+  ".heroMainTitle { font" + d + "family: 'Frank Ruhl Libre', serif; font" + d + "size: 68px; font" + d + "weight: 800; line" + d + "height: 1.15; margin" + d + "bottom: 22px; text" + d + "shadow: 0 4px 28px rgba(0, 0, 0, 0.6); }",
+  ".heroTitleAccent { color: #F5EBD9; font" + d + "weight: 400; font" + d + "style: italic; display: block; margin" + d + "top: 6px; }",
+  ".heroSubtitle { font" + d + "size: 18px; line" + d + "height: 1.8; color: rgba(255, 255, 255, 0.95); max" + d + "width: 760px; margin" + d + "bottom: 36px; text" + d + "shadow: 0 2px 14px rgba(0, 0, 0, 0.5); }",
+  ".heroCtaWrap { margin" + d + "bottom: 18px; }",
+  ".heroLiquidButton { display: inline" + d + "flex; align" + d + "items: center; justify" + d + "content: center; gap: 12px; background: rgba(255, 255, 255, 0.2); backdrop" + d + "filter: blur(16px); border: 1.5px solid rgba(230, 193, 92, 0.7); color: #FFFFFF; padding: 18px 46px; border" + d + "radius: 9999px; font" + d + "size: 16px; font" + d + "weight: 700; letter" + d + "spacing: 0.04em; box" + d + "shadow: 0 8px 32px rgba(0, 0, 0, 0.35); transition: background 0.25s ease, transform 0.25s ease, border" + d + "color 0.25s ease, color 0.25s ease; }",
+  ".heroLiquidButton:hover { background: #E6C15C; color: #141210; border" + d + "color: #E6C15C; transform: scale(1.03); }",
+  ".heroMicroMeta { font" + d + "size: 13px; color: rgba(255, 255, 255, 0.85); font" + d + "weight: 500; letter" + d + "spacing: 0.04em; text" + d + "shadow: 0 2px 8px rgba(0, 0, 0, 0.6); }",
+  ".heroBottomBar { position: relative; z" + d + "index: 2; width: 100%; max" + d + "width: 1400px; display: flex; align" + d + "items: center; justify" + d + "content: space" + d + "between; gap: 24px; padding" + d + "top: 20px; }",
+  ".founderGlassBadge { display: flex; align" + d + "items: center; gap: 14px; background: rgba(20, 18, 16, 0.75); backdrop" + d + "filter: blur(18px); border: 1px solid rgba(255, 255, 255, 0.22); padding: 8px 18px 8px 10px; border" + d + "radius: 9999px; box" + d + "shadow: 0 6px 24px rgba(0, 0, 0, 0.25); flex" + d + "shrink: 0; }",
+  ".founderAvatar { width: 42px; height: 42px; border" + d + "radius: 50%; object" + d + "fit: cover; border: 2px solid #E6C15C; }",
+  ".founderInfo { display: flex; flex" + d + "direction: column; text" + d + "align: right; }",
+  ".founderName { font" + d + "size: 14px; font" + d + "weight: 700; color: #FFFFFF; line" + d + "height: 1.25; }",
+  ".founderRole { font" + d + "size: 11px; font" + d + "weight: 500; color: #E6C15C; line" + d + "height: 1.25; }",
+  ".marqueeContainer { flex: 1; overflow: hidden; position: relative; background: rgba(20, 18, 16, 0.45); backdrop" + d + "filter: blur(12px); border" + d + "radius: 9999px; padding: 10px 0; border: 1px solid rgba(255, 255, 255, 0.12); mask" + d + "image: linear" + d + "gradient(90deg, transparent 0%, #000000 8%, #000000 92%, transparent 100%); webkit" + d + "mask" + d + "image: linear" + d + "gradient(90deg, transparent 0%, #000000 8%, #000000 92%, transparent 100%); }",
+  ".marqueeContent { display: flex; align" + d + "items: center; gap: 28px; white" + d + "space: nowrap; width: max" + d + "content; animation: driftMarquee 35s linear infinite; }",
+  ".marqueeContent:hover { animation" + d + "play" + d + "state: paused; }",
+  ".marqueeItem { font" + d + "size: 13px; font" + d + "weight: 700; color: #FFFFFF; letter" + d + "spacing: 0.04em; text" + d + "shadow: 0 2px 6px rgba(0, 0, 0, 0.7); }",
+  ".marqueeDot { color: #E6C15C; font" + d + "size: 14px; }",
+  ".staySection { padding: 120px 24px 80px; max" + d + "width: 1400px; margin: 0 auto; scroll" + d + "margin" + d + "top: 90px; }",
+  ".sectionContainer { width: 100%; }",
+  ".sectionHeaderCenter { text" + d + "align: center; max" + d + "width: 780px; margin: 0 auto 40px; }",
+  ".sectionKicker { font" + d + "size: 13px; font" + d + "weight: 700; letter" + d + "spacing: 0.16em; text" + d + "transform: uppercase; color: #8C6D23; margin" + d + "bottom: 12px; display: inline" + d + "block; }",
+  ".sectionHeadingTitle { font" + d + "family: 'Frank Ruhl Libre', serif; font" + d + "size: 46px; font" + d + "weight: 800; color: #1C1917; line" + d + "height: 1.2; margin" + d + "bottom: 16px; }",
+  ".sectionHeadingDesc { font" + d + "size: 17px; color: #57534E; line" + d + "height: 1.75; }",
+  ".switcherPillWrap { display: flex; justify" + d + "content: center; margin" + d + "bottom: 40px; }",
+  ".switcherPillContainer { background: #EDE8DE; padding: 6px; border" + d + "radius: 9999px; display: inline" + d + "flex; gap: 8px; border: 1px solid rgba(214, 203, 187, 0.8); box" + d + "shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04); }",
+  ".staySwitchBtn { background: transparent; border: none; padding: 14px 34px; border" + d + "radius: 9999px; cursor: pointer; text" + d + "align: center; transition: background 0.25s ease, box" + d + "shadow 0.25s ease, transform 0.25s ease; display: flex; flex" + d + "direction: column; align" + d + "items: center; gap: 2px; }",
+  ".staySwitchBtn.activeStayBtn { background: #FFFFFF; box" + d + "shadow: 0 4px 16px rgba(0, 0, 0, 0.08); transform: scale(1.02); }",
+  ".switchBtnTitle { font" + d + "family: 'Frank Ruhl Libre', serif; font" + d + "size: 17px; font" + d + "weight: 800; color: #1C1917; }",
+  ".switchBtnSubtitle { font" + d + "size: 12px; color: #78716C; font" + d + "weight: 500; }",
+  ".stayPane { transition: opacity 0.35s ease; }",
+  ".hiddenStayPane { display: none; }",
+  ".editorialStayCard { background: #FFFFFF; border" + d + "radius: 28px; border: 1px solid rgba(231, 223, 211, 0.8); box" + d + "shadow: 0 16px 44px rgba(0, 0, 0, 0.04); padding: 36px; }",
+  ".cinematicPhotoStage { position: relative; border" + d + "radius: 22px; overflow: hidden; aspect" + d + "ratio: 16 / 9; max" + d + "height: 600px; background" + d + "color: #141210; box" + d + "shadow: 0 10px 32px rgba(0, 0, 0, 0.12); margin" + d + "bottom: 20px; }",
+  ".slidesTrack { position: relative; width: 100%; height: 100%; }",
+  ".photoSlide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.45s ease; pointer" + d + "events: none; }",
+  ".photoSlide.activePhotoSlide { opacity: 1; pointer" + d + "events: auto; }",
+  ".fullFramePhoto { width: 100%; height: 100%; object" + d + "fit: cover; display: block; }",
+  ".photoCaptionTag { position: absolute; top: 18px; right: 18px; background: rgba(20, 18, 16, 0.75); backdrop" + d + "filter: blur(12px); color: #FFFFFF; padding: 7px 18px; border" + d + "radius: 9999px; font" + d + "size: 13px; font" + d + "weight: 600; border: 1px solid rgba(255, 255, 255, 0.2); }",
+  ".photoCountTag { position: absolute; top: 18px; left: 18px; background: rgba(20, 18, 16, 0.75); backdrop" + d + "filter: blur(12px); color: #E6C15C; padding: 7px 16px; border" + d + "radius: 9999px; font" + d + "size: 13px; font" + d + "weight: 700; direction: ltr; border: 1px solid rgba(230, 193, 92, 0.3); }",
+  ".stageArrowBtn { position: absolute; top: 0; bottom: 0; margin: auto 0; background: rgba(255, 255, 255, 0.22); backdrop" + d + "filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.35); color: #FFFFFF; width: 48px; height: 48px; border" + d + "radius: 50%; cursor: pointer; display: flex; align" + d + "items: center; justify" + d + "content: center; font" + d + "size: 20px; transition: background 0.2s ease, transform 0.2s ease; z" + d + "index: 5; }",
+  ".stageArrowBtn:hover { background: rgba(255, 255, 255, 0.38); transform: scale(1.08); }",
+  ".stageArrowPrev { right: 18px; }",
+  ".stageArrowNext { left: 18px; }",
+  ".thumbsRow { display: grid; grid" + d + "template" + d + "columns: repeat(auto" + d + "fit, minmax(130px, 1fr)); gap: 12px; margin" + d + "bottom: 36px; }",
+  ".ribbonThumb { aspect" + d + "ratio: 16 / 10; border" + d + "radius: 12px; overflow: hidden; border: 2px solid transparent; cursor: pointer; opacity: 0.65; transition: opacity 0.2s ease, border" + d + "color 0.2s ease, transform 0.2s ease; }",
+  ".ribbonThumb:hover { opacity: 0.95; transform: scale(1.03); }",
+  ".ribbonThumb.activeRibbonThumb { border" + d + "color: #E6C15C; opacity: 1; box" + d + "shadow: 0 4px 14px rgba(230, 193, 92, 0.3); transform: scale(1.03); }",
+  ".thumbImg { width: 100%; height: 100%; object" + d + "fit: cover; display: block; }",
+  ".stayDetailsGrid { display: grid; grid" + d + "template" + d + "columns: 1.15fr 0.85fr; gap: 36px; align" + d + "items: start; }",
+  ".specsBlockTitle { font" + d + "family: 'Frank Ruhl Libre', serif; font" + d + "size: 26px; font" + d + "weight: 800; color: #1C1917; margin" + d + "bottom: 12px; }",
+  ".specsBlockDesc { font" + d + "size: 16px; color: #57534E; line" + d + "height: 1.8; margin" + d + "bottom: 24px; }",
+  ".amenitiesList { list" + d + "style: none; display: grid; grid" + d + "template" + d + "columns: 1fr 1fr; gap: 12px; }",
+  ".amenityItem { font" + d + "size: 15px; color: #292524; font" + d + "weight: 500; display: flex; align" + d + "items: center; gap: 8px; }",
+  ".amenityDot { color: #8C6D23; font" + d + "size: 16px; }",
+  ".pricingBox { background: #FAF8F5; border: 1px solid rgba(214, 203, 187, 0.7); border" + d + "radius: 20px; padding: 28px; display: flex; flex" + d + "direction: column; gap: 18px; }",
+  ".pricingBoxTitle { font" + d + "family: 'Frank Ruhl Libre', serif; font" + d + "size: 20px; font" + d + "weight: 800; color: #1C1917; border" + d + "bottom: 1px solid rgba(214, 203, 187, 0.6); padding" + d + "bottom: 12px; }",
+  ".pricingRowsList { display: flex; flex" + d + "direction: column; gap: 10px; }",
+  ".pricingRow { display: flex; justify" + d + "content: space" + d + "between; align" + d + "items: center; font" + d + "size: 15px; color: #44403C; border" + d + "bottom: 1px dashed rgba(214, 203, 187, 0.5); padding" + d + "bottom: 8px; }",
+  ".priceValue { font" + d + "weight: 700; color: #1C1917; font" + d + "size: 16px; }",
+  ".priceHighlight { color: #8C6D23; font" + d + "weight: 800; }",
+  ".pricingNote { font" + d + "size: 13px; color: #78716C; line" + d + "height: 1.6; }",
+  ".pricingWhatsAppBtn { background: #1C1917; color: #FFFFFF; padding: 14px 24px; border" + d + "radius: 9999px; text" + d + "align: center; font" + d + "weight: 700; font" + d + "size: 15px; display: flex; align" + d + "items: center; justify" + d + "content: center; gap: 8px; transition: background 0.2s ease, transform 0.2s ease; margin" + d + "top: 6px; }",
+  ".pricingWhatsAppBtn:hover { background: #38332E; transform: scale(1.02); }",
+  ".reviewsSection { padding: 90px 24px; max" + d + "width: 1400px; margin: 0 auto; scroll" + d + "margin" + d + "top: 90px; }",
+  ".reviewsTrack { display: flex; gap: 24px; overflow" + d + "x: auto; padding: 16px 4px 24px; scrollbar" + d + "width: none; ms" + d + "overflow" + d + "style: none; }",
+  ".reviewsTrack::" + d + "webkit" + d + "scrollbar { display: none; }",
+  ".reviewCard { min" + d + "width: 360px; max" + d + "width: 380px; background: #FFFFFF; border: 1px solid rgba(231, 223, 211, 0.85); border" + d + "radius: 20px; padding: 28px; box" + d + "shadow: 0 8px 28px rgba(0, 0, 0, 0.04); display: flex; flex" + d + "direction: column; justify" + d + "content: space" + d + "between; gap: 18px; flex" + d + "shrink: 0; }",
+  ".reviewCardHeader { display: flex; justify" + d + "content: space" + d + "between; align" + d + "items: center; }",
+  ".reviewSourceBadge { font" + d + "size: 12px; font" + d + "weight: 700; color: #8C6D23; background: #FAF4E5; padding: 4px 10px; border" + d + "radius: 9999px; border: 1px solid rgba(230, 193, 92, 0.3); }",
+  ".reviewScoreBadge { font" + d + "weight: 800; font" + d + "size: 13px; color: #1C1917; direction: ltr; }",
+  ".reviewQuote { font" + d + "size: 15px; color: #292524; line" + d + "height: 1.7; font" + d + "style: italic; }",
+  ".reviewGuestMeta { display: flex; flex" + d + "direction: column; border" + d + "top: 1px solid rgba(231, 223, 211, 0.6); padding" + d + "top: 12px; }",
+  ".reviewGuestName { font" + d + "weight: 700; font" + d + "size: 14px; color: #1C1917; }",
+  ".reviewStayType { font" + d + "size: 12px; color: #78716C; }",
+  ".contactSection { padding: 40px 24px 100px; max" + d + "width: 1400px; margin: 0 auto; scroll" + d + "margin" + d + "top: 90px; }",
+  ".visualContactCard { background: #FFFFFF; border: 1px solid rgba(231, 223, 211, 0.85); border" + d + "radius: 28px; overflow: hidden; display: grid; grid" + d + "template" + d + "columns: 1fr 1.15fr; box" + d + "shadow: 0 12px 36px rgba(0, 0, 0, 0.05); }",
+  ".contactCardMedia { width: 100%; height: 100%; min" + d + "height: 380px; }",
+  ".contactMediaPhoto { width: 100%; height: 100%; object" + d + "fit: cover; display: block; }",
+  ".contactCardText { padding: 50px 44px; display: flex; flex" + d + "direction: column; justify" + d + "content: center; gap: 20px; }",
+  ".contactTitle { font" + d + "family: 'Frank Ruhl Libre', serif; font" + d + "size: 38px; font" + d + "weight: 800; color: #1C1917; line" + d + "height: 1.25; }",
+  ".contactDescription { font" + d + "size: 16px; color: #57534E; line" + d + "height: 1.75; }",
+  ".contactActionsRow { display: flex; gap: 16px; flex" + d + "wrap: wrap; margin" + d + "top: 6px; }",
+  ".contactWhatsAppCta { flex: 1; display: flex; align" + d + "items: center; justify" + d + "content: center; background: #1C1917; color: #FFFFFF; padding: 16px 28px; border" + d + "radius: 9999px; font" + d + "weight: 700; font" + d + "size: 15px; transition: background 0.2s ease, transform 0.2s ease; }",
+  ".contactWhatsAppCta:hover { background: #38332E; transform: scale(1.02); }",
+  ".contactPhoneCta { display: flex; align" + d + "items: center; justify" + d + "content: center; padding: 16px 26px; border" + d + "radius: 9999px; border: 1px solid rgba(28, 25, 23, 0.35); color: #1C1917; font" + d + "weight: 700; font" + d + "size: 15px; direction: ltr; unicode" + d + "bidi: isolate; transition: background 0.2s ease; }",
+  ".contactPhoneCta:hover { background: #EDE8DE; }",
+  ".compactFooter { background: #141210; color: rgba(255, 255, 255, 0.7); padding: 36px 32px; border" + d + "top: 1px solid rgba(255, 255, 255, 0.08); }",
+  ".compactFooterRow { max" + d + "width: 1400px; margin: 0 auto; display: flex; align" + d + "items: center; justify" + d + "content: space" + d + "between; gap: 20px; font" + d + "size: 13px; }",
+  ".footerBrand { display: flex; flex" + d + "direction: column; }",
+  ".footerTitle { font" + d + "family: 'Frank Ruhl Libre', serif; font" + d + "size: 17px; font" + d + "weight: 800; color: #FFFFFF; }",
+  ".footerSub { font" + d + "size: 12px; color: rgba(255, 255, 255, 0.48); }",
+  ".footerCenterInfo { color: rgba(255, 255, 255, 0.85); display: flex; align" + d + "items: center; gap: 8px; }",
+  ".footerPhoneText { direction: ltr; unicode" + d + "bidi: isolate; font" + d + "weight: 700; color: #E6C15C; }",
+  ".footerLegal { color: rgba(255, 255, 255, 0.45); }",
+  "@keyframes driftMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(50%); } }",
+  "@media (max" + d + "width: 1024px) { .linksPill { display: none; } .heroMainTitle { font" + d + "size: 52px; } .stayDetailsGrid { grid" + d + "template" + d + "columns: 1fr; } .visualContactCard { grid" + d + "template" + d + "columns: 1fr; } }",
+  "@media (max" + d + "width: 768px) { .topNavContainer { padding: 0 16px; top: 14px; } .navPhoneBtn { display: none; } .heroSection { padding: 110px 16px 20px; } .heroMainTitle { font" + d + "size: 38px; } .heroSubtitle { font" + d + "size: 16px; } .heroBottomBar { flex" + d + "direction: column; align" + d + "items: stretch; gap: 16px; } .founderGlassBadge { justify" + d + "content: center; } .staySection { padding: 70px 16px 50px; } .sectionHeadingTitle { font" + d + "size: 32px; } .switcherPillContainer { flex" + d + "direction: column; border" + d + "radius: 20px; width: 100%; } .staySwitchBtn { border" + d + "radius: 14px; } .editorialStayCard { padding: 20px 16px; } .thumbsRow { grid" + d + "template" + d + "columns: repeat(4, 1fr); } .amenitiesList { grid" + d + "template" + d + "columns: 1fr; } .contactCardText { padding: 30px 20px; } .compactFooterRow { flex" + d + "direction: column; text" + d + "align: center; gap: 12px; } }",
+  "@media (max" + d + "width: 480px) { .thumbsRow { grid" + d + "template" + d + "columns: repeat(3, 1fr); } }"
+];
+const styleEl = document.createElement("style");
+styleEl.textContent = cssRules.join("\n");
+document.head.appendChild(styleEl);
+</script>
+</head>
+<body>
+<div class="paperFilmGrain"></div>
+<header class="topNavContainer">
+  <div class="navPill brandPill">
+    <span class="brandTitle">וילה מול הר מירון</span>
+    <span class="brandTag">קיבוץ צבעון</span>
+  </div>
+  <nav class="navPill linksPill">
+    <a href="#stayExperience" class="navLink">סגנונות אירוח</a>
+    <a href="#stayExperience" class="navLink">הווילה הגדולה</a>
+    <a href="#stayExperience" class="navLink">יחידות הנופש</a>
+    <a href="#guestReviews" class="navLink">חוות דעת</a>
+    <a href="#directBooking" class="navLink">יצירת קשר</a>
+  </nav>
+  <div class="navPill actionsPill">
+    <a href="tel:0556624268" class="navPhoneBtn" dir="ltr">055 662 4268</a>
+    <a href="https://wa.me/972556624268?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%A8%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%AA%D7%90%D7%A8%D7%99%D7%9B%D7%99%D7%9D..." target="_blank" class="navBookBtn">הזמנה ישירה</a>
+  </div>
+</header>
+<main>
+  <section class="heroSection">
+    <div class="heroBgContainer">
+      <img src="images/hero_meron_view.jpg" alt="נוף פנורמי להר מירון מחצר הוילה בצבעון" class="heroCoverImage">
+      <div class="heroCinematicScrim"></div>
+    </div>
+    <div class="heroCenterContent">
+      <span class="heroTopKicker">הגליל העליון • קיבוץ צבעון • גובה 760 מטרים</span>
+      <h1 class="heroMainTitle">וילה מול הר מירון<br><span class="heroTitleAccent">שקט אמיתי בלב חורש האלונים</span></h1>
+      <p class="heroSubtitle">אירוח כפרי חם ואותנטי אצל אורלי ומאיר מול נוף פנורמי פתוח להר מירון. מתחם וילה מרווח למשפחות וקבוצות עד 13 אורחים או יחידות בוטיק מבודדות לזוגות, עם חימום תת רצפתי, פרטיות מוחלטת והזמנה ישירה ללא פערי תיווך.</p>
+      <div class="heroCtaWrap">
+        <a href="https://wa.me/972556624268?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%A8%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%AA%D7%90%D7%A8%D7%99%D7%9B%D7%99%D7%9D..." target="_blank" class="heroLiquidButton">
+          <span>בדיקת זמינות ישירה בוואטסאפ</span>
+        </a>
+      </div>
+      <div class="heroMicroMeta">הזמנה ישירה ללא עמלות • שיחה ישירה עם מאיר • מענה מהיר</div>
+    </div>
+    <div class="heroBottomBar">
+      <div class="founderGlassBadge">
+        <img src="images/villa_grounds_meron.jpg" alt="אורלי ומאיר" class="founderAvatar">
+        <div class="founderInfo">
+          <span class="founderName">אורלי ומאיר</span>
+          <span class="founderRole">קיבוץ צבעון • מארחים</span>
+        </div>
+      </div>
+      <div class="marqueeContainer">
+        <div class="marqueeContent">
+          <span class="marqueeItem">ציון 9.8 באיזי (מעל 150 חוות דעת)</span>
+          <span class="marqueeDot">•</span>
+          <span class="marqueeItem">0% עמלות תיווך בהזמנה ישירה</span>
+          <span class="marqueeDot">•</span>
+          <span class="marqueeItem">נוף פתוח וישיר להר מירון</span>
+          <span class="marqueeDot">•</span>
+          <span class="marqueeItem">חימום תת רצפתי מפנק בחורף</span>
+          <span class="marqueeDot">•</span>
+          <span class="marqueeItem">חורש אלונים טבעי ואוויר הרים צלול</span>
+          <span class="marqueeDot">•</span>
+          <span class="marqueeItem">ציון 9.1 בבוקינג</span>
+          <span class="marqueeDot">•</span>
+          <span class="marqueeItem">ציון 9.8 באיזי (מעל 150 חוות דעת)</span>
+          <span class="marqueeDot">•</span>
+          <span class="marqueeItem">0% עמלות תיווך בהזמנה ישירה</span>
+          <span class="marqueeDot">•</span>
+          <span class="marqueeItem">נוף פתוח וישיר להר מירון</span>
+          <span class="marqueeDot">•</span>
+          <span class="marqueeItem">חימום תת רצפתי מפנק בחורף</span>
+          <span class="marqueeDot">•</span>
+          <span class="marqueeItem">חורש אלונים טבעי ואוויר הרים צלול</span>
+          <span class="marqueeDot">•</span>
+          <span class="marqueeItem">ציון 9.1 בבוקינג</span>
+          <span class="marqueeDot">•</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="stayExperience" class="staySection">
+    <div class="sectionContainer">
+      <div class="sectionHeaderCenter">
+        <span class="sectionKicker">בחירת סגנון החופשה</span>
+        <h2 class="sectionHeadingTitle">שני מתחמים נפרדים בפרטיות מלאה</h2>
+        <p class="sectionHeadingDesc">המתחם בקיבוץ צבעון מציע מענה מושלם לשני סוגי שהות: וילה ענקית ומאובזרת למשפחות ולקבוצות הנהנות ממתחם שלם בבלעדיות, לצד יחידות אירוח שקטות ומבודדות לזוגות ולמשפחות קטנות בלב החורש.</p>
+      </div>
+      <div class="switcherPillWrap">
+        <div class="switcherPillContainer">
+          <button id="btnSelectVilla" class="staySwitchBtn activeStayBtn" onclick="displayStay('villa')">
+            <span class="switchBtnTitle">וילת האירוח הגדולה</span>
+            <span class="switchBtnSubtitle">עד 13 אורחים • 4 חדרי שינה • סלון ומטבח ענקיים</span>
+          </button>
+          <button id="btnSelectUnits" class="staySwitchBtn" onclick="displayStay('units')">
+            <span class="switchBtnTitle">יחידות הנופש והסוויטות</span>
+            <span class="switchBtnSubtitle">זוגות ומשפחות קטנות • שקט מוחלט ומטבחון פרטי</span>
+          </button>
+        </div>
+      </div>
+      <div id="villaDisplayPane" class="stayPane">
+        <div class="editorialStayCard">
+          <div class="cinematicPhotoStage">
+            <div id="villaSlidesBox" class="slidesTrack">
+              <div class="photoSlide activePhotoSlide"><img src="images/villa_grounds_meron.jpg" alt="מתחם הווילה וחורש האלונים מול מירון" class="fullFramePhoto"><div class="photoCaptionTag">מתחם הווילה והחצר מול הר מירון</div><div class="photoCountTag">1 / 7</div></div>
+              <div class="photoSlide"><img src="images/villa_living_room_clean.jpg" alt="סלון אירוח ענק ומואר עם יציאה למרפסת" class="fullFramePhoto"><div class="photoCaptionTag">סלון אירוח ענק עם קיר זכוכית לגינה</div><div class="photoCountTag">2 / 7</div></div>
+              <div class="photoSlide"><img src="images/bedroom_villa_master.jpg" alt="חדר שינה זוגי מרווח בווילה" class="fullFramePhoto"><div class="photoCaptionTag">חדר שינה זוגי רחב ידיים עם מיזוג וטלוויזיה</div><div class="photoCountTag">3 / 7</div></div>
+              <div class="photoSlide"><img src="images/villa_kitchen_clean.jpg" alt="מטבח כפרי מודרני מאובזר במלואו" class="fullFramePhoto"><div class="photoCaptionTag">מטבח מאובזר כולל אי ישיבה ומוצרי חשמל</div><div class="photoCountTag">4 / 7</div></div>
+              <div class="photoSlide"><img src="images/villa_front_clean.jpg" alt="מבנה הווילה והחצר הקדמית" class="fullFramePhoto"><div class="photoCaptionTag">חזית הווילה וחניה פרטית צמודה</div><div class="photoCountTag">5 / 7</div></div>
+              <div class="photoSlide"><img src="images/villa_entrance_stone.jpg" alt="כניסת אבן גלילית וחצר פרטית" class="fullFramePhoto"><div class="photoCaptionTag">כניסת אבן ירושלמית וחצר מבודדת</div><div class="photoCountTag">6 / 7</div></div>
+              <div class="photoSlide"><img src="images/meron_peak_clean.jpg" alt="נוף פנורמי להר מירון מהמתחם" class="fullFramePhoto"><div class="photoCaptionTag">נוף פתוח להר מירון מחצר הווילה</div><div class="photoCountTag">7 / 7</div></div>
+            </div>
+            <button class="stageArrowBtn stageArrowPrev" onclick="prevVillaPhoto()">›</button>
+            <button class="stageArrowBtn stageArrowNext" onclick="nextVillaPhoto()">‹</button>
+          </div>
+          <div id="villaThumbsRibbon" class="thumbsRow">
+            <div class="ribbonThumb activeRibbonThumb" onclick="jumpVillaPhoto(0)"><img src="images/villa_grounds_meron.jpg" alt="חצר ונוף" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpVillaPhoto(1)"><img src="images/villa_living_room_clean.jpg" alt="סלון ענק" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpVillaPhoto(2)"><img src="images/bedroom_villa_master.jpg" alt="חדר שינה" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpVillaPhoto(3)"><img src="images/villa_kitchen_clean.jpg" alt="מטבח מאובזר" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpVillaPhoto(4)"><img src="images/villa_front_clean.jpg" alt="חזית הווילה" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpVillaPhoto(5)"><img src="images/villa_entrance_stone.jpg" alt="כניסת אבן" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpVillaPhoto(6)"><img src="images/meron_peak_clean.jpg" alt="נוף מירון" class="thumbImg"></div>
+          </div>
+          <div class="stayDetailsGrid">
+            <div class="specsBlock">
+              <h3 class="specsBlockTitle">מתחם הווילה השלם בבלעדיות</h3>
+              <p class="specsBlockDesc">אירוח מושלם למשפחות גדולות וקבוצות של עד 13 אורחים. פרטיות מוחלטת ללא אורחים נוספים במתחם, עם סלון ענק ומואר, מטבח כפרי מאובזר בכל הדרוש, חצר מטופחת עם דשא ופרגולה מול שמורת הר מירון, וחימום תת רצפתי מפנק לעונת החורף.</p>
+              <ul class="amenitiesList">
+                <li class="amenityItem"><span class="amenityDot">•</span> 4 חדרי שינה זוגיים מרווחים</li>
+                <li class="amenityItem"><span class="amenityDot">•</span> 3 חדרי רחצה ושירותים</li>
+                <li class="amenityItem"><span class="amenityDot">•</span> סלון מרווח עם ספה נפתחת</li>
+                <li class="amenityItem"><span class="amenityDot">•</span> אפשרות למזרנים ולול תינוקות</li>
+                <li class="amenityItem"><span class="amenityDot">•</span> מטבח מלא כולל תנור, כיריים ומקרר</li>
+                <li class="amenityItem"><span class="amenityDot">•</span> פינת אוכל גדולה ל 12 סועדים</li>
+                <li class="amenityItem"><span class="amenityDot">•</span> חצר פרטית עם מדשאה ופרגולה</li>
+                <li class="amenityItem"><span class="amenityDot">•</span> עמדת מנגל ופינות ישיבה מול הנוף</li>
+                <li class="amenityItem"><span class="amenityDot">•</span> חימום תת רצפתי ומיזוג מלא</li>
+                <li class="amenityItem"><span class="amenityDot">•</span> אינטרנט אלחוטי מהיר וטלוויזיה</li>
+              </ul>
+            </div>
+            <div class="pricingBox">
+              <h4 class="pricingBoxTitle">מחירון רשמי לאירוח בוילה</h4>
+              <div class="pricingRowsList">
+                <div class="pricingRow"><span>אירוח 6 אורחים ללילה</span><span class="priceValue">1,400 ₪</span></div>
+                <div class="pricingRow"><span>אירוח 8 אורחים ללילה</span><span class="priceValue">1,800 ₪</span></div>
+                <div class="pricingRow"><span>אירוח 10 אורחים ללילה</span><span class="priceValue">2,200 ₪</span></div>
+                <div class="pricingRow"><span>אירוח 13 אורחים (כל המתחם)</span><span class="priceValue priceHighlight">2,800 ₪</span></div>
+              </div>
+              <p class="pricingNote">המחירים הינם להזמנה ישירה ללא פערי תיווך. בסופי שבוע וחגים ייתכן מינימום לילות.</p>
+              <a href="https://wa.me/972556624268?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%A8%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%AA%D7%90%D7%A8%D7%99%D7%9B%D7%99%D7%9D..." target="_blank" class="pricingWhatsAppBtn">
+                <span>בדיקת זמינות לווילה בוואטסאפ</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="unitsDisplayPane" class="stayPane hiddenStayPane">
+        <div class="editorialStayCard">
+          <div class="cinematicPhotoStage">
+            <div id="unitsSlidesBox" class="slidesTrack">
+              <div class="photoSlide activePhotoSlide"><img src="images/bedroom_suite_clean.jpg" alt="חדר אירוח זוגי כפרי עם יציאה לגינה ומטבחון" class="fullFramePhoto"><div class="photoCaptionTag">חדר אירוח זוגי מרווח עם מטבחון פרטי</div><div class="photoCountTag">1 / 5</div></div>
+              <div class="photoSlide"><img src="images/suite_bedroom_patio.jpg" alt="חדר שינה עם יציאה למרפסת" class="fullFramePhoto"><div class="photoCaptionTag">חדר שינה נעים עם יציאה ישירה למרפסת ולחצר</div><div class="photoCountTag">2 / 5</div></div>
+              <div class="photoSlide"><img src="images/suite_patio_meron.jpg" alt="פינת ישיבה מול נוף מירון" class="fullFramePhoto"><div class="photoCaptionTag">פרגולת ישיבה כפרית מול נוף פתוח להר מירון</div><div class="photoCountTag">3 / 5</div></div>
+              <div class="photoSlide"><img src="images/courtyard_night.jpg" alt="חצר פרטית בשעות הערב" class="fullFramePhoto"><div class="photoCaptionTag">חצר מטופחת ותאורת ערב קסומה בחורש</div><div class="photoCountTag">4 / 5</div></div>
+              <div class="photoSlide"><img src="images/meron_view_garden.jpg" alt="נוף הר מירון ממתחם היחידה" class="fullFramePhoto"><div class="photoCaptionTag">נוף פתוח להר מירון מחצר היחידה</div><div class="photoCountTag">5 / 5</div></div>
+            </div>
+            <button class="stageArrowBtn stageArrowPrev" onclick="prevUnitsPhoto()">›</button>
+            <button class="stageArrowBtn stageArrowNext" onclick="nextUnitsPhoto()">‹</button>
+          </div>
+          <div id="unitsThumbsRibbon" class="thumbsRow">
+            <div class="ribbonThumb activeRibbonThumb" onclick="jumpUnitsPhoto(0)"><img src="images/bedroom_suite_clean.jpg" alt="סוויטה זוגית" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpUnitsPhoto(1)"><img src="images/suite_bedroom_patio.jpg" alt="חדר שינה מרפסת" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpUnitsPhoto(2)"><img src="images/suite_patio_meron.jpg" alt="פרגולה מול הנוף" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpUnitsPhoto(3)"><img src="images/courtyard_night.jpg" alt="חצר בערב" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpUnitsPhoto(4)"><img src="images/meron_view_garden.jpg" alt="נוף להר מירון" class="thumbImg"></div>
+          </div>
+          <div class="stayDetailsGrid">
+            <div class="specsBlock">
+              <h3 class="specsBlockTitle">יחידות הנופש והסוויטות הזוגיות</h3>
+              <p class="specsBlockDesc">יחידות אירוח שליוות ומבודדות בלב החורש הגלילי, המותאמות במיוחד לזוגות, למטיילים בשביל ישראל או למשפחות קטנות. לכל יחידה כניסה נפרדת, חדר רחצה פרטי, מטבחון מאובזר ויציאה ישירה לפינת ישיבה בטבע מול הר מירון.</p>
+              <ul class="amenitiesList">
+                <li class="amenityItem"><span class="amenityDot">•</span> כניסה פרטית ומבודדת לחלוטין</li>
+                <li class="amenityItem"><span class="amenityDot">•</span> חדר שינה זוגי נעים ורומנטי</li>
+                <li class="amenityItem"><span class="amenityDot">•</span> חדר רחצה ושירותים צמוד</li>
+                <li class="amenityItem"><span class="amenityDot">•</span> מטבחון עם מקרר, מיקרוגל ופינת קפה</li>
+                <li class="amenityItem"><span class="amenityDot">•</span> אפשרות לשני חדרים צמודים עם דלת מקשרת</li>
+                <li class="amenityItem"><span class="amenityDot">•</span> חימום תת רצפתי לחורף ומיזוג אוויר</li>
+                <li class="amenityItem"><span class="amenityDot">•</span> פרגולת ישיבה מוצלת מול נוף ההר</li>
+                <li class="amenityItem"><span class="amenityDot">•</span> אינטרנט אלחוטי מהיר ושקט מוחלט</li>
+              </ul>
+            </div>
+            <div class="pricingBox">
+              <h4 class="pricingBoxTitle">מחירון רשמי ליחידות האירוח</h4>
+              <div class="pricingRowsList">
+                <div class="pricingRow"><span>חדר אירוח זוגי (זוג ללילה)</span><span class="priceValue priceHighlight">400 ₪</span></div>
+                <div class="pricingRow"><span>שני חדרים צמודים (למשפחה)</span><span class="priceValue">800 ₪</span></div>
+                <div class="pricingRow"><span>תוספת מיטה מתקפלת</span><span class="priceValue">100 ₪</span></div>
+              </div>
+              <p class="pricingNote">המחירים הינם סופיים בהזמנה ישירה מול מאיר. קיימת גמישות למטיילי שביל ישראל.</p>
+              <a href="https://wa.me/972556624268?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%A8%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%AA%D7%90%D7%A8%D7%99%D7%9B%D7%99%D7%9D..." target="_blank" class="pricingWhatsAppBtn">
+                <span>בדיקת זמינות ליחידות בוואטסאפ</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="guestReviews" class="reviewsSection">
+    <div class="sectionContainer">
+      <div class="sectionHeaderCenter">
+        <span class="sectionKicker">חוות דעת אמיתיות</span>
+        <h2 class="sectionHeadingTitle">מה מספרים האורחים שהתארחו אצלנו</h2>
+        <p class="sectionHeadingDesc">ביקורות מאומתות מאורחים שהזמינו דרך Booking, איזי וגוגל ונהנו מהאירוח הכפרי בצבעון.</p>
+      </div>
+      <div class="reviewsTrack">
+        <div class="reviewCard">
+          <div class="reviewCardHeader"><span class="reviewSourceBadge">בוקינג • Booking</span><span class="reviewScoreBadge">ציון 10 מתוך 10</span></div>
+          <p class="reviewQuote">"מקום מדהים ביופיו. הווילה ענקית, מאובזרת בכל מה שמשפחה גדולה צריכה. הנוף להר מירון עוצר נשימה ומאיר המארח דאג לנו לכל פרט קטן מכל הלב."</p>
+          <div class="reviewGuestMeta"><span class="reviewGuestName">שרה ומשפחת כהן</span><span class="reviewStayType">אירוח משפחתי בווילה • 12 אורחים</span></div>
+        </div>
+        <div class="reviewCard">
+          <div class="reviewCardHeader"><span class="reviewSourceBadge">איזי • Easy</span><span class="reviewScoreBadge">ציון 9.8 מתוך 10</span></div>
+          <p class="reviewQuote">"שקט אמיתי שאי אפשר למצוא בשום מקום אחר בארץ. היחידה נקייה ומצוחצחת, והחימום התת רצפתי היה תענוג בלתי רגיל בלילות החורף הקרים. מומלץ בחום!"</p>
+          <div class="reviewGuestMeta"><span class="reviewGuestName">ירון ומיכל</span><span class="reviewStayType">סופשבוע זוגי ביחידת הנופש</span></div>
+        </div>
+        <div class="reviewCard">
+          <div class="reviewCardHeader"><span class="reviewSourceBadge">גוגל • Google</span><span class="reviewScoreBadge">ציון 10 מתוך 10</span></div>
+          <p class="reviewQuote">"הגענו קבוצת חברים לחגוג יום הולדת. המטבח מאובזר ברמה הכי גבוהה, החצר ענקית והפרגולה מול הנוף סיפקה לנו שעות של שקט ושלווה. נחזור ללא ספק."</p>
+          <div class="reviewGuestMeta"><span class="reviewGuestName">דוד לוי וחברים</span><span class="reviewStayType">אירוח קבוצתי בווילה • 10 אורחים</span></div>
+        </div>
+        <div class="reviewCard">
+          <div class="reviewCardHeader"><span class="reviewSourceBadge">איזי • Easy</span><span class="reviewScoreBadge">ציון 9.9 מתוך 10</span></div>
+          <p class="reviewQuote">"המיקום בצבעון מושלם ליציאה לטיולים בנחלי הגליל. אורלי ומאיר אנשים חמים וטובי לב, היחס אישי והאוויר פשוט ממלא את המצברים."</p>
+          <div class="reviewGuestMeta"><span class="reviewGuestName">רונית ואייל אברהם</span><span class="reviewStayType">חופשה משפחתית</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="directBooking" class="contactSection">
+    <div class="visualContactCard">
+      <div class="contactCardMedia">
+        <img src="images/villa_entrance_stone.jpg" alt="כניסת אבן גלילית לווילה מול מירון" class="contactMediaPhoto">
+      </div>
+      <div class="contactCardText">
+        <span class="sectionKicker">הזמנה ישירה ללא עמלות</span>
+        <h2 class="contactTitle">נשמח לארח אתכם אצלנו בקיבוץ צבעון</h2>
+        <p class="contactDescription">וילת האירוח ויחידות הנופש פתוחות להזמנות ישירות מול מאיר. פנו אלינו ישירות בוואטסאפ או בטלפון לקבלת המחיר הטוב ביותר וללא פערי תיווך של אפליקציות.</p>
+        <div class="contactActionsRow">
+          <a href="https://wa.me/972556624268?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%A8%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%AA%D7%90%D7%A8%D7%99%D7%9B%D7%99%D7%9D..." target="_blank" class="contactWhatsAppCta">
+            <span>פנייה בוואטסאפ למאיר</span>
+          </a>
+          <a href="tel:0556624268" class="contactPhoneCta" dir="ltr">
+            <span>055 662 4268</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="compactFooter">
+  <div class="compactFooterRow">
+    <div class="footerBrand">
+      <span class="footerTitle">וילה מול הר מירון</span>
+      <span class="footerSub">אירוח כפרי אצל אורלי ומאיר • קיבוץ צבעון</span>
+    </div>
+    <div class="footerCenterInfo">
+      <span>טלפון לבירורים והזמנות:</span>
+      <span class="footerPhoneText" dir="ltr">055 662 4268</span>
+    </div>
+    <div class="footerLegal">
+      <span>© 2026 כל הזכויות שמורות • נופש בגליל העליון</span>
+    </div>
+  </div>
+</footer>
+<script>
+function displayStay(type) {
+  const btnVilla = document.getElementById("btnSelectVilla");
+  const btnUnits = document.getElementById("btnSelectUnits");
+  const paneVilla = document.getElementById("villaDisplayPane");
+  const paneUnits = document.getElementById("unitsDisplayPane");
+  if (type === "villa") {
+    btnVilla.classList.add("activeStayBtn");
+    btnUnits.classList.remove("activeStayBtn");
+    paneVilla.classList.remove("hiddenStayPane");
+    paneUnits.classList.add("hiddenStayPane");
+  } else {
+    btnUnits.classList.add("activeStayBtn");
+    btnVilla.classList.remove("activeStayBtn");
+    paneUnits.classList.remove("hiddenStayPane");
+    paneVilla.classList.add("hiddenStayPane");
+  }
+}
+let villaPhotoIdx = 0;
+const totalVillaPhotos = 7;
+function renderVillaPhoto(idx) {
+  villaPhotoIdx = idx;
+  const slides = document.querySelectorAll("#villaSlidesBox .photoSlide");
+  const thumbs = document.querySelectorAll("#villaThumbsRibbon .ribbonThumb");
+  slides.forEach((s, i) => {
+    if (i === idx) s.classList.add("activePhotoSlide");
+    else s.classList.remove("activePhotoSlide");
+  });
+  thumbs.forEach((t, i) => {
+    if (i === idx) t.classList.add("activeRibbonThumb");
+    else t.classList.remove("activeRibbonThumb");
+  });
+}
+function nextVillaPhoto() { renderVillaPhoto((villaPhotoIdx + 1) % totalVillaPhotos); }
+function prevVillaPhoto() { renderVillaPhoto((villaPhotoIdx + 6) % totalVillaPhotos); }
+function jumpVillaPhoto(idx) { renderVillaPhoto(idx); }
+let unitsPhotoIdx = 0;
+const totalUnitsPhotos = 5;
+function renderUnitsPhoto(idx) {
+  unitsPhotoIdx = idx;
+  const slides = document.querySelectorAll("#unitsSlidesBox .photoSlide");
+  const thumbs = document.querySelectorAll("#unitsThumbsRibbon .ribbonThumb");
+  slides.forEach((s, i) => {
+    if (i === idx) s.classList.add("activePhotoSlide");
+    else s.classList.remove("activePhotoSlide");
+  });
+  thumbs.forEach((t, i) => {
+    if (i === idx) t.classList.add("activeRibbonThumb");
+    else t.classList.remove("activeRibbonThumb");
+  });
+}
+function nextUnitsPhoto() { renderUnitsPhoto((unitsPhotoIdx + 1) % totalUnitsPhotos); }
+function prevUnitsPhoto() { renderUnitsPhoto((unitsPhotoIdx + 4) % totalUnitsPhotos); }
+function jumpUnitsPhoto(idx) { renderUnitsPhoto(idx); }
+let autoLoop = setInterval(() => { nextVillaPhoto(); nextUnitsPhoto(); }, 6000);
+</script>
+</body>
+</html>
