@@ -10,51 +10,46 @@
 const d = String.fromCharCode(45);
 const viewportMeta = document.createElement("meta");
 viewportMeta.name = "viewport";
-viewportMeta.content = "width=device" + d + "width, initial" + d + "scale=1.0";
+viewportMeta.content = "width=device" + d + "width, initial" + d + "scale=1.0, maximum" + d + "scale=5.0, viewport" + d + "fit=cover";
 document.head.appendChild(viewportMeta);
 const cssRules = [
   "* { box" + d + "sizing: border" + d + "box; margin: 0; padding: 0; }",
   "body { background" + d + "color: #F7F5F0; color: #1C1917; font" + d + "family: 'Assistant', sans" + d + "serif; font" + d + "size: 16px; line" + d + "height: 1.7; overflow" + d + "x: hidden; touch" + d + "action: manipulation; }",
   "a { text" + d + "decoration: none; color: inherit; }",
   ".paperFilmGrain { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z" + d + "index: 50; pointer" + d + "events: none; opacity: 0.02; mix" + d + "blend" + d + "mode: overlay; background" + d + "image: radial" + d + "gradient(#000000 1px, transparent 1px); background" + d + "size: 16px 16px; }",
-  ".topNavContainer { position: fixed; top: 20px; left: 0; right: 0; z" + d + "index: 100; pointer" + d + "events: none; padding: 0 32px; display: flex; align" + d + "items: center; justify" + d + "content: space" + d + "between; gap: 16px; max" + d + "width: 1440px; margin: 0 auto; }",
-  ".navPill { pointer" + d + "events: auto; background: rgba(255, 255, 255, 0.45); backdrop" + d + "filter: blur(24px) saturate(190%); webkit" + d + "backdrop" + d + "filter: blur(24px) saturate(190%); border: 1px solid rgba(255, 255, 255, 0.7); border" + d + "radius: 9999px; box" + d + "shadow: 0 10px 32px rgba(0, 0, 0, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.9); display: flex; align" + d + "items: center; transition: background 0.25s ease, transform 0.25s ease, border" + d + "color 0.25s ease, box" + d + "shadow 0.25s ease; }",
-  ".navPill:hover { background: rgba(255, 255, 255, 0.65); border" + d + "color: rgba(255, 255, 255, 0.95); transform: scale(1.01); box" + d + "shadow: 0 12px 36px rgba(0, 0, 0, 0.12), inset 0 1px 2px rgba(255, 255, 255, 1); }",
-  ".brandPill { padding: 9px 20px; gap: 10px; }",
-  ".brandTitle { font" + d + "family: 'Frank Ruhl Libre', serif; font" + d + "size: 17px; font" + d + "weight: 800; color: #1C1917; letter" + d + "spacing: 0.02em; }",
-  ".brandTag { font" + d + "size: 11px; font" + d + "weight: 700; color: #8C6D23; background: rgba(230, 193, 92, 0.25); padding: 3px 10px; border" + d + "radius: 9999px; letter" + d + "spacing: 0.05em; border: 1px solid rgba(140, 109, 35, 0.25); }",
-  ".linksPill { padding: 8px 16px; gap: 6px; }",
-  ".navLink { color: #292524; font" + d + "size: 14px; font" + d + "weight: 600; padding: 6px 14px; border" + d + "radius: 9999px; transition: color 0.2s ease, background 0.2s ease; }",
+  ".topNavContainer { position: fixed; top: 12px; left: 0; right: 0; z" + d + "index: 100; pointer" + d + "events: none; padding: 0 20px; display: flex; align" + d + "items: center; justify" + d + "content: space" + d + "between; gap: 12px; max" + d + "width: 1400px; margin: 0 auto; }",
+  ".navPill { pointer" + d + "events: auto; background: rgba(255, 255, 255, 0.42); backdrop" + d + "filter: blur(20px) saturate(190%); webkit" + d + "backdrop" + d + "filter: blur(20px) saturate(190%); border: 1px solid rgba(255, 255, 255, 0.75); border" + d + "radius: 9999px; box" + d + "shadow: 0 4px 16px rgba(0, 0, 0, 0.06), inset 0 1px 2px rgba(255, 255, 255, 0.9); display: flex; align" + d + "items: center; transition: background 0.25s ease, transform 0.25s ease, border" + d + "color 0.25s ease, box" + d + "shadow 0.25s ease; }",
+  ".navPill:hover { background: rgba(255, 255, 255, 0.65); border" + d + "color: rgba(255, 255, 255, 0.95); transform: translateY(" + d + "1px); box" + d + "shadow: 0 8px 24px rgba(0, 0, 0, 0.1), inset 0 1px 2px rgba(255, 255, 255, 1); }",
+  ".brandPill { padding: 5px 14px; gap: 8px; }",
+  ".brandTitle { font" + d + "family: 'Frank Ruhl Libre', serif; font" + d + "size: 15px; font" + d + "weight: 800; color: #1C1917; letter" + d + "spacing: 0.02em; white" + d + "space: nowrap; }",
+  ".brandTag { font" + d + "size: 10px; font" + d + "weight: 700; color: #8C6D23; background: rgba(230, 193, 92, 0.25); padding: 2px 7px; border" + d + "radius: 9999px; letter" + d + "spacing: 0.04em; border: 1px solid rgba(140, 109, 35, 0.25); white" + d + "space: nowrap; }",
+  ".linksPill { padding: 4px 10px; gap: 2px; }",
+  ".navLink { color: #292524; font" + d + "size: 13px; font" + d + "weight: 600; padding: 4px 10px; border" + d + "radius: 9999px; white" + d + "space: nowrap; transition: color 0.2s ease, background 0.2s ease; }",
   ".navLink:hover { color: #000000; background: rgba(255, 255, 255, 0.45); }",
-  ".actionsPill { padding: 8px 12px; gap: 10px; }",
-  ".navPhoneBtn { color: #1C1917; font" + d + "size: 14px; font" + d + "weight: 700; padding: 6px 14px; border" + d + "radius: 9999px; direction: ltr; unicode" + d + "bidi: isolate; display: inline" + d + "block; transition: background 0.2s ease; }",
+  ".actionsPill { padding: 4px 6px; gap: 6px; }",
+  ".navPhoneBtn { color: #1C1917; font" + d + "size: 13px; font" + d + "weight: 700; padding: 4px 10px; border" + d + "radius: 9999px; direction: ltr; unicode" + d + "bidi: isolate; display: inline" + d + "block; white" + d + "space: nowrap; transition: background 0.2s ease; }",
   ".navPhoneBtn:hover { background: rgba(255, 255, 255, 0.45); }",
-  ".navBookBtn { background: linear" + d + "gradient(135deg, rgba(230, 193, 92, 0.75) 0%, rgba(214, 172, 70, 0.55) 100%); backdrop" + d + "filter: blur(16px); color: #141210; font" + d + "size: 13px; font" + d + "weight: 800; padding: 8px 20px; border" + d + "radius: 9999px; border: 1px solid rgba(255, 245, 210, 0.85); box" + d + "shadow: 0 4px 18px rgba(180, 140, 40, 0.22), inset 0 1px 2px rgba(255, 255, 255, 0.9); transition: transform 0.2s ease, box" + d + "shadow 0.2s ease; }",
-  ".navBookBtn:hover { transform: scale(1.03); box" + d + "shadow: 0 6px 22px rgba(180, 140, 40, 0.35); }",
-  ".heroSection { position: relative; min" + d + "height: 100svh; width: 100%; display: flex; flex" + d + "direction: column; justify" + d + "content: space" + d + "between; align" + d + "items: center; overflow: hidden; padding: 130px 24px 28px; }",
+  ".navBookBtn { background: linear" + d + "gradient(135deg, rgba(230, 193, 92, 0.85) 0%, rgba(214, 172, 70, 0.65) 100%); backdrop" + d + "filter: blur(16px); color: #141210; font" + d + "size: 12px; font" + d + "weight: 800; padding: 6px 14px; border" + d + "radius: 9999px; border: 1px solid rgba(255, 245, 210, 0.85); box" + d + "shadow: 0 4px 14px rgba(180, 140, 40, 0.22), inset 0 1px 2px rgba(255, 255, 255, 0.9); white" + d + "space: nowrap; transition: transform 0.2s ease, box" + d + "shadow 0.2s ease; }",
+  ".navBookBtn:hover { transform: scale(1.03); box" + d + "shadow: 0 6px 18px rgba(180, 140, 40, 0.35); }",
+  ".heroSection { position: relative; height: 100svh; min" + d + "height: 100svh; max" + d + "height: 100svh; width: 100%; display: flex; flex" + d + "direction: column; justify" + d + "content: space" + d + "between; align" + d + "items: center; overflow: hidden; padding: 58px 18px 16px; box" + d + "sizing: border" + d + "box; }",
   ".heroBgContainer { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z" + d + "index: 1; overflow: hidden; }",
   ".heroCoverImage { width: 100%; height: 100%; object" + d + "fit: cover; display: block; animation: cinematicHeroBg 2.8s cubic" + d + "bezier(0.16, 1, 0.3, 1) forwards; }",
-  ".heroCinematicScrim { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear" + d + "gradient(180deg, rgba(15, 14, 12, 0.45) 0%, rgba(15, 14, 12, 0.22) 40%, rgba(15, 14, 12, 0.82) 100%); }",
-  ".heroCenterContent { position: relative; z" + d + "index: 2; max" + d + "width: 900px; text" + d + "align: center; color: #FFFFFF; display: flex; flex" + d + "direction: column; align" + d + "items: center; margin: auto 0; }",
-  ".heroTopKicker { font" + d + "size: 13px; font" + d + "weight: 700; letter" + d + "spacing: 0.18em; text" + d + "transform: uppercase; color: #F2D27A; margin" + d + "bottom: 18px; text" + d + "shadow: 0 2px 10px rgba(0, 0, 0, 0.6); animation: cinematicHeroKicker 1.2s cubic" + d + "bezier(0.16, 1, 0.3, 1) both; }",
-  ".heroMainTitle { font" + d + "family: 'Frank Ruhl Libre', serif; font" + d + "size: 68px; font" + d + "weight: 800; line" + d + "height: 1.15; margin" + d + "bottom: 22px; text" + d + "shadow: 0 4px 28px rgba(0, 0, 0, 0.65); animation: cinematicHeroTitle 1.5s cubic" + d + "bezier(0.16, 1, 0.3, 1) both; }",
-  ".heroTitleAccent { color: #F5EBD9; font" + d + "weight: 400; font" + d + "style: italic; display: block; margin" + d + "top: 6px; }",
-  ".heroSubtitle { font" + d + "size: 18px; line" + d + "height: 1.8; color: rgba(255, 255, 255, 0.95); max" + d + "width: 760px; margin" + d + "bottom: 36px; text" + d + "shadow: 0 2px 14px rgba(0, 0, 0, 0.55); animation: cinematicHeroSub 1.5s 0.25s cubic" + d + "bezier(0.16, 1, 0.3, 1) both; }",
-  ".heroCtaWrap { margin" + d + "bottom: 18px; animation: cinematicHeroCta 1.5s 0.45s cubic" + d + "bezier(0.16, 1, 0.3, 1) both; }",
-  ".heroLiquidButton { display: inline" + d + "flex; align" + d + "items: center; justify" + d + "content: center; gap: 12px; background: rgba(255, 255, 255, 0.35); backdrop" + d + "filter: blur(24px) saturate(190%); webkit" + d + "backdrop" + d + "filter: blur(24px) saturate(190%); border: 1.5px solid rgba(255, 255, 255, 0.8); color: #FFFFFF; padding: 18px 46px; border" + d + "radius: 9999px; font" + d + "size: 16px; font" + d + "weight: 700; letter" + d + "spacing: 0.04em; box" + d + "shadow: 0 12px 36px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.95); transition: background 0.25s ease, transform 0.25s ease, border" + d + "color 0.25s ease, box" + d + "shadow 0.25s ease; text" + d + "shadow: 0 1px 4px rgba(0, 0, 0, 0.4); }",
-  ".heroLiquidButton:hover { background: rgba(255, 255, 255, 0.6); border" + d + "color: #FFFFFF; transform: scale(1.03); box" + d + "shadow: 0 16px 44px rgba(0, 0, 0, 0.28), inset 0 1px 3px rgba(255, 255, 255, 1); }",
-  ".heroMicroMeta { font" + d + "size: 13px; color: rgba(255, 255, 255, 0.88); font" + d + "weight: 500; letter" + d + "spacing: 0.04em; text" + d + "shadow: 0 2px 8px rgba(0, 0, 0, 0.6); }",
-  ".heroBottomBar { position: relative; z" + d + "index: 2; width: 100%; max" + d + "width: 1400px; display: flex; align" + d + "items: center; justify" + d + "content: space" + d + "between; gap: 24px; padding" + d + "top: 20px; }",
-  ".founderGlassBadge { display: flex; align" + d + "items: center; gap: 14px; background: rgba(255, 255, 255, 0.45); backdrop" + d + "filter: blur(24px) saturate(190%); webkit" + d + "backdrop" + d + "filter: blur(24px) saturate(190%); border: 1px solid rgba(255, 255, 255, 0.7); padding: 8px 20px 8px 10px; border" + d + "radius: 9999px; box" + d + "shadow: 0 8px 30px rgba(0, 0, 0, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.85); flex" + d + "shrink: 0; }",
-  ".founderAvatar { width: 44px; height: 44px; border" + d + "radius: 50%; object" + d + "fit: cover; border: 2px solid #E6C15C; }",
-  ".founderInfo { display: flex; flex" + d + "direction: column; text" + d + "align: right; }",
-  ".founderName { font" + d + "size: 14px; font" + d + "weight: 800; color: #1C1917; line" + d + "height: 1.25; }",
-  ".founderRole { font" + d + "size: 11px; font" + d + "weight: 700; color: #8C6D23; line" + d + "height: 1.25; }",
-  ".marqueeContainer { flex: 1; overflow: hidden; position: relative; background: rgba(255, 255, 255, 0.45); backdrop" + d + "filter: blur(24px) saturate(190%); webkit" + d + "backdrop" + d + "filter: blur(24px) saturate(190%); border" + d + "radius: 9999px; padding: 13px 28px; border: 1px solid rgba(255, 255, 255, 0.7); box" + d + "shadow: 0 8px 30px rgba(0, 0, 0, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.85); mask" + d + "image: linear" + d + "gradient(90deg, transparent 0%, #000000 7%, #000000 93%, transparent 100%); webkit" + d + "mask" + d + "image: linear" + d + "gradient(90deg, transparent 0%, #000000 7%, #000000 93%, transparent 100%); }",
-  ".marqueeContent { display: flex; align" + d + "items: center; gap: 32px; white" + d + "space: nowrap; width: max" + d + "content; animation: driftMarquee 38s linear infinite; }",
+  ".heroCinematicScrim { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear" + d + "gradient(180deg, rgba(15, 14, 12, 0.38) 0%, rgba(15, 14, 12, 0.22) 40%, rgba(15, 14, 12, 0.82) 100%); }",
+  ".heroCenterContent { position: relative; z" + d + "index: 2; max" + d + "width: 820px; text" + d + "align: center; color: #FFFFFF; display: flex; flex" + d + "direction: column; align" + d + "items: center; justify" + d + "content: center; margin: auto 0; padding: 4px 0; }",
+  ".heroTopKicker { font" + d + "size: clamp(11px, 1.2vw, 12.5px); font" + d + "weight: 700; letter" + d + "spacing: 0.15em; text" + d + "transform: uppercase; color: #F2D27A; margin" + d + "bottom: 8px; text" + d + "shadow: 0 2px 10px rgba(0, 0, 0, 0.6); animation: cinematicHeroKicker 1.2s cubic" + d + "bezier(0.16, 1, 0.3, 1) both; }",
+  ".heroMainTitle { font" + d + "family: 'Frank Ruhl Libre', serif; font" + d + "size: clamp(32px, 3.8vw, 50px); font" + d + "weight: 800; line" + d + "height: 1.15; margin" + d + "bottom: 10px; text" + d + "shadow: 0 4px 28px rgba(0, 0, 0, 0.65); animation: cinematicHeroTitle 1.5s cubic" + d + "bezier(0.16, 1, 0.3, 1) both; }",
+  ".heroTitleAccent { color: #F5EBD9; font" + d + "weight: 400; font" + d + "style: italic; display: block; margin" + d + "top: 4px; }",
+  ".heroSubtitle { font" + d + "size: clamp(13.5px, 1.3vw, 15.5px); line" + d + "height: 1.55; color: rgba(255, 255, 255, 0.95); max" + d + "width: 680px; margin" + d + "bottom: 16px; text" + d + "shadow: 0 2px 14px rgba(0, 0, 0, 0.55); animation: cinematicHeroSub 1.5s 0.25s cubic" + d + "bezier(0.16, 1, 0.3, 1) both; }",
+  ".heroCtaWrap { margin" + d + "bottom: 10px; animation: cinematicHeroCta 1.5s 0.45s cubic" + d + "bezier(0.16, 1, 0.3, 1) both; }",
+  ".heroLiquidButton { display: inline" + d + "flex; align" + d + "items: center; justify" + d + "content: center; gap: 10px; background: rgba(255, 255, 255, 0.35); backdrop" + d + "filter: blur(20px) saturate(190%); webkit" + d + "backdrop" + d + "filter: blur(20px) saturate(190%); border: 1.5px solid rgba(255, 255, 255, 0.85); color: #FFFFFF; padding: 12px 34px; border" + d + "radius: 9999px; font" + d + "size: 15px; font" + d + "weight: 700; letter" + d + "spacing: 0.03em; box" + d + "shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.95); transition: background 0.25s ease, transform 0.25s ease, border" + d + "color 0.25s ease, box" + d + "shadow 0.25s ease; text" + d + "shadow: 0 1px 4px rgba(0, 0, 0, 0.4); }",
+  ".heroLiquidButton:hover { background: rgba(255, 255, 255, 0.6); border" + d + "color: #FFFFFF; transform: scale(1.03); box" + d + "shadow: 0 14px 38px rgba(0, 0, 0, 0.28), inset 0 1px 3px rgba(255, 255, 255, 1); }",
+  ".heroMicroMeta { font" + d + "size: 11.5px; color: rgba(255, 255, 255, 0.88); font" + d + "weight: 500; letter" + d + "spacing: 0.03em; text" + d + "shadow: 0 2px 8px rgba(0, 0, 0, 0.6); }",
+  ".heroBottomBar { position: relative; z" + d + "index: 2; width: 100%; max" + d + "width: 860px; display: flex; align" + d + "items: center; justify" + d + "content: center; margin: 0 auto; padding: 4px 0 0; }",
+  ".marqueeTextOnlyBox { width: 100%; max" + d + "width: 760px; overflow: hidden; position: relative; background: transparent; padding: 4px 0; mask" + d + "image: linear" + d + "gradient(90deg, transparent 0%, #000000 8%, #000000 92%, transparent 100%); webkit" + d + "mask" + d + "image: linear" + d + "gradient(90deg, transparent 0%, #000000 8%, #000000 92%, transparent 100%); }",
+  ".marqueeContent { display: flex; align" + d + "items: center; gap: 28px; white" + d + "space: nowrap; width: max" + d + "content; animation: driftMarquee 38s linear infinite; }",
   ".marqueeContent:hover { animation" + d + "play" + d + "state: paused; }",
-  ".marqueeItem { font" + d + "size: 14px; font" + d + "weight: 700; color: #1C1917; letter" + d + "spacing: 0.03em; }",
-  ".marqueeDot { color: #8C6D23; font" + d + "size: 16px; }",
+  ".marqueeItem { font" + d + "size: 13.5px; font" + d + "weight: 600; color: rgba(255, 255, 255, 0.92); letter" + d + "spacing: 0.02em; text" + d + "shadow: 0 2px 10px rgba(0, 0, 0, 0.7); }",
+  ".marqueeDot { color: #E6C15C; font" + d + "size: 15px; opacity: 0.85; }",
   ".staySection { padding: 120px 24px 80px; max" + d + "width: 1400px; margin: 0 auto; scroll" + d + "margin" + d + "top: 90px; }",
   ".sectionContainer { width: 100%; }",
   ".sectionHeaderCenter { text" + d + "align: center; max" + d + "width: 780px; margin: 0 auto 40px; }",
@@ -101,10 +96,10 @@ const cssRules = [
   ".pricingNote { font" + d + "size: 13px; color: #78716C; line" + d + "height: 1.6; }",
   ".pricingWhatsAppBtn { background: linear" + d + "gradient(135deg, rgba(230, 193, 92, 0.75) 0%, rgba(214, 172, 70, 0.55) 100%); backdrop" + d + "filter: blur(16px); color: #141210; padding: 14px 24px; border" + d + "radius: 9999px; border: 1px solid rgba(255, 245, 210, 0.85); box" + d + "shadow: 0 6px 20px rgba(180, 140, 40, 0.22), inset 0 1px 2px rgba(255, 255, 255, 0.9); text" + d + "align: center; font" + d + "weight: 800; font" + d + "size: 15px; display: flex; align" + d + "items: center; justify" + d + "content: center; gap: 8px; transition: transform 0.2s ease, box" + d + "shadow 0.2s ease; margin" + d + "top: 6px; }",
   ".pricingWhatsAppBtn:hover { transform: scale(1.02); box" + d + "shadow: 0 8px 26px rgba(180, 140, 40, 0.35); }",
-  ".reviewsSection { padding: 110px 24px 90px; max" + d + "width: 1400px; margin: 0 auto; scroll" + d + "margin" + d + "top: 90px; }",
-  ".reviewsCarouselStage { position: relative; width: 100%; max" + d + "width: 1080px; margin: 0 auto; height: 390px; display: flex; align" + d + "items: center; justify" + d + "content: center; overflow: visible; }",
+  ".reviewsSection { padding: 90px 20px 80px; max" + d + "width: 1400px; margin: 0 auto; scroll" + d + "margin" + d + "top: 70px; overflow: hidden; }",
+  ".reviewsCarouselStage { position: relative; width: 100%; max" + d + "width: 1080px; margin: 0 auto; height: 390px; display: flex; align" + d + "items: center; justify" + d + "content: center; overflow: hidden; }",
   ".carouselCardsTrack { position: relative; width: 100%; height: 100%; display: flex; align" + d + "items: center; justify" + d + "content: center; }",
-  ".carouselCardItem { position: absolute; width: 480px; max" + d + "width: 88vw; background: rgba(255, 255, 255, 0.88); backdrop" + d + "filter: blur(24px) saturate(190%); webkit" + d + "backdrop" + d + "filter: blur(24px) saturate(190%); border: 1px solid rgba(255, 255, 255, 0.95); border" + d + "radius: 28px; padding: 36px 32px; box" + d + "shadow: 0 16px 44px rgba(0, 0, 0, 0.06), inset 0 1px 2px rgba(255, 255, 255, 1); display: flex; flex" + d + "direction: column; align" + d + "items: center; text" + d + "align: center; gap: 14px; transition: transform 0.55s cubic" + d + "bezier(0.22, 1, 0.36, 1), opacity 0.55s ease, filter 0.55s ease; user" + d + "select: none; }",
+  ".carouselCardItem { position: absolute; width: 460px; max" + d + "width: calc(100% " + d + " 32px); background: rgba(255, 255, 255, 0.88); backdrop" + d + "filter: blur(24px) saturate(190%); webkit" + d + "backdrop" + d + "filter: blur(24px) saturate(190%); border: 1px solid rgba(255, 255, 255, 0.95); border" + d + "radius: 28px; padding: 36px 32px; box" + d + "shadow: 0 16px 44px rgba(0, 0, 0, 0.06), inset 0 1px 2px rgba(255, 255, 255, 1); display: flex; flex" + d + "direction: column; align" + d + "items: center; text" + d + "align: center; gap: 14px; transition: transform 0.55s cubic" + d + "bezier(0.22, 1, 0.36, 1), opacity 0.55s ease, filter 0.55s ease; user" + d + "select: none; }",
   ".reviewStarsRow { color: #D4AF37; font" + d + "size: 20px; letter" + d + "spacing: 5px; line" + d + "height: 1; }",
   ".reviewQuoteText { font" + d + "size: 15px; color: #2E2A27; line" + d + "height: 1.8; font" + d + "style: italic; min" + d + "height: 80px; display: flex; align" + d + "items: center; }",
   ".reviewGuestMetaBox { display: flex; flex" + d + "direction: column; align" + d + "items: center; gap: 4px; border" + d + "top: 1px solid rgba(214, 203, 187, 0.5); width: 100%; padding" + d + "top: 14px; }",
@@ -146,9 +141,10 @@ const cssRules = [
   "@keyframes cinematicHeroSub { 0% { opacity: 0; filter: blur(12px); transform: translateY(18px); } 100% { opacity: 1; filter: blur(0px); transform: translateY(0); } }",
   "@keyframes cinematicHeroCta { 0% { opacity: 0; filter: blur(6px); transform: scale(0.92) translateY(14px); } 100% { opacity: 1; filter: blur(0px); transform: scale(1) translateY(0); } }",
   "@keyframes driftMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(50%); } }",
-  "@media (max" + d + "width: 1024px) { .linksPill { display: none; } .heroMainTitle { font" + d + "size: 52px; } .stayDetailsGrid { grid" + d + "template" + d + "columns: 1fr; } .visualContactCard { grid" + d + "template" + d + "columns: 1fr; } .carouselBtnPrev { right: 0; } .carouselBtnNext { left: 0; } }",
-  "@media (max" + d + "width: 768px) { .topNavContainer { padding: 0 16px; top: 14px; } .navPhoneBtn { display: none; } .heroSection { padding: 110px 16px 20px; } .heroMainTitle { font" + d + "size: 38px; } .heroSubtitle { font" + d + "size: 16px; } .heroBottomBar { flex" + d + "direction: column; align" + d + "items: stretch; gap: 16px; } .founderGlassBadge { justify" + d + "content: center; } .staySection { padding: 70px 16px 50px; } .sectionHeadingTitle { font" + d + "size: 32px; } .switcherPillContainer { flex" + d + "direction: column; border" + d + "radius: 20px; width: 100%; } .staySwitchBtn { border" + d + "radius: 14px; } .editorialStayCard { padding: 20px 16px; } .thumbsRow { grid" + d + "template" + d + "columns: repeat(4, 1fr); } .amenitiesList { grid" + d + "template" + d + "columns: 1fr; } .contactCardText { padding: 30px 20px; } .compactFooterRow { flex" + d + "direction: column; text" + d + "align: center; gap: 12px; } .reviewsCarouselStage { height: 440px; } .carouselCardItem { padding: 24px 20px; } }",
-  "@media (max" + d + "width: 480px) { .thumbsRow { grid" + d + "template" + d + "columns: repeat(3, 1fr); } }"
+  "@media (max" + d + "height: 800px) and (min" + d + "width: 769px) { .heroSection { padding: 56px 16px 12px; } .heroMainTitle { font" + d + "size: 44px; margin" + d + "bottom: 8px; } .heroSubtitle { font" + d + "size: 14px; line" + d + "height: 1.5; margin" + d + "bottom: 12px; } .heroTopKicker { margin" + d + "bottom: 6px; } .heroLiquidButton { padding: 10px 30px; font" + d + "size: 14px; } .heroCtaWrap { margin" + d + "bottom: 8px; } .marqueeTextOnlyBox { padding: 2px 0; } }",
+  "@media (max" + d + "width: 1080px) { .linksPill { display: none; } .stayDetailsGrid { grid" + d + "template" + d + "columns: 1fr; } .visualContactCard { grid" + d + "template" + d + "columns: 1fr; } .carouselBtnPrev { right: 0; } .carouselBtnNext { left: 0; } }",
+  "@media (max" + d + "width: 768px) { .topNavContainer { padding: 0 12px; top: 10px; width: 100%; box" + d + "sizing: border" + d + "box; } .brandPill { padding: 5px 12px; gap: 6px; } .brandTitle { font" + d + "size: 13.5px; } .brandTag { font" + d + "size: 9.5px; padding: 2px 6px; } .actionsPill { padding: 4px 6px; gap: 6px; } .navPhoneBtn { display: inline" + d + "block; font" + d + "size: 11.5px; padding: 4px 8px; } .navBookBtn { font" + d + "size: 11px; padding: 5px 12px; } .heroSection { height: 100svh; min" + d + "height: 100svh; max" + d + "height: 100svh; padding: 52px 14px 10px; } .heroCenterContent { width: 100%; max" + d + "width: 100%; padding: 2px 0; } .heroTopKicker { font" + d + "size: 11px; margin" + d + "bottom: 6px; } .heroMainTitle { font" + d + "size: 28px; line" + d + "height: 1.2; margin" + d + "bottom: 8px; } .heroSubtitle { font" + d + "size: 13px; line" + d + "height: 1.5; margin" + d + "bottom: 12px; } .heroCtaWrap { margin" + d + "bottom: 6px; width: 100%; } .heroLiquidButton { padding: 11px 22px; font" + d + "size: 13.5px; width: 100%; max" + d + "width: 290px; } .heroMicroMeta { font" + d + "size: 10.5px; } .heroBottomBar { padding" + d + "top: 0; width: 100%; max" + d + "width: 100%; } .marqueeTextOnlyBox { width: 100%; max" + d + "width: 100%; } .marqueeItem { font" + d + "size: 11.5px; } .staySection { padding: 50px 12px 36px; } .sectionHeadingTitle { font" + d + "size: 26px; } .sectionHeadingDesc { font" + d + "size: 13.5px; } .switcherPillContainer { width: 100%; flex" + d + "direction: column; border" + d + "radius: 16px; } .staySwitchBtn { border" + d + "radius: 12px; padding: 9px 14px; } .editorialStayCard { padding: 16px 12px; border" + d + "radius: 18px; } .cinematicPhotoStage { border" + d + "radius: 14px; } .thumbsRow { grid" + d + "template" + d + "columns: repeat(4, 1fr); gap: 6px; } .amenitiesList { grid" + d + "template" + d + "columns: 1fr; } .pricingBox { padding: 16px; } .reviewsSection { padding: 50px 12px 40px; } .reviewsCarouselStage { height: 410px; } .carouselCardItem { padding: 20px 16px; border" + d + "radius: 20px; width: 92vw; } .contactCardText { padding: 24px 16px; } .compactFooterRow { flex" + d + "direction: column; text" + d + "align: center; gap: 10px; } }",
+  "@media (max" + d + "width: 480px) { .thumbsRow { grid" + d + "template" + d + "columns: repeat(3, 1fr); } .brandTag { display: none; } }"
 ];
 const styleEl = document.createElement("style");
 styleEl.textContent = cssRules.join("\n");
@@ -181,7 +177,7 @@ document.head.appendChild(styleEl);
 <main>
   <section class="heroSection">
     <div class="heroBgContainer">
-      <img src="hero_meron_view.jpg" alt="נוף פנורמי מרהיב של הר מירון ממתחם הנופש בצבעון" class="heroCoverImage">
+      <img src="images/hero_meron_view.jpg" alt="נוף פנורמי מרהיב של הר מירון ממתחם הנופש בצבעון" class="heroCoverImage">
       <div class="heroCinematicScrim"></div>
     </div>
     <div class="heroCenterContent">
@@ -201,14 +197,7 @@ document.head.appendChild(styleEl);
       <span class="heroMicroMeta">הזמנה ישירה ללא עמלות • שיחה ישירה עם מאיר • מענה מהיר</span>
     </div>
     <div class="heroBottomBar">
-      <div class="founderGlassBadge">
-        <img src="hero_meron_view.jpg" alt="אורלי ומאיר מארחים בצבעון" class="founderAvatar">
-        <div class="founderInfo">
-          <span class="founderName">אורלי ומאיר</span>
-          <span class="founderRole">קיבוץ צבעון • מארחים</span>
-        </div>
-      </div>
-      <div class="marqueeContainer">
+      <div class="marqueeTextOnlyBox">
         <div class="marqueeContent">
           <span class="marqueeItem">ציון 9.1 בבוקינג</span><span class="marqueeDot">•</span>
           <span class="marqueeItem">מעל 150 חוות דעת</span><span class="marqueeDot">•</span>
@@ -249,25 +238,25 @@ document.head.appendChild(styleEl);
         <div class="editorialStayCard">
           <div class="cinematicPhotoStage">
             <div id="villaSlidesBox" class="slidesTrack">
-              <div class="photoSlide activePhotoSlide"><img src="villa_grounds_meron.jpg" alt="מתחם הווילה והחצר מול הר מירון" class="fullFramePhoto"><div class="photoCaptionTag">מתחם הווילה והחצר מול הר מירון</div><div class="photoCountTag">1 / 7</div></div>
-              <div class="photoSlide"><img src="villa_living_room_clean.jpg" alt="סלון מרווח עם יציאה למרפסת נוף" class="fullFramePhoto"><div class="photoCaptionTag">סלון רחב ידיים עם יציאה למרפסת דק</div><div class="photoCountTag">2 / 7</div></div>
-              <div class="photoSlide"><img src="bedroom_villa_master.jpg" alt="חדר שינה זוגי ראשי מרווח" class="fullFramePhoto"><div class="photoCaptionTag">חדר שינה זוגי ראשי עם מיטה רחבה</div><div class="photoCountTag">3 / 7</div></div>
-              <div class="photoSlide"><img src="villa_kitchen_clean.jpg" alt="מטבח כפרי מאובזר ואי ישיבה" class="fullFramePhoto"><div class="photoCaptionTag">מטבח מאובזר קומפלט לארוחות משותפות</div><div class="photoCountTag">4 / 7</div></div>
-              <div class="photoSlide"><img src="villa_entrance_stone.jpg" alt="כניסת אבן גלילית ופרגולת רכב" class="fullFramePhoto"><div class="photoCaptionTag">חצר אבן פרטית וחניה צמודה</div><div class="photoCountTag">5 / 7</div></div>
-              <div class="photoSlide"><img src="villa_front_clean.jpg" alt="חזית הווילה וחורש האלונים" class="fullFramePhoto"><div class="photoCaptionTag">חורש אלונים טבעי סביב הבית</div><div class="photoCountTag">6 / 7</div></div>
-              <div class="photoSlide"><img src="meron_peak_clean.jpg" alt="נוף פתוח וישיר אל רכס הר מירון" class="fullFramePhoto"><div class="photoCaptionTag">נוף פנורמי מרהיב להר מירון</div><div class="photoCountTag">7 / 7</div></div>
+              <div class="photoSlide activePhotoSlide"><img src="images/villa_grounds_meron.jpg" alt="מתחם הווילה והחצר מול הר מירון" class="fullFramePhoto"><div class="photoCaptionTag">מתחם הווילה והחצר מול הר מירון</div><div class="photoCountTag">1 / 7</div></div>
+              <div class="photoSlide"><img src="images/villa_living_room_clean.jpg" alt="סלון מרווח עם יציאה למרפסת נוף" class="fullFramePhoto"><div class="photoCaptionTag">סלון רחב ידיים עם יציאה למרפסת דק</div><div class="photoCountTag">2 / 7</div></div>
+              <div class="photoSlide"><img src="images/bedroom_villa_master.jpg" alt="חדר שינה זוגי ראשי מרווח" class="fullFramePhoto"><div class="photoCaptionTag">חדר שינה זוגי ראשי עם מיטה רחבה</div><div class="photoCountTag">3 / 7</div></div>
+              <div class="photoSlide"><img src="images/villa_kitchen_clean.jpg" alt="מטבח כפרי מאובזר ואי ישיבה" class="fullFramePhoto"><div class="photoCaptionTag">מטבח מאובזר קומפלט לארוחות משותפות</div><div class="photoCountTag">4 / 7</div></div>
+              <div class="photoSlide"><img src="images/villa_entrance_stone.jpg" alt="כניסת אבן גלילית ופרגולת רכב" class="fullFramePhoto"><div class="photoCaptionTag">חצר אבן פרטית וחניה צמודה</div><div class="photoCountTag">5 / 7</div></div>
+              <div class="photoSlide"><img src="images/villa_front_clean.jpg" alt="חזית הווילה וחורש האלונים" class="fullFramePhoto"><div class="photoCaptionTag">חורש אלונים טבעי סביב הבית</div><div class="photoCountTag">6 / 7</div></div>
+              <div class="photoSlide"><img src="images/meron_peak_clean.jpg" alt="נוף פתוח וישיר אל רכס הר מירון" class="fullFramePhoto"><div class="photoCaptionTag">נוף פנורמי מרהיב להר מירון</div><div class="photoCountTag">7 / 7</div></div>
             </div>
             <button class="stageArrowBtn stageArrowPrev" onclick="prevVillaPhoto()">›</button>
             <button class="stageArrowBtn stageArrowNext" onclick="nextVillaPhoto()">‹</button>
           </div>
           <div id="villaThumbsRibbon" class="thumbsRow">
-            <div class="ribbonThumb activeRibbonThumb" onclick="jumpVillaPhoto(0)"><img src="villa_grounds_meron.jpg" alt="חצר הווילה" class="thumbImg"></div>
-            <div class="ribbonThumb" onclick="jumpVillaPhoto(1)"><img src="villa_living_room_clean.jpg" alt="סלון הווילה" class="thumbImg"></div>
-            <div class="ribbonThumb" onclick="jumpVillaPhoto(2)"><img src="bedroom_villa_master.jpg" alt="חדר שינה" class="thumbImg"></div>
-            <div class="ribbonThumb" onclick="jumpVillaPhoto(3)"><img src="villa_kitchen_clean.jpg" alt="מטבח" class="thumbImg"></div>
-            <div class="ribbonThumb" onclick="jumpVillaPhoto(4)"><img src="villa_entrance_stone.jpg" alt="כניסה" class="thumbImg"></div>
-            <div class="ribbonThumb" onclick="jumpVillaPhoto(5)"><img src="villa_front_clean.jpg" alt="חזית" class="thumbImg"></div>
-            <div class="ribbonThumb" onclick="jumpVillaPhoto(6)"><img src="meron_peak_clean.jpg" alt="נוף להר" class="thumbImg"></div>
+            <div class="ribbonThumb activeRibbonThumb" onclick="jumpVillaPhoto(0)"><img src="images/villa_grounds_meron.jpg" alt="חצר הווילה" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpVillaPhoto(1)"><img src="images/villa_living_room_clean.jpg" alt="סלון הווילה" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpVillaPhoto(2)"><img src="images/bedroom_villa_master.jpg" alt="חדר שינה" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpVillaPhoto(3)"><img src="images/villa_kitchen_clean.jpg" alt="מטבח" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpVillaPhoto(4)"><img src="images/villa_entrance_stone.jpg" alt="כניסה" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpVillaPhoto(5)"><img src="images/villa_front_clean.jpg" alt="חזית" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpVillaPhoto(6)"><img src="images/meron_peak_clean.jpg" alt="נוף להר" class="thumbImg"></div>
           </div>
           <div class="stayDetailsGrid">
             <div class="specsBlock">
@@ -304,21 +293,21 @@ document.head.appendChild(styleEl);
         <div class="editorialStayCard">
           <div class="cinematicPhotoStage">
             <div id="unitsSlidesBox" class="slidesTrack">
-              <div class="photoSlide activePhotoSlide"><img src="bedroom_suite_clean.jpg" alt="חדר אירוח זוגי כפרי עם יציאה לגינה ומטבחון" class="fullFramePhoto"><div class="photoCaptionTag">חדר אירוח זוגי מרווח עם מטבחון פרטי</div><div class="photoCountTag">1 / 5</div></div>
-              <div class="photoSlide"><img src="suite_bedroom_patio.jpg" alt="חדר שינה עם יציאה למרפסת" class="fullFramePhoto"><div class="photoCaptionTag">חדר שינה נעים עם יציאה ישירה למרפסת ולחצר</div><div class="photoCountTag">2 / 5</div></div>
-              <div class="photoSlide"><img src="suite_patio_meron.jpg" alt="פינת ישיבה מול נוף מירון" class="fullFramePhoto"><div class="photoCaptionTag">פרגולת ישיבה כפרית מול נוף פתוח להר מירון</div><div class="photoCountTag">3 / 5</div></div>
-              <div class="photoSlide"><img src="courtyard_night.jpg" alt="חצר פרטית בשעות הערב" class="fullFramePhoto"><div class="photoCaptionTag">חצר מטופחת ותאורת ערב קסומה בחורש</div><div class="photoCountTag">4 / 5</div></div>
-              <div class="photoSlide"><img src="meron_view_garden.jpg" alt="נוף הר מירון ממתחם היחידה" class="fullFramePhoto"><div class="photoCaptionTag">נוף פתוח להר מירון מחצר היחידה</div><div class="photoCountTag">5 / 5</div></div>
+              <div class="photoSlide activePhotoSlide"><img src="images/bedroom_suite_clean.jpg" alt="חדר אירוח זוגי כפרי עם יציאה לגינה ומטבחון" class="fullFramePhoto"><div class="photoCaptionTag">חדר אירוח זוגי מרווח עם מטבחון פרטי</div><div class="photoCountTag">1 / 5</div></div>
+              <div class="photoSlide"><img src="images/suite_bedroom_patio.jpg" alt="חדר שינה עם יציאה למרפסת" class="fullFramePhoto"><div class="photoCaptionTag">חדר שינה נעים עם יציאה ישירה למרפסת ולחצר</div><div class="photoCountTag">2 / 5</div></div>
+              <div class="photoSlide"><img src="images/suite_patio_meron.jpg" alt="פינת ישיבה מול נוף מירון" class="fullFramePhoto"><div class="photoCaptionTag">פרגולת ישיבה כפרית מול נוף פתוח להר מירון</div><div class="photoCountTag">3 / 5</div></div>
+              <div class="photoSlide"><img src="images/courtyard_night.jpg" alt="חצר פרטית בשעות הערב" class="fullFramePhoto"><div class="photoCaptionTag">חצר מטופחת ותאורת ערב קסומה בחורש</div><div class="photoCountTag">4 / 5</div></div>
+              <div class="photoSlide"><img src="images/meron_view_garden.jpg" alt="נוף הר מירון ממתחם היחידה" class="fullFramePhoto"><div class="photoCaptionTag">נוף פתוח להר מירון מחצר היחידה</div><div class="photoCountTag">5 / 5</div></div>
             </div>
             <button class="stageArrowBtn stageArrowPrev" onclick="prevUnitsPhoto()">›</button>
             <button class="stageArrowBtn stageArrowNext" onclick="nextUnitsPhoto()">‹</button>
           </div>
           <div id="unitsThumbsRibbon" class="thumbsRow">
-            <div class="ribbonThumb activeRibbonThumb" onclick="jumpUnitsPhoto(0)"><img src="bedroom_suite_clean.jpg" alt="סוויטה זוגית" class="thumbImg"></div>
-            <div class="ribbonThumb" onclick="jumpUnitsPhoto(1)"><img src="suite_bedroom_patio.jpg" alt="חדר שינה מרפסת" class="thumbImg"></div>
-            <div class="ribbonThumb" onclick="jumpUnitsPhoto(2)"><img src="suite_patio_meron.jpg" alt="פרגולה מול הנוף" class="thumbImg"></div>
-            <div class="ribbonThumb" onclick="jumpUnitsPhoto(3)"><img src="courtyard_night.jpg" alt="חצר בערב" class="thumbImg"></div>
-            <div class="ribbonThumb" onclick="jumpUnitsPhoto(4)"><img src="meron_view_garden.jpg" alt="נוף להר מירון" class="thumbImg"></div>
+            <div class="ribbonThumb activeRibbonThumb" onclick="jumpUnitsPhoto(0)"><img src="images/bedroom_suite_clean.jpg" alt="סוויטה זוגית" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpUnitsPhoto(1)"><img src="images/suite_bedroom_patio.jpg" alt="חדר שינה מרפסת" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpUnitsPhoto(2)"><img src="images/suite_patio_meron.jpg" alt="פרגולה מול הנוף" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpUnitsPhoto(3)"><img src="images/courtyard_night.jpg" alt="חצר בערב" class="thumbImg"></div>
+            <div class="ribbonThumb" onclick="jumpUnitsPhoto(4)"><img src="images/meron_view_garden.jpg" alt="נוף להר מירון" class="thumbImg"></div>
           </div>
           <div class="stayDetailsGrid">
             <div class="specsBlock">
@@ -371,7 +360,7 @@ document.head.appendChild(styleEl);
   <section id="directBooking" class="contactSection">
     <div class="visualContactCard">
       <div class="contactCardMedia">
-        <img src="villa_entrance_stone.jpg" alt="כניסת אבן גלילית לווילה מול מירון" class="contactMediaPhoto">
+        <img src="images/villa_entrance_stone.jpg" alt="כניסת אבן גלילית לווילה מול מירון" class="contactMediaPhoto">
       </div>
       <div class="contactCardText">
         <span class="sectionKicker">הזמנה ישירה ללא עמלות</span>
@@ -503,7 +492,7 @@ function updateCarouselCards() {
   const cards = document.querySelectorAll(".carouselCardItem");
   const dots = document.querySelectorAll(".carouselDotItem");
   const isMobile = window.innerWidth < 768;
-  const cardGap = isMobile ? 320 : 420;
+  const cardGap = isMobile ? Math.min(window.innerWidth * 0.85, 340) : 420;
   const prevIdx = (currentReviewIdx + 20) % totalReviews;
   const nextIdx = (currentReviewIdx + 1) % totalReviews;
   cards.forEach((c, idx) => {
