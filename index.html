@@ -27,6 +27,7 @@ const cssRules = [
   ".navLink { color: #292524; font" + d + "size: 13px; font" + d + "weight: 600; padding: 4px 10px; border" + d + "radius: 9999px; white" + d + "space: nowrap; transition: color 0.2s ease, background 0.2s ease; }",
   ".navLink:hover { color: #000000; background: rgba(255, 255, 255, 0.45); }",
   ".actionsPill { padding: 4px 6px; gap: 6px; }",
+  ".mobileUnifiedNav { display: none; }",
   ".navPhoneBtn { color: #1C1917; font" + d + "size: 13px; font" + d + "weight: 700; padding: 4px 10px; border" + d + "radius: 9999px; direction: ltr; unicode" + d + "bidi: isolate; display: inline" + d + "block; white" + d + "space: nowrap; transition: background 0.2s ease; }",
   ".navPhoneBtn:hover { background: rgba(255, 255, 255, 0.45); }",
   ".navBookBtn { background: linear" + d + "gradient(135deg, rgba(230, 193, 92, 0.85) 0%, rgba(214, 172, 70, 0.65) 100%); backdrop" + d + "filter: blur(16px); color: #141210; font" + d + "size: 12px; font" + d + "weight: 800; padding: 6px 14px; border" + d + "radius: 9999px; border: 1px solid rgba(255, 245, 210, 0.85); box" + d + "shadow: 0 4px 14px rgba(180, 140, 40, 0.22), inset 0 1px 2px rgba(255, 255, 255, 0.9); white" + d + "space: nowrap; transition: transform 0.2s ease, box" + d + "shadow 0.2s ease; }",
@@ -65,6 +66,9 @@ const cssRules = [
   ".stayPane { transition: opacity 0.35s ease; }",
   ".hiddenStayPane { display: none; }",
   ".editorialStayCard { background: #FFFFFF; border" + d + "radius: 28px; border: 1px solid rgba(231, 223, 211, 0.8); box" + d + "shadow: 0 16px 44px rgba(0, 0, 0, 0.04); padding: 36px; }",
+  ".photoMetaHeaderRow { display: none; }",
+  ".photoMetaTitle { font" + d + "family: 'Frank Ruhl Libre', serif; font" + d + "size: 15px; font" + d + "weight: 800; color: #1C1917; }",
+  ".photoMetaCount { font" + d + "size: 12px; font" + d + "weight: 700; color: #8C6D23; direction: ltr; unicode" + d + "bidi: isolate; }",
   ".cinematicPhotoStage { position: relative; border" + d + "radius: 22px; overflow: hidden; aspect" + d + "ratio: 16 / 9; max" + d + "height: 600px; background" + d + "color: #141210; box" + d + "shadow: 0 10px 32px rgba(0, 0, 0, 0.12); margin" + d + "bottom: 20px; }",
   ".slidesTrack { position: relative; width: 100%; height: 100%; }",
   ".photoSlide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.45s ease; pointer" + d + "events: none; }",
@@ -143,8 +147,8 @@ const cssRules = [
   "@keyframes driftMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(50%); } }",
   "@media (max" + d + "height: 800px) and (min" + d + "width: 769px) { .heroSection { padding: 56px 16px 12px; } .heroMainTitle { font" + d + "size: 44px; margin" + d + "bottom: 8px; } .heroSubtitle { font" + d + "size: 14px; line" + d + "height: 1.5; margin" + d + "bottom: 12px; } .heroTopKicker { margin" + d + "bottom: 6px; } .heroLiquidButton { padding: 10px 30px; font" + d + "size: 14px; } .heroCtaWrap { margin" + d + "bottom: 8px; } .marqueeTextOnlyBox { padding: 2px 0; } }",
   "@media (max" + d + "width: 1080px) { .linksPill { display: none; } .stayDetailsGrid { grid" + d + "template" + d + "columns: 1fr; } .visualContactCard { grid" + d + "template" + d + "columns: 1fr; } .carouselBtnPrev { right: 0; } .carouselBtnNext { left: 0; } }",
-  "@media (max" + d + "width: 768px) { .topNavContainer { padding: 0 12px; top: 10px; width: 100%; box" + d + "sizing: border" + d + "box; } .brandPill { padding: 5px 12px; gap: 6px; } .brandTitle { font" + d + "size: 13.5px; } .brandTag { font" + d + "size: 9.5px; padding: 2px 6px; } .actionsPill { padding: 4px 6px; gap: 6px; } .navPhoneBtn { display: inline" + d + "block; font" + d + "size: 11.5px; padding: 4px 8px; } .navBookBtn { font" + d + "size: 11px; padding: 5px 12px; } .heroSection { height: 100svh; min" + d + "height: 100svh; max" + d + "height: 100svh; padding: 52px 14px 10px; } .heroCenterContent { width: 100%; max" + d + "width: 100%; padding: 2px 0; } .heroTopKicker { font" + d + "size: 11px; margin" + d + "bottom: 6px; } .heroMainTitle { font" + d + "size: 28px; line" + d + "height: 1.2; margin" + d + "bottom: 8px; } .heroSubtitle { font" + d + "size: 13px; line" + d + "height: 1.5; margin" + d + "bottom: 12px; } .heroCtaWrap { margin" + d + "bottom: 6px; width: 100%; } .heroLiquidButton { padding: 11px 22px; font" + d + "size: 13.5px; width: 100%; max" + d + "width: 290px; } .heroMicroMeta { font" + d + "size: 10.5px; } .heroBottomBar { padding" + d + "top: 0; width: 100%; max" + d + "width: 100%; } .marqueeTextOnlyBox { width: 100%; max" + d + "width: 100%; } .marqueeItem { font" + d + "size: 11.5px; } .staySection { padding: 50px 12px 36px; } .sectionHeadingTitle { font" + d + "size: 26px; } .sectionHeadingDesc { font" + d + "size: 13.5px; } .switcherPillContainer { width: 100%; flex" + d + "direction: column; border" + d + "radius: 16px; } .staySwitchBtn { border" + d + "radius: 12px; padding: 9px 14px; } .editorialStayCard { padding: 16px 12px; border" + d + "radius: 18px; } .cinematicPhotoStage { border" + d + "radius: 14px; } .thumbsRow { grid" + d + "template" + d + "columns: repeat(4, 1fr); gap: 6px; } .amenitiesList { grid" + d + "template" + d + "columns: 1fr; } .pricingBox { padding: 16px; } .reviewsSection { padding: 50px 12px 40px; } .reviewsCarouselStage { height: 410px; } .carouselCardItem { padding: 20px 16px; border" + d + "radius: 20px; width: 92vw; } .contactCardText { padding: 24px 16px; } .compactFooterRow { flex" + d + "direction: column; text" + d + "align: center; gap: 10px; } }",
-  "@media (max" + d + "width: 480px) { .thumbsRow { grid" + d + "template" + d + "columns: repeat(3, 1fr); } .brandTag { display: none; } }"
+  "@media (max" + d + "width: 768px) { .desktopOnlyPill { display: none !important; } .topNavContainer { padding: 0 10px; top: 10px; width: 100%; box" + d + "sizing: border" + d + "box; } .mobileUnifiedNav { display: flex !important; align" + d + "items: center; justify" + d + "content: space" + d + "between; width: 100%; background: rgba(255, 255, 255, 0.52); backdrop" + d + "filter: blur(24px) saturate(190%); webkit" + d + "backdrop" + d + "filter: blur(24px) saturate(190%); border: 1px solid rgba(255, 255, 255, 0.85); border" + d + "radius: 9999px; padding: 4px 8px; box" + d + "shadow: 0 4px 18px rgba(0, 0, 0, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.95); pointer" + d + "events: auto; } .mobileNavPhone { color: #1C1917; font" + d + "weight: 700; font" + d + "size: 11px; padding: 5px 8px; direction: ltr; unicode" + d + "bidi: isolate; white" + d + "space: nowrap; } .mobileNavLinks { display: flex; align" + d + "items: center; gap: 4px; } .mobileNavLink { color: #292524; font" + d + "size: 11.5px; font" + d + "weight: 600; padding: 4px 7px; border" + d + "radius: 9999px; white" + d + "space: nowrap; } .mobileNavBookBtn { background: linear" + d + "gradient(135deg, rgba(230, 193, 92, 0.85) 0%, rgba(214, 172, 70, 0.65) 100%); color: #141210; font" + d + "size: 11.5px; font" + d + "weight: 800; padding: 6px 14px; border" + d + "radius: 9999px; border: 1px solid rgba(255, 245, 210, 0.85); box" + d + "shadow: 0 3px 10px rgba(180, 140, 40, 0.25); white" + d + "space: nowrap; } .heroSection { height: 100svh; min" + d + "height: 100svh; max" + d + "height: 100svh; padding: 58px 16px 14px; } .heroCenterContent { width: 100%; max" + d + "width: 100%; padding: 4px 0; } .heroTopKicker { font" + d + "size: 12px; margin" + d + "bottom: 8px; letter" + d + "spacing: 0.16em; } .heroMainTitle { font" + d + "size: 36px; line" + d + "height: 1.15; margin" + d + "bottom: 10px; } .heroTitleAccent { font" + d + "size: 28px; margin" + d + "top: 4px; } .heroSubtitle { font" + d + "size: 15px; line" + d + "height: 1.55; margin" + d + "bottom: 14px; } .heroCtaWrap { margin" + d + "bottom: 8px; width: 100%; } .heroLiquidButton { padding: 13px 28px; font" + d + "size: 15px; width: 100%; max" + d + "width: 320px; } .heroMicroMeta { font" + d + "size: 11px; } .heroBottomBar { padding" + d + "top: 0; width: 100%; max" + d + "width: 100%; } .marqueeTextOnlyBox { width: 100%; max" + d + "width: 100%; } .marqueeItem { font" + d + "size: 12px; } .staySection { padding: 40px 14px 30px; } .sectionHeaderCenter { margin: 0 auto 24px; } .sectionHeadingTitle { font" + d + "size: 27px; line" + d + "height: 1.2; margin" + d + "bottom: 10px; } .sectionHeadingDesc { font" + d + "size: 14px; line" + d + "height: 1.6; } .switcherPillWrap { margin" + d + "bottom: 24px; width: 100%; } .switcherPillContainer { width: 100%; display: grid; grid" + d + "template" + d + "columns: 1fr 1fr; gap: 4px; border" + d + "radius: 9999px; padding: 4px; } .staySwitchBtn { border" + d + "radius: 9999px; padding: 10px 8px; flex" + d + "direction: column; align" + d + "items: center; justify" + d + "content: center; } .switchBtnTitle { font" + d + "size: 14.5px; } .switchBtnSubtitle { font" + d + "size: 10.5px; } .editorialStayCard { padding: 14px; border" + d + "radius: 20px; } .photoMetaHeaderRow { display: flex; align" + d + "items: center; justify" + d + "content: space" + d + "between; padding: 0 4px 10px; } .photoMetaTitle { font" + d + "family: 'Frank Ruhl Libre', serif; font" + d + "size: 15px; font" + d + "weight: 800; color: #1C1917; } .photoMetaCount { font" + d + "size: 12px; font" + d + "weight: 700; color: #8C6D23; direction: ltr; } .cinematicPhotoStage { border" + d + "radius: 14px; margin" + d + "bottom: 14px; aspect" + d + "ratio: 16 / 10; } .photoCaptionTag { display: none !important; } .photoCountTag { display: none !important; } .stageArrowBtn { width: 36px; height: 36px; font" + d + "size: 16px; background: rgba(255, 255, 255, 0.65); } .stageArrowPrev { right: 8px; } .stageArrowNext { left: 8px; } .thumbsRow { grid" + d + "template" + d + "columns: repeat(4, 1fr); gap: 6px; margin" + d + "bottom: 22px; } .ribbonThumb { border" + d + "radius: 8px; } .specsBlockTitle { font" + d + "size: 21px; margin" + d + "bottom: 8px; } .specsBlockDesc { font" + d + "size: 14px; line" + d + "height: 1.65; margin" + d + "bottom: 16px; } .amenitiesList { grid" + d + "template" + d + "columns: 1fr; gap: 8px; } .amenityItem { font" + d + "size: 13.5px; } .pricingBox { padding: 18px; border" + d + "radius: 18px; gap: 12px; } .pricingBoxTitle { font" + d + "size: 17px; } .pricingRow { font" + d + "size: 13.5px; } .priceValue { font" + d + "size: 14.5px; } .pricingNote { font" + d + "size: 12px; } .reviewsSection { padding: 50px 14px 40px; } .reviewsCarouselStage { height: 410px; } .carouselCardItem { padding: 22px 18px; border" + d + "radius: 20px; width: 92vw; } .contactSection { padding: 20px 14px 60px; } .visualContactCard { border" + d + "radius: 20px; } .contactCardMedia { min" + d + "height: 220px; max" + d + "height: 240px; } .contactCardText { padding: 24px 18px; gap: 14px; } .contactTitle { font" + d + "size: 26px; } .contactDescription { font" + d + "size: 14px; line" + d + "height: 1.6; } .contactActionsRow { display: grid !important; grid" + d + "template" + d + "columns: 1fr 1fr !important; gap: 10px !important; width: 100%; margin" + d + "top: 6px; } .contactWhatsAppCta { width: 100% !important; min" + d + "width: 0 !important; padding: 12px 10px !important; font" + d + "size: 13.5px !important; text" + d + "align: center; } .contactPhoneCta { width: 100% !important; min" + d + "width: 0 !important; padding: 12px 10px !important; font" + d + "size: 13px !important; text" + d + "align: center; } .compactFooterRow { flex" + d + "direction: column; text" + d + "align: center; gap: 10px; padding: 24px 16px; } }",
+  "@media (max" + d + "width: 480px) { .thumbsRow { grid" + d + "template" + d + "columns: repeat(3, 1fr); } }"
 ];
 const styleEl = document.createElement("style");
 styleEl.textContent = cssRules.join("\n");
@@ -154,23 +158,36 @@ document.head.appendChild(styleEl);
 <body>
 <div class="paperFilmGrain"></div>
 <header class="topNavContainer">
-  <div class="navPill brandPill">
+  <div class="navPill brandPill desktopOnlyPill">
     <span class="brandTitle">וילה מול הר מירון</span>
     <span class="brandTag">קיבוץ צבעון</span>
   </div>
-  <nav class="navPill linksPill">
+  <nav class="navPill linksPill desktopOnlyPill">
     <a href="#stayExperience" class="navLink">סגנונות אירוח</a>
     <a href="#stayExperience" class="navLink" onclick="displayStay('villa')">הווילה הגדולה</a>
     <a href="#stayExperience" class="navLink" onclick="displayStay('units')">יחידות הנופש</a>
     <a href="#guestReviews" class="navLink">חוות דעת</a>
     <a href="#directBooking" class="navLink">יצירת קשר</a>
   </nav>
-  <div class="navPill actionsPill">
+  <div class="navPill actionsPill desktopOnlyPill">
     <a href="tel:0556624268" class="navPhoneBtn phoneChunkLtr">
       <span class="phoneFormatted">055 662 4268</span>
     </a>
     <a href="https://wa.me/972556624268?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%A8%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%AA%D7%90%D7%A8%D7%99%D7%9B%D7%99%D7%9D..." target="_blank" class="navBookBtn">
       <span>הזמנה ישירה</span>
+    </a>
+  </div>
+  <div class="mobileUnifiedNav">
+    <a href="tel:0556624268" class="mobileNavPhone phoneChunkLtr">
+      <span class="phoneFormatted">055 662 4268</span>
+    </a>
+    <div class="mobileNavLinks">
+      <a href="#stayExperience" class="mobileNavLink">מתחמים</a>
+      <a href="#guestReviews" class="mobileNavLink">ביקורות</a>
+      <a href="#directBooking" class="mobileNavLink">צרו קשר</a>
+    </div>
+    <a href="https://wa.me/972556624268?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9E%D7%90%D7%99%D7%A8%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%AA%D7%90%D7%A8%D7%99%D7%9B%D7%99%D7%9D..." target="_blank" class="mobileNavBookBtn">
+      <span>הזמנה</span>
     </a>
   </div>
 </header>
@@ -236,6 +253,10 @@ document.head.appendChild(styleEl);
       </div>
       <div id="villaDisplayPane" class="stayPane">
         <div class="editorialStayCard">
+          <div class="photoMetaHeaderRow">
+            <span class="photoMetaTitle">חצר אבן פרטית וחניה צמודה</span>
+            <span class="photoMetaCount">5 / 7</span>
+          </div>
           <div class="cinematicPhotoStage">
             <div id="villaSlidesBox" class="slidesTrack">
               <div class="photoSlide activePhotoSlide"><img src="images/villa_grounds_meron.jpg" alt="מתחם הווילה והחצר מול הר מירון" class="fullFramePhoto"><div class="photoCaptionTag">מתחם הווילה והחצר מול הר מירון</div><div class="photoCountTag">1 / 7</div></div>
@@ -291,6 +312,10 @@ document.head.appendChild(styleEl);
       </div>
       <div id="unitsDisplayPane" class="stayPane hiddenStayPane">
         <div class="editorialStayCard">
+          <div class="photoMetaHeaderRow">
+            <span class="photoMetaTitle">חדר אירוח זוגי מרווח עם מטבחון</span>
+            <span class="photoMetaCount">1 / 5</span>
+          </div>
           <div class="cinematicPhotoStage">
             <div id="unitsSlidesBox" class="slidesTrack">
               <div class="photoSlide activePhotoSlide"><img src="images/bedroom_suite_clean.jpg" alt="חדר אירוח זוגי כפרי עם יציאה לגינה ומטבחון" class="fullFramePhoto"><div class="photoCaptionTag">חדר אירוח זוגי מרווח עם מטבחון פרטי</div><div class="photoCountTag">1 / 5</div></div>
