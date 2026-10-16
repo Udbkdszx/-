@@ -517,6 +517,28 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
   }
 
+  /* STAY PANE VISIBILITY & TRANSITION */
+  .stayPane {
+    display: block;
+    width: 100%;
+    animation: paneFadeInAnim 0.35s ease forwards;
+  }
+
+  .stayPane.hiddenStayPane {
+    display: none !important;
+  }
+
+  @keyframes paneFadeInAnim {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   /* EDITORIAL STAY CARD (PURE CARD STRUCTURE) */
   .editorialStayCard {
     background: #FFFFFF;
@@ -695,14 +717,14 @@
     line-height: 1.82;
   }
 
-  /* CLEAN MINIMAL LUXURY PRICING SECTION */
+  /* UNIFIED DUAL-TIER LUXURY PRICING SECTION */
   .compactPricingStrip {
     background: #FAF8F4;
     border: 1px solid rgba(214, 200, 175, 0.85);
-    border-radius: 22px;
-    padding: 24px 28px;
-    margin-top: 24px;
-    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.03);
+    border-radius: 24px;
+    padding: 30px 32px;
+    margin-top: 32px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.04);
   }
 
   .pricingStripTop {
@@ -710,15 +732,15 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    margin-bottom: 18px;
-    padding-bottom: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
     border-bottom: 1px solid rgba(226, 216, 200, 0.7);
     text-align: center;
   }
 
   .pricingStripTitle {
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 800;
     color: #1A1714;
     display: inline-flex;
@@ -729,7 +751,42 @@
 
   .pricingStripTitle .goldSpark {
     color: #D4AF37;
-    font-size: 16px;
+    font-size: 17px;
+  }
+
+  .pricingDualRows {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .pricingTierBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pricingTierHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-right: 4px;
+  }
+
+  .pricingTierTag {
+    background: #181512;
+    color: #F3D58D;
+    font-size: 12.5px;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    letter-spacing: 0.02em;
+  }
+
+  .pricingTierSub {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #6B645B;
   }
 
   .pricingStripGrid {
@@ -740,13 +797,14 @@
 
   .pricingStripCol {
     background: #FFFFFF;
-    border: 1px solid rgba(226, 216, 200, 0.75);
+    border: 1px solid rgba(226, 216, 200, 0.85);
     border-radius: 14px;
-    padding: 14px 16px;
+    padding: 16px 18px;
     display: flex;
     flex-direction: column;
     gap: 4px;
     text-align: right;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
   }
 
   .pricingStripLabel {
@@ -756,7 +814,7 @@
   }
 
   .pricingStripValue {
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 800;
     color: #1A1714;
   }
@@ -775,11 +833,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    margin-top: 14px;
-    padding-top: 12px;
+    gap: 14px;
+    margin-top: 22px;
+    padding-top: 16px;
     border-top: 1px solid rgba(226, 216, 200, 0.7);
-    font-size: 13px;
+    font-size: 13.5px;
     color: #7A736A;
   }
 
@@ -788,6 +846,7 @@
     font-weight: 700;
     text-decoration: underline;
     text-underline-offset: 3px;
+    white-space: nowrap;
   }
 
   /* ==========================================
@@ -1370,7 +1429,7 @@
     }
 
     .heroSection {
-      padding: 70px 18px 16px;
+      padding: 72px 18px 18px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -1382,7 +1441,7 @@
     }
 
     .heroCenterContent {
-      margin: auto 0 16px;
+      margin: auto 0;
       padding: 0;
       max-width: 100%;
       display: flex;
@@ -1392,34 +1451,34 @@
     }
 
     .heroMainTitle {
-      font-size: clamp(38px, 9.8vw, 50px);
-      line-height: 1.1;
-      margin-bottom: 14px;
+      font-size: clamp(34px, 8.8vw, 46px);
+      line-height: 1.14;
+      margin-bottom: 12px;
     }
 
     .heroTitleAccent {
-      font-size: clamp(23px, 5.8vw, 30px);
+      font-size: clamp(21px, 5.2vw, 27px);
       margin-top: 6px;
     }
 
     .heroSubtitle {
-      font-size: 15.5px;
-      line-height: 1.68;
-      margin-bottom: 26px;
-      max-width: 92%;
+      font-size: 14.5px;
+      line-height: 1.62;
+      margin-bottom: 22px;
+      max-width: 90%;
     }
 
     .heroGoldBtn {
-      padding: 16px 42px;
-      font-size: 16px;
-      margin-bottom: 6px;
+      padding: 14px 38px;
+      font-size: 15.5px;
+      margin-bottom: 0;
       border-radius: 9999px;
     }
 
     .heroBottomBar {
       max-width: 100%;
       padding: 0 8px;
-      margin: 0 auto 10px;
+      margin: 0 auto 6px;
     }
 
     .marqueeLuxuryRibbon {
@@ -1521,13 +1580,30 @@
     }
 
     .compactPricingStrip {
-      padding: 18px 16px;
-      margin-top: 18px;
-      border-radius: 18px;
+      padding: 22px 16px;
+      margin-top: 24px;
+      border-radius: 20px;
     }
 
     .pricingStripTitle {
-      font-size: 19px;
+      font-size: 20px;
+    }
+
+    .pricingDualRows {
+      gap: 18px;
+    }
+
+    .pricingTierHeader {
+      gap: 8px;
+    }
+
+    .pricingTierTag {
+      font-size: 12px;
+      padding: 3px 10px;
+    }
+
+    .pricingTierSub {
+      font-size: 12.5px;
     }
 
     .pricingStripGrid {
@@ -1536,7 +1612,7 @@
     }
 
     .pricingStripCol {
-      padding: 10px 12px;
+      padding: 12px 14px;
     }
 
     .pricingStripLabel {
@@ -1544,15 +1620,17 @@
     }
 
     .pricingStripValue {
-      font-size: 16.5px;
+      font-size: 17px;
     }
 
     .pricingStripFooter {
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 6px;
+      gap: 8px;
       font-size: 12px;
+      margin-top: 18px;
+      padding-top: 14px;
     }
 
     .reviewsSection {
@@ -1773,41 +1851,9 @@
             </p>
           </div>
         </div>
-
-        <!-- CLEAN MINIMAL LUXURY PRICING FOR VILLA -->
-        <div class="compactPricingStrip">
-          <div class="pricingStripTop">
-            <h4 class="pricingStripTitle">
-              <span class="goldSpark">✦</span>
-              <span>תעריפי אירוח בווילת הנופש</span>
-              <span class="goldSpark">✦</span>
-            </h4>
-          </div>
-          <div class="pricingStripGrid">
-            <div class="pricingStripCol">
-              <span class="pricingStripLabel">אמצע שבוע (א׳–ד׳)</span>
-              <span class="pricingStripValue"><strong>4,800 ₪</strong> <small>/ לילה</small></span>
-            </div>
-            <div class="pricingStripCol">
-              <span class="pricingStripLabel">סוף שבוע וחגים</span>
-              <span class="pricingStripValue"><strong>6,500 ₪</strong> <small>/ לילה</small></span>
-            </div>
-            <div class="pricingStripCol">
-              <span class="pricingStripLabel">הרכב אירוח בסיסי</span>
-              <span class="pricingStripValue"><strong>עד 10</strong> <small>אורחים</small></span>
-            </div>
-            <div class="pricingStripCol">
-              <span class="pricingStripLabel">הרחבה לקבוצות</span>
-              <span class="pricingStripValue"><strong>עד 14</strong> <small>אורחים במתחם</small></span>
-            </div>
-          </div>
-          <div class="pricingStripFooter">
-            <span>* כולל שימוש בלעדי בבריכה, חצר עצי הזית והסלון המרווח. תיאום ישיר מול נחמן ללא פערי תיווך.</span>
-            <a href="https://wa.me/972559961167?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A0%D7%97%D7%9E%D7%9F%2C%20%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%AA%D7%99%20%D7%9E%D7%90%D7%95%D7%93%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%AA%20%D7%90%D7%AA%D7%A8%20%D7%91%D7%A9%D7%91%D7%99%D7%9C%D7%99" target="_blank" rel="noopener">בדיקת תאריכים בוואטסאפ ←</a>
-          </div>
-        </div>
       </div>
-<!-- PANE 2: BOUTIQUE WOODEN SUITES -->
+
+      <!-- PANE 2: BOUTIQUE WOODEN SUITES -->
       <div id="unitsDisplayPane" class="stayPane hiddenStayPane">
         <div class="editorialStayCard">
           <div class="cinematicPhotoStage" id="unitsStageBox">
@@ -1843,41 +1889,78 @@
             </p>
           </div>
         </div>
+      </div>
 
-        <!-- CLEAN MINIMAL LUXURY PRICING FOR SUITES -->
-        <div class="compactPricingStrip">
-          <div class="pricingStripTop">
-            <h4 class="pricingStripTitle">
-              <span class="goldSpark">✦</span>
-              <span>תעריפי סוויטות הבוטיק לזוגות</span>
-              <span class="goldSpark">✦</span>
-            </h4>
+      <!-- SINGLE UNIFIED LUXURY PRICING SECTION (VILLA + BOUTIQUE SUITES) -->
+      <div class="compactPricingStrip">
+        <div class="pricingStripTop">
+          <h4 class="pricingStripTitle">
+            <span class="goldSpark">✦</span>
+            <span>מחירון ותעריפי אירוח בלעדיים</span>
+            <span class="goldSpark">✦</span>
+          </h4>
+        </div>
+
+        <div class="pricingDualRows">
+          <!-- TIER 1: VILLA -->
+          <div class="pricingTierBlock">
+            <div class="pricingTierHeader">
+              <span class="pricingTierTag">וילת הנופש הפרטית</span>
+              <span class="pricingTierSub">אירוח משפחות וקבוצות עד 14 אורחים • בריכה פרטית וחצר ענקית</span>
+            </div>
+            <div class="pricingStripGrid">
+              <div class="pricingStripCol">
+                <span class="pricingStripLabel">אמצע שבוע (א׳–ד׳)</span>
+                <span class="pricingStripValue"><strong>4,800 ₪</strong> <small>/ לילה</small></span>
+              </div>
+              <div class="pricingStripCol">
+                <span class="pricingStripLabel">סוף שבוע וחגים</span>
+                <span class="pricingStripValue"><strong>6,500 ₪</strong> <small>/ לילה</small></span>
+              </div>
+              <div class="pricingStripCol">
+                <span class="pricingStripLabel">הרכב אירוח בסיסי</span>
+                <span class="pricingStripValue"><strong>עד 10</strong> <small>אורחים</small></span>
+              </div>
+              <div class="pricingStripCol">
+                <span class="pricingStripLabel">הרחבה לקבוצות</span>
+                <span class="pricingStripValue"><strong>עד 14</strong> <small>אורחים במתחם</small></span>
+              </div>
+            </div>
           </div>
-          <div class="pricingStripGrid">
-            <div class="pricingStripCol">
-              <span class="pricingStripLabel">אמצע שבוע (א׳–ד׳)</span>
-              <span class="pricingStripValue"><strong>1,650 ₪</strong> <small>/ לילה</small></span>
+
+          <!-- TIER 2: SUITES -->
+          <div class="pricingTierBlock">
+            <div class="pricingTierHeader">
+              <span class="pricingTierTag">סוויטות הבוטיק הכפריות</span>
+              <span class="pricingTierSub">מפלט רומנטי שקט לזוגות • עץ אורן טבעי, מטבחון ופטיו מול החורש</span>
             </div>
-            <div class="pricingStripCol">
-              <span class="pricingStripLabel">סוף שבוע וחגים</span>
-              <span class="pricingStripValue"><strong>2,100 ₪</strong> <small>/ לילה</small></span>
+            <div class="pricingStripGrid">
+              <div class="pricingStripCol">
+                <span class="pricingStripLabel">אמצע שבוע (א׳–ד׳)</span>
+                <span class="pricingStripValue"><strong>1,650 ₪</strong> <small>/ לילה</small></span>
+              </div>
+              <div class="pricingStripCol">
+                <span class="pricingStripLabel">סוף שבוע וחגים</span>
+                <span class="pricingStripValue"><strong>2,100 ₪</strong> <small>/ לילה</small></span>
+              </div>
+              <div class="pricingStripCol">
+                <span class="pricingStripLabel">חבילה רומנטית</span>
+                <span class="pricingStripValue"><strong>2,450 ₪</strong> <small>/ כולל יין</small></span>
+              </div>
+              <div class="pricingStripCol">
+                <span class="pricingStripLabel">אירוח זוגות חברים</span>
+                <span class="pricingStripValue"><strong>3,100 ₪</strong> <small>/ 2 סוויטות</small></span>
+              </div>
             </div>
-            <div class="pricingStripCol">
-              <span class="pricingStripLabel">חבילה רומנטית</span>
-              <span class="pricingStripValue"><strong>2,450 ₪</strong> <small>/ כולל יין</small></span>
-            </div>
-            <div class="pricingStripCol">
-              <span class="pricingStripLabel">אירוח זוגות חברים</span>
-              <span class="pricingStripValue"><strong>3,100 ₪</strong> <small>/ 2 סוויטות</small></span>
-            </div>
-          </div>
-          <div class="pricingStripFooter">
-            <span>* כולל פינוקי בית חמימים, פטיו פרטי ואווירת רוגע מול החורש. תיאום ישיר מול נחמן ללא פערי תיווך.</span>
-            <a href="https://wa.me/972559961167?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A0%D7%97%D7%9E%D7%9F%2C%20%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%AA%D7%99%20%D7%9E%D7%90%D7%95%D7%93%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%AA%20%D7%90%D7%AA%D7%A8%20%D7%91%D7%A9%D7%91%D7%99%D7%9C%D7%99" target="_blank" rel="noopener">בדיקת תאריכים בוואטסאפ ←</a>
           </div>
         </div>
+
+        <div class="pricingStripFooter">
+          <span>* כולל פרטיות מלאה ושירות אישי מסור. הזמנה ישירה מול נחמן ללא עמלות תיווך וללא אותיות קטנות.</span>
+          <a href="https://wa.me/972559961167?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A0%D7%97%D7%9E%D7%9F%2C%20%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%AA%D7%99%20%D7%9E%D7%90%D7%95%D7%93%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%AA%20%D7%90%D7%AA%D7%A8%20%D7%91%D7%A9%D7%91%D7%99%D7%9C%D7%99" target="_blank" rel="noopener">בדיקת תאריכים פנויים בוואטסאפ ←</a>
+        </div>
       </div>
-</div>
+    </div>
   </section>
 
   <!-- 5. GUEST REVIEWS SECTION (LIQUID GLASS ARROWS + TOUCH SWIPE) -->
