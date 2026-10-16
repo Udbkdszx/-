@@ -317,6 +317,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 14px;
+    margin-bottom: 8px;
     animation: cinematicHeroCta 1.4s 0.38s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
@@ -324,23 +326,27 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    background: linear-gradient(135deg, #F5DC9B 0%, #D8B243 52%, #BA9024 100%);
-    color: #141210;
-    padding: 16px 44px;
-    font-size: 17px;
-    font-weight: 800;
-    letter-spacing: 0.02em;
+    gap: 8px;
+    background: rgba(18, 16, 14, 0.62);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    color: #F8EDD3;
+    padding: 11px 28px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
     border-radius: 9999px;
-    border: 1px solid rgba(255, 250, 230, 0.9);
-    box-shadow: 0 12px 36px rgba(212, 175, 55, 0.38), inset 0 1px 2px rgba(255, 255, 255, 0.95);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    border: 1px solid rgba(243, 213, 141, 0.42);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
+    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
   }
 
   .heroGoldBtn:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 16px 44px rgba(212, 175, 55, 0.54), inset 0 1px 3px rgba(255, 255, 255, 1);
-    filter: brightness(1.04);
+    transform: translateY(-2px);
+    background: rgba(243, 213, 141, 0.16);
+    border-color: rgba(243, 213, 141, 0.75);
+    color: #FFFFFF;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
   }
 
   /* ==========================================
@@ -1475,15 +1481,21 @@
     }
 
     .heroSubtitle {
-      font-size: 16.5px;
-      line-height: 1.68;
-      margin-bottom: 26px;
+      font-size: 16px;
+      line-height: 1.65;
+      margin-bottom: 20px;
       max-width: 95%;
     }
 
+    .heroCtaCluster {
+      margin-top: 18px;
+      margin-bottom: 6px;
+    }
+
     .heroGoldBtn {
-      padding: 16px 44px;
-      font-size: 17px;
+      padding: 10px 24px;
+      font-size: 13.5px;
+      font-weight: 700;
       margin-bottom: 0;
       border-radius: 9999px;
     }
