@@ -72,24 +72,24 @@
     pointer-events: auto;
     width: 100%;
     max-width: 1340px;
-    background: rgba(18, 16, 14, 0.72);
-    backdrop-filter: blur(24px) saturate(190%);
-    -webkit-backdrop-filter: blur(24px) saturate(190%);
-    border: 1px solid rgba(243, 213, 141, 0.32);
+    background: rgba(18, 16, 14, 0.46);
+    backdrop-filter: blur(28px) saturate(210%);
+    -webkit-backdrop-filter: blur(28px) saturate(210%);
+    border: 1px solid rgba(243, 213, 141, 0.28);
     border-radius: 9999px;
     padding: 8px 10px 8px 22px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.32), inset 0 1px 1px rgba(255, 255, 255, 0.16);
+    box-shadow: 0 16px 42px rgba(0, 0, 0, 0.28), inset 0 1px 2px rgba(255, 255, 255, 0.25);
     transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
   .luxuryNavbar.scrolledNav {
-    background: rgba(16, 14, 12, 0.95);
-    border-color: rgba(243, 213, 141, 0.48);
-    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    background: rgba(16, 14, 12, 0.78);
+    border-color: rgba(243, 213, 141, 0.42);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.38), inset 0 1px 1.5px rgba(255, 255, 255, 0.28);
   }
 
   .navBrandGroup {
@@ -237,8 +237,18 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(circle at 50% 30%, rgba(10, 14, 12, 0.25) 0%, rgba(8, 12, 10, 0.58) 100%),
-      linear-gradient(180deg, rgba(8, 12, 10, 0.46) 0%, rgba(8, 12, 10, 0.15) 32%, rgba(6, 10, 8, 0.42) 68%, rgba(20, 18, 16, 0.72) 88%, rgba(247, 245, 238, 0.78) 97%, #F7F5EE 100%);
+      radial-gradient(circle at 50% 30%, rgba(10, 14, 12, 0.22) 0%, rgba(8, 12, 10, 0.54) 100%),
+      linear-gradient(180deg,
+        rgba(8, 12, 10, 0.46) 0%,
+        rgba(8, 12, 10, 0.12) 28%,
+        rgba(6, 10, 8, 0.32) 58%,
+        rgba(14, 18, 15, 0.58) 75%,
+        rgba(35, 38, 33, 0.68) 84%,
+        rgba(102, 101, 92, 0.72) 90%,
+        rgba(182, 178, 166, 0.82) 94%,
+        rgba(235, 231, 221, 0.94) 97%,
+        #F7F5EE 100%
+      );
   }
 
   .heroCenterContent {
@@ -591,13 +601,16 @@
     }
   }
 
-  /* EDITORIAL STAY CARD (PURE CARD STRUCTURE) */
+  /* EDITORIAL STAY CARD (TACTILE FROSTED LIQUID GLASS) */
   .editorialStayCard {
-    background: #FFFFFF;
+    background: rgba(255, 255, 255, 0.76);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
     border-radius: 28px;
-    border: 1px solid rgba(226, 216, 200, 0.9);
-    box-shadow: 0 20px 52px rgba(20, 18, 16, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.88);
+    box-shadow: 0 22px 56px rgba(24, 21, 18, 0.06), inset 0 1px 2px rgba(255, 255, 255, 0.95);
     padding: 34px;
+    position: relative;
   }
 
   .cinematicPhotoStage {
@@ -769,14 +782,16 @@
     line-height: 1.82;
   }
 
-  /* MINIMAL MODERN LUXURY PRICING SECTION */
+  /* MINIMAL MODERN LUXURY PRICING SECTION (LIQUID GLASS FROSTED) */
   .compactPricingStrip {
-    background: #FAF8F4;
-    border: 1px solid rgba(214, 200, 175, 0.85);
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     padding: 24px 28px;
     margin-top: 28px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 16px 40px rgba(24, 21, 18, 0.05), inset 0 1px 2px rgba(255, 255, 255, 0.95);
   }
 
   .pricingStripTop {
@@ -787,7 +802,7 @@
     gap: 14px;
     margin-bottom: 20px;
     padding-bottom: 14px;
-    border-bottom: 1px solid rgba(226, 216, 200, 0.7);
+    border-bottom: 1px solid rgba(214, 200, 175, 0.5);
     text-align: center;
   }
 
@@ -817,9 +832,12 @@
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    background: #EAE6DC;
+    background: rgba(234, 230, 220, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     padding: 3px;
     border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.85);
   }
 
   .pricingToggleBtn {
@@ -841,7 +859,7 @@
   .pricingToggleBtn.activePricingToggle {
     background: #181512;
     color: #F3D58D;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
 
   /* Pricing Panes */
@@ -861,15 +879,17 @@
   }
 
   .pricingStripCol {
-    background: #FFFFFF;
-    border: 1px solid rgba(226, 216, 200, 0.85);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.95);
     border-radius: 12px;
     padding: 12px 14px;
     display: flex;
     flex-direction: column;
     gap: 3px;
     text-align: right;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03), inset 0 1px 1px rgba(255, 255, 255, 1);
   }
 
   .pricingStripLabel {
@@ -958,11 +978,13 @@
     position: absolute;
     width: 480px;
     max-width: calc(100% - 32px);
-    background: #FFFFFF;
-    border: 1px solid rgba(214, 200, 175, 0.85);
+    background: rgba(255, 255, 255, 0.76);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
     border-radius: 28px;
     padding: 34px 32px;
-    box-shadow: 0 18px 46px rgba(20, 18, 16, 0.07);
+    box-shadow: 0 20px 52px rgba(20, 18, 16, 0.06), inset 0 1px 2px rgba(255, 255, 255, 0.95);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1110,13 +1132,15 @@
   }
 
   .visualContactCard {
-    background: #FFFFFF;
-    border: 1px solid rgba(226, 216, 200, 0.9);
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.92);
     border-radius: 28px;
     overflow: hidden;
     display: grid;
     grid-template-columns: 0.95fr 1.25fr;
-    box-shadow: 0 22px 56px rgba(20, 18, 16, 0.07);
+    box-shadow: 0 24px 58px rgba(20, 18, 16, 0.07), inset 0 1px 2px rgba(255, 255, 255, 0.95);
   }
 
   .contactCardMedia {
@@ -1300,28 +1324,30 @@
   }
 
   /* ==========================================
-     7. FLOATING WHATSAPP CONCIERGE & FOOTER
+     7. FLOATING WHATSAPP CONCIERGE (100% APPLE LIQUID GLASS)
      ========================================== */
   .floatingConciergeBtn {
     position: fixed;
     bottom: 24px;
     left: 24px;
     z-index: 110;
-    background: linear-gradient(135deg, #181512 0%, #2A241E 100%);
-    color: #F3D58D;
-    border: 1.5px solid rgba(243, 213, 141, 0.65);
+    background: rgba(18, 16, 14, 0.52);
+    backdrop-filter: blur(28px) saturate(210%);
+    -webkit-backdrop-filter: blur(28px) saturate(210%);
+    color: #F8EDD3;
+    border: 1px solid rgba(243, 213, 141, 0.42);
     border-radius: 9999px;
-    padding: 12px 20px;
+    padding: 11px 22px;
     display: inline-flex;
     align-items: center;
     gap: 10px;
     font-size: 14px;
     font-weight: 800;
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.32);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32), inset 0 1px 2px rgba(255, 255, 255, 0.28);
     opacity: 0;
     pointer-events: none;
     transform: translateY(14px);
-    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.25s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
   }
 
   .floatingConciergeBtn.visibleFloatingBtn {
@@ -1332,7 +1358,10 @@
 
   .floatingConciergeBtn:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.42);
+    background: rgba(26, 22, 18, 0.72);
+    border-color: rgba(243, 213, 141, 0.75);
+    color: #FFFFFF;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.42), inset 0 1px 2px rgba(255, 255, 255, 0.45);
   }
 
   .pulseStatusDot {
@@ -1343,11 +1372,14 @@
     box-shadow: 0 0 10px #22C55E;
   }
 
+  /* ==========================================
+     8. ULTRA SLIM MINIMALIST FOOTER
+     ========================================== */
   .compactFooter {
-    background: #141210;
-    color: rgba(255, 255, 255, 0.75);
-    padding: 38px 24px 44px;
-    border-top: 1px solid rgba(243, 213, 141, 0.2);
+    background: #110F0D;
+    color: rgba(255, 255, 255, 0.62);
+    padding: 16px 24px;
+    border-top: 1px solid rgba(243, 213, 141, 0.15);
   }
 
   .compactFooterRow {
@@ -1356,14 +1388,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 16px;
     flex-wrap: wrap;
-    font-size: 14px;
+    font-size: 12.5px;
+  }
+
+  .footerCopyright {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
   }
 
   .footerDirectNotice {
-    color: #F3D58D;
+    color: #E6C87C;
     font-weight: 700;
+    font-size: 12.5px;
   }
 
   /* ==========================================
@@ -1451,13 +1489,13 @@
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      background: rgba(18, 16, 14, 0.88);
-      backdrop-filter: blur(24px) saturate(190%);
-      -webkit-backdrop-filter: blur(24px) saturate(190%);
-      border: 1px solid rgba(243, 213, 141, 0.4);
+      background: rgba(18, 16, 14, 0.52);
+      backdrop-filter: blur(28px) saturate(210%);
+      -webkit-backdrop-filter: blur(28px) saturate(210%);
+      border: 1px solid rgba(243, 213, 141, 0.32);
       border-radius: 9999px;
       padding: 6px 8px 6px 14px;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.38);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.32), inset 0 1px 1.5px rgba(255, 255, 255, 0.22);
     }
 
     .mobileNavPhone {
@@ -1762,13 +1800,13 @@
     }
 
     .compactFooter {
-      padding: 30px 16px 74px;
+      padding: 18px 16px 68px;
     }
 
     .compactFooterRow {
       flex-direction: column;
       text-align: center;
-      gap: 12px;
+      gap: 6px;
     }
   }
 </style>
@@ -2150,6 +2188,9 @@
   <div class="compactFooterRow">
     <div>
       <strong>אחוזת מירון</strong> • דף הדגמה וראווה למתחמי אירוח יוקרתיים בגליל
+    </div>
+    <div class="footerCopyright">
+      כל הזכויות שמורות © 2026 אחוזת מירון
     </div>
     <div class="footerDirectNotice">
       הזמנה ישירה ללא עמלות תיווך: 055-996-1167
