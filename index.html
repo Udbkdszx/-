@@ -252,7 +252,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 4vh;
+    margin: auto 0 24px;
     padding: 10px 0;
   }
 
@@ -281,11 +281,11 @@
 
   .heroMainTitle {
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: clamp(52px, 6.6vw, 92px);
+    font-size: clamp(48px, 6.2vw, 86px);
     font-weight: 900;
-    line-height: 1.05;
+    line-height: 1.08;
     letter-spacing: -0.01em;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     color: #FFFFFF;
     text-shadow: 0 8px 36px rgba(0, 0, 0, 0.8);
     animation: cinematicHeroTitle 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -303,12 +303,12 @@
   }
 
   .heroSubtitle {
-    font-size: clamp(17px, 1.45vw, 21px);
+    font-size: clamp(16.5px, 1.4vw, 20px);
     line-height: 1.72;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.95);
-    max-width: 840px;
-    margin-bottom: 34px;
+    color: rgba(255, 255, 255, 0.94);
+    max-width: 820px;
+    margin-bottom: 36px;
     text-shadow: 0 2px 16px rgba(0, 0, 0, 0.75);
     animation: cinematicHeroSub 1.4s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
@@ -327,11 +327,11 @@
     gap: 12px;
     background: linear-gradient(135deg, #F5DC9B 0%, #D8B243 52%, #BA9024 100%);
     color: #141210;
-    padding: 15px 42px;
-    border-radius: 9999px;
-    font-size: 16.5px;
+    padding: 16px 44px;
+    font-size: 17px;
     font-weight: 800;
     letter-spacing: 0.02em;
+    border-radius: 9999px;
     border: 1px solid rgba(255, 250, 230, 0.9);
     box-shadow: 0 12px 36px rgba(212, 175, 55, 0.38), inset 0 1px 2px rgba(255, 255, 255, 0.95);
     transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
@@ -378,7 +378,7 @@
     width: max-content;
     direction: ltr;
     will-change: transform;
-    animation: marqueeDriftLTR 52s linear infinite;
+    animation: marqueeDriftLTR 88s linear infinite;
   }
 
   /* hover pause disabled to avoid sticky touch states */
@@ -474,7 +474,7 @@
   }
 
   /* SLEEK MODERN TAB SELECTOR BUTTONS */
-  .modernTabSelectorWrap {
+    .modernTabSelectorWrap {
     display: flex;
     justify-content: center;
     margin-bottom: 32px;
@@ -483,62 +483,38 @@
   .modernTabSwitcher {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: rgba(26, 23, 20, 0.05);
-    border: 1px solid rgba(215, 202, 185, 0.85);
-    padding: 6px;
+    gap: 4px;
+    background: #EAE6DC;
+    padding: 4px;
     border-radius: 9999px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    border: none;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
   }
 
   .modernTabBtn {
     background: transparent;
-    border: 1px solid transparent;
-    color: #615A52;
-    font-size: 15.5px;
+    border: none;
+    outline: none;
+    color: #6B645B;
+    font-size: 15px;
     font-weight: 700;
-    padding: 11px 26px;
+    padding: 10px 24px;
     border-radius: 9999px;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
     white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
   }
 
-  .modernTabBtn:hover:not(.activeModernTab) {
-    color: #1A1714;
-    background: rgba(255, 255, 255, 0.75);
+  .modernTabBtn:focus {
+    outline: none;
   }
 
   .modernTabBtn.activeModernTab {
     background: #181512;
     color: #F3D58D;
-    border-color: rgba(243, 213, 141, 0.45);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-  }
-
-  .stayPane {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .hiddenStayPane {
-    display: none !important;
-  }
-
-  .stayPane.paneFadeIn {
-    animation: paneSoftReveal 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  @keyframes paneSoftReveal {
-    0% {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
   }
 
   /* EDITORIAL STAY CARD (PURE CARD STRUCTURE) */
@@ -719,72 +695,68 @@
     line-height: 1.82;
   }
 
-  /* COMPACT LUXURY PRICING STRIP (MATCHING SITE PALETTE, SHORT & CLEAN) */
+  /* CLEAN MINIMAL LUXURY PRICING SECTION */
   .compactPricingStrip {
     background: #FAF8F4;
     border: 1px solid rgba(214, 200, 175, 0.85);
-    border-radius: 20px;
-    padding: 20px 24px;
-    margin-top: 22px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+    border-radius: 22px;
+    padding: 24px 28px;
+    margin-top: 24px;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.03);
   }
 
   .pricingStripTop {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 14px;
-    padding-bottom: 10px;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
     border-bottom: 1px solid rgba(226, 216, 200, 0.7);
+    text-align: center;
   }
 
   .pricingStripTitle {
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 19px;
+    font-size: 22px;
     font-weight: 800;
     color: #1A1714;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 10px;
+    letter-spacing: -0.01em;
   }
 
-  .pricingStripBadge {
-    font-size: 11px;
-    font-weight: 800;
-    color: #8C6A1D;
-    background: rgba(212, 175, 55, 0.14);
-    border: 1px solid rgba(212, 175, 55, 0.35);
-    padding: 3px 10px;
-    border-radius: 9999px;
-    letter-spacing: 0.03em;
+  .pricingStripTitle .goldSpark {
+    color: #D4AF37;
+    font-size: 16px;
   }
 
   .pricingStripGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 12px;
   }
 
   .pricingStripCol {
     background: #FFFFFF;
     border: 1px solid rgba(226, 216, 200, 0.75);
-    border-radius: 12px;
-    padding: 10px 14px;
+    border-radius: 14px;
+    padding: 14px 16px;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
     text-align: right;
   }
 
   .pricingStripLabel {
-    font-size: 12.5px;
+    font-size: 13.5px;
     font-weight: 600;
     color: #635D56;
   }
 
   .pricingStripValue {
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 800;
     color: #1A1714;
   }
@@ -794,7 +766,7 @@
   }
 
   .pricingStripValue small {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500;
     color: #827A71;
   }
@@ -804,25 +776,18 @@
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    margin-top: 12px;
-    padding-top: 10px;
+    margin-top: 14px;
+    padding-top: 12px;
     border-top: 1px solid rgba(226, 216, 200, 0.7);
-    font-size: 12.5px;
+    font-size: 13px;
     color: #7A736A;
   }
 
-  .pricingStripLink {
+  .pricingStripFooter a {
     color: #8C6A1D;
     font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
     text-decoration: underline;
     text-underline-offset: 3px;
-  }
-
-  .pricingStripLink:hover {
-    color: #1A1714;
   }
 
   /* ==========================================
@@ -1049,13 +1014,13 @@
     bottom: 20px;
     right: 20px;
     left: 20px;
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(14px) saturate(180%);
-    -webkit-backdrop-filter: blur(14px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.18), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(5px) saturate(150%);
+    -webkit-backdrop-filter: blur(5px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
     border-radius: 16px;
-    padding: 12px 20px;
+    padding: 10px 18px;
     color: #FFFFFF;
     display: flex;
     align-items: center;
@@ -1347,7 +1312,7 @@
     }
   }
 
-  @media (max-width: 768px) {
+    @media (max-width: 768px) {
     .desktopOnlyNav {
       display: none !important;
     }
@@ -1405,56 +1370,56 @@
     }
 
     .heroSection {
-      padding: 72px 16px 14px;
+      padding: 70px 18px 16px;
+      display: flex;
+      flex-direction: column;
       justify-content: space-between;
+      align-items: center;
+      height: 100svh;
+      min-height: 100svh;
+      max-height: 100svh;
+      box-sizing: border-box;
     }
 
     .heroCenterContent {
-      padding: 4px 0;
-      margin: auto 0;
-    }
-
-    .heroKickerRow {
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-
-    .heroKickerLine {
-      width: 18px;
-    }
-
-    .heroTopKicker {
-      font-size: 11px;
-      letter-spacing: 0.1em;
+      margin: auto 0 16px;
+      padding: 0;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .heroMainTitle {
-      font-size: clamp(32px, 8.4vw, 44px);
+      font-size: clamp(38px, 9.8vw, 50px);
       line-height: 1.1;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
     }
 
     .heroTitleAccent {
-      font-size: clamp(19px, 5.2vw, 25px);
-      margin-top: 5px;
+      font-size: clamp(23px, 5.8vw, 30px);
+      margin-top: 6px;
     }
 
     .heroSubtitle {
-      font-size: 14.5px;
-      line-height: 1.55;
-      margin-bottom: 20px;
-      max-width: 95%;
+      font-size: 15.5px;
+      line-height: 1.68;
+      margin-bottom: 26px;
+      max-width: 92%;
     }
 
     .heroGoldBtn {
-      padding: 13px 30px;
-      font-size: 15px;
+      padding: 16px 42px;
+      font-size: 16px;
+      margin-bottom: 6px;
+      border-radius: 9999px;
     }
 
     .heroBottomBar {
       max-width: 100%;
       padding: 0 8px;
-      margin: 0 auto 16px;
+      margin: 0 auto 10px;
     }
 
     .marqueeLuxuryRibbon {
@@ -1546,59 +1511,23 @@
     }
 
     .stayEditorialTitle {
-      font-size: 21px;
-      margin-bottom: 8px;
+      font-size: 22px;
+      margin-bottom: 10px;
     }
 
     .stayEditorialParagraph {
-      font-size: 14.5px;
-      line-height: 1.68;
-    }
-
-    .dedicatedPricingCard {
-      padding: 20px 16px;
-      border-radius: 18px;
-      margin-top: 18px;
-    }
-
-        .heroSection {
-      padding: 76px 16px 18px;
-      justify-content: space-between;
-    }
-
-    .heroCenterContent {
-      margin-top: 3.5vh;
-      padding: 6px 0;
-      max-width: 100%;
-    }
-
-    .heroMainTitle {
-      font-size: clamp(36px, 9.2vw, 48px);
-      line-height: 1.1;
-      margin-bottom: 12px;
-    }
-
-    .heroTitleAccent {
-      font-size: clamp(22px, 5.6vw, 28px);
-      margin-top: 6px;
-    }
-
-    .heroSubtitle {
       font-size: 15px;
-      line-height: 1.62;
-      margin-bottom: 22px;
-      max-width: 95%;
-    }
-
-    .heroGoldBtn {
-      padding: 14px 32px;
-      font-size: 15.5px;
+      line-height: 1.72;
     }
 
     .compactPricingStrip {
-      padding: 16px 16px;
+      padding: 18px 16px;
       margin-top: 18px;
       border-radius: 18px;
+    }
+
+    .pricingStripTitle {
+      font-size: 19px;
     }
 
     .pricingStripGrid {
@@ -1607,21 +1536,23 @@
     }
 
     .pricingStripCol {
-      padding: 8px 10px;
+      padding: 10px 12px;
     }
 
     .pricingStripLabel {
-      font-size: 11.5px;
+      font-size: 12px;
     }
 
     .pricingStripValue {
-      font-size: 15px;
+      font-size: 16.5px;
     }
 
     .pricingStripFooter {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      text-align: center;
       gap: 6px;
+      font-size: 12px;
     }
 
     .reviewsSection {
@@ -1643,11 +1574,12 @@
     }
 
     .contactSection {
-      padding: 20px 16px 84px;
+      padding: 20px 16px 72px;
     }
 
     .contactCardText {
-      padding: 28px 20px;
+      padding: 24px 18px;
+      gap: 12px;
     }
 
     .quickBookingBox {
@@ -1842,16 +1774,14 @@
           </div>
         </div>
 
-        <!-- COMPACT LUXURY PRICING STRIP FOR VILLA -->
+        <!-- CLEAN MINIMAL LUXURY PRICING FOR VILLA -->
         <div class="compactPricingStrip">
           <div class="pricingStripTop">
             <h4 class="pricingStripTitle">
+              <span class="goldSpark">✦</span>
               <span>תעריפי אירוח בווילת הנופש</span>
-              <span class="pricingStripBadge">הזמנה ישירה ללא עמלות</span>
+              <span class="goldSpark">✦</span>
             </h4>
-            <a href="https://wa.me/972559961167?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A0%D7%97%D7%9E%D7%9F%2C%20%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%AA%D7%99%20%D7%9E%D7%90%D7%95%D7%93%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%AA%20%D7%90%D7%AA%D7%A8%20%D7%91%D7%A9%D7%91%D7%99%D7%9C%D7%99" target="_blank" rel="noopener" class="pricingStripLink">
-              <span>בדיקת תאריכים בוואטסאפ ←</span>
-            </a>
           </div>
           <div class="pricingStripGrid">
             <div class="pricingStripCol">
@@ -1872,7 +1802,8 @@
             </div>
           </div>
           <div class="pricingStripFooter">
-            <span>* כולל שימוש בלעדי בבריכה, חצר עצי הזית והסלון המרווח. תיאום ישיר מול נחמן.</span>
+            <span>* כולל שימוש בלעדי בבריכה, חצר עצי הזית והסלון המרווח. תיאום ישיר מול נחמן ללא פערי תיווך.</span>
+            <a href="https://wa.me/972559961167?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A0%D7%97%D7%9E%D7%9F%2C%20%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%AA%D7%99%20%D7%9E%D7%90%D7%95%D7%93%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%AA%20%D7%90%D7%AA%D7%A8%20%D7%91%D7%A9%D7%91%D7%99%D7%9C%D7%99" target="_blank" rel="noopener">בדיקת תאריכים בוואטסאפ ←</a>
           </div>
         </div>
       </div>
@@ -1913,16 +1844,14 @@
           </div>
         </div>
 
-        <!-- COMPACT LUXURY PRICING STRIP FOR SUITES -->
+        <!-- CLEAN MINIMAL LUXURY PRICING FOR SUITES -->
         <div class="compactPricingStrip">
           <div class="pricingStripTop">
             <h4 class="pricingStripTitle">
+              <span class="goldSpark">✦</span>
               <span>תעריפי סוויטות הבוטיק לזוגות</span>
-              <span class="pricingStripBadge">הזמנה ישירה ללא עמלות</span>
+              <span class="goldSpark">✦</span>
             </h4>
-            <a href="https://wa.me/972559961167?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A0%D7%97%D7%9E%D7%9F%2C%20%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%AA%D7%99%20%D7%9E%D7%90%D7%95%D7%93%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%AA%20%D7%90%D7%AA%D7%A8%20%D7%91%D7%A9%D7%91%D7%99%D7%9C%D7%99" target="_blank" rel="noopener" class="pricingStripLink">
-              <span>בדיקת תאריכים בוואטסאפ ←</span>
-            </a>
           </div>
           <div class="pricingStripGrid">
             <div class="pricingStripCol">
@@ -1943,7 +1872,8 @@
             </div>
           </div>
           <div class="pricingStripFooter">
-            <span>* כולל פינוקי בית חמימים, פטיו פרטי ואווירת רוגע מול החורש. תיאום ישיר מול נחמן.</span>
+            <span>* כולל פינוקי בית חמימים, פטיו פרטי ואווירת רוגע מול החורש. תיאום ישיר מול נחמן ללא פערי תיווך.</span>
+            <a href="https://wa.me/972559961167?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A0%D7%97%D7%9E%D7%9F%2C%20%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%AA%D7%99%20%D7%9E%D7%90%D7%95%D7%93%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%AA%20%D7%90%D7%AA%D7%A8%20%D7%91%D7%A9%D7%91%D7%99%D7%9C%D7%99" target="_blank" rel="noopener">בדיקת תאריכים בוואטסאפ ←</a>
           </div>
         </div>
       </div>
