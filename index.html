@@ -237,22 +237,22 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(circle at 50% 36%, rgba(14, 18, 15, 0.18) 0%, rgba(10, 14, 12, 0.58) 100%),
-      linear-gradient(180deg, rgba(12, 16, 14, 0.5) 0%, rgba(12, 16, 14, 0.14) 34%, rgba(10, 14, 12, 0.45) 68%, rgba(8, 12, 10, 0.9) 100%);
+      radial-gradient(circle at 50% 30%, rgba(10, 14, 12, 0.25) 0%, rgba(8, 12, 10, 0.58) 100%),
+      linear-gradient(180deg, rgba(8, 12, 10, 0.46) 0%, rgba(8, 12, 10, 0.15) 32%, rgba(6, 10, 8, 0.38) 68%, rgba(6, 10, 8, 0.86) 100%);
   }
 
   .heroCenterContent {
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 960px;
+    max-width: 1060px;
     text-align: center;
     color: #FFFFFF;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: auto 0;
+    margin-top: 4vh;
     padding: 10px 0;
   }
 
@@ -281,34 +281,34 @@
 
   .heroMainTitle {
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: clamp(44px, 5.8vw, 80px);
+    font-size: clamp(52px, 6.6vw, 92px);
     font-weight: 900;
-    line-height: 1.08;
+    line-height: 1.05;
     letter-spacing: -0.01em;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
     color: #FFFFFF;
     text-shadow: 0 8px 36px rgba(0, 0, 0, 0.8);
     animation: cinematicHeroTitle 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   .heroTitleAccent {
-    color: #F5E6C4;
-    font-weight: 400;
+    color: #F8EDD3;
+    font-weight: 500;
     font-style: italic;
-    font-size: clamp(24px, 3.1vw, 42px);
-    line-height: 1.25;
+    font-size: clamp(26px, 3.4vw, 46px);
+    line-height: 1.22;
     display: block;
-    margin-top: 6px;
+    margin-top: 8px;
     text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
   }
 
   .heroSubtitle {
-    font-size: clamp(16px, 1.4vw, 19.5px);
-    line-height: 1.68;
+    font-size: clamp(17px, 1.45vw, 21px);
+    line-height: 1.72;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.94);
-    max-width: 760px;
-    margin-bottom: 28px;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 840px;
+    margin-bottom: 34px;
     text-shadow: 0 2px 16px rgba(0, 0, 0, 0.75);
     animation: cinematicHeroSub 1.4s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
@@ -378,12 +378,10 @@
     width: max-content;
     direction: ltr;
     will-change: transform;
-    animation: marqueeDriftLTR 32s linear infinite;
+    animation: marqueeDriftLTR 52s linear infinite;
   }
 
-  .marqueeTrack:hover {
-    animation-play-state: paused;
-  }
+  /* hover pause disabled to avoid sticky touch states */
 
   .marqueeGroup {
     display: flex;
@@ -519,11 +517,28 @@
   }
 
   .stayPane {
-    transition: opacity 0.35s ease;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .hiddenStayPane {
-    display: none;
+    display: none !important;
+  }
+
+  .stayPane.paneFadeIn {
+    animation: paneSoftReveal 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes paneSoftReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* EDITORIAL STAY CARD (PURE CARD STRUCTURE) */
@@ -704,132 +719,110 @@
     line-height: 1.82;
   }
 
-  /* DEDICATED SEPARATE PRICING CARD */
-  .dedicatedPricingCard {
-    background: linear-gradient(165deg, #1C1916 0%, #110F0D 100%);
-    border: 1px solid rgba(243, 213, 141, 0.28);
-    border-radius: 24px;
-    padding: 32px;
-    margin-top: 24px;
-    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.12);
-    color: #FFFFFF;
+  /* COMPACT LUXURY PRICING STRIP (MATCHING SITE PALETTE, SHORT & CLEAN) */
+  .compactPricingStrip {
+    background: #FAF8F4;
+    border: 1px solid rgba(214, 200, 175, 0.85);
+    border-radius: 20px;
+    padding: 20px 24px;
+    margin-top: 22px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
   }
 
-  .pricingCardHeader {
+  .pricingStripTop {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
-    padding-bottom: 18px;
-    margin-bottom: 22px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(226, 216, 200, 0.7);
   }
 
-  .pricingCardKicker {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    color: #F3D58D;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 4px;
-  }
-
-  .pricingCardMainTitle {
+  .pricingStripTitle {
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 24px;
-    font-weight: 800;
-    color: #FFFFFF;
-  }
-
-  .pricingDirectBadge {
-    font-size: 11.5px;
-    font-weight: 800;
-    color: #141210;
-    background: linear-gradient(135deg, #F3D58D 0%, #D4AF37 100%);
-    padding: 4px 12px;
-    border-radius: 9999px;
-    white-space: nowrap;
-    letter-spacing: 0.04em;
-  }
-
-  .pricingItemsGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-    margin-bottom: 24px;
-  }
-
-  .pricingItemBox {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
-    padding: 16px 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    transition: border-color 0.2s ease, background 0.2s ease;
-  }
-
-  .pricingItemBox:hover {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: rgba(243, 213, 141, 0.35);
-  }
-
-  .pricingItemName {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.85);
-    font-weight: 500;
-  }
-
-  .pricingItemRate {
     font-size: 19px;
     font-weight: 800;
-    color: #F3D58D;
+    color: #1A1714;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
-  .pricingItemRate small {
-    font-size: 13px;
+  .pricingStripBadge {
+    font-size: 11px;
+    font-weight: 800;
+    color: #8C6A1D;
+    background: rgba(212, 175, 55, 0.14);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    padding: 3px 10px;
+    border-radius: 9999px;
+    letter-spacing: 0.03em;
+  }
+
+  .pricingStripGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .pricingStripCol {
+    background: #FFFFFF;
+    border: 1px solid rgba(226, 216, 200, 0.75);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: right;
+  }
+
+  .pricingStripLabel {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #635D56;
+  }
+
+  .pricingStripValue {
+    font-size: 17px;
+    font-weight: 800;
+    color: #1A1714;
+  }
+
+  .pricingStripValue strong {
+    color: #8C6A1D;
+  }
+
+  .pricingStripValue small {
+    font-size: 12px;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.65);
+    color: #827A71;
   }
 
-  .pricingCardActions {
+  .pricingStripFooter {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    gap: 12px;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(226, 216, 200, 0.7);
+    font-size: 12.5px;
+    color: #7A736A;
   }
 
-  .pricingCardDisclaimer {
-    font-size: 13.5px;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.5;
-    max-width: 540px;
-  }
-
-  .pricingCardWhatsAppBtn {
+  .pricingStripLink {
+    color: #8C6A1D;
+    font-weight: 700;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: linear-gradient(135deg, #F3D58D 0%, #D4AF37 55%, #B88E22 100%);
-    color: #141210;
-    font-size: 14.5px;
-    font-weight: 800;
-    padding: 12px 26px;
-    border-radius: 9999px;
-    border: 1px solid rgba(255, 248, 225, 0.85);
-    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.32);
-    white-space: nowrap;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    gap: 5px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
-  .pricingCardWhatsAppBtn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(212, 175, 55, 0.48);
+  .pricingStripLink:hover {
+    color: #1A1714;
   }
 
   /* ==========================================
@@ -1053,15 +1046,16 @@
 
   .contactMediaOverlayBadge {
     position: absolute;
-    bottom: 24px;
-    right: 24px;
-    left: 24px;
-    background: rgba(18, 16, 14, 0.78);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(243, 213, 141, 0.4);
-    border-radius: 18px;
-    padding: 16px 20px;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.18), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    padding: 12px 20px;
     color: #FFFFFF;
     display: flex;
     align-items: center;
@@ -1070,24 +1064,28 @@
   }
 
   .overlayBadgeText {
-    font-size: 14px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.92);
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
   }
 
   .overlayBadgeHighlight {
-    color: #F3D58D;
+    color: #F8E3A8;
     font-weight: 800;
-    font-size: 14.5px;
+    font-size: 15px;
     white-space: nowrap;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+    direction: ltr;
+    unicode-bidi: isolate;
   }
 
   .contactCardText {
-    padding: 46px 44px;
+    padding: 34px 38px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 16px;
+    gap: 14px;
   }
 
   .directBookingSymmetricBadge {
@@ -1563,53 +1561,67 @@
       margin-top: 18px;
     }
 
-    .pricingCardHeader {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-      padding-bottom: 12px;
-      margin-bottom: 14px;
+        .heroSection {
+      padding: 76px 16px 18px;
+      justify-content: space-between;
     }
 
-    .pricingCardMainTitle {
-      font-size: 19px;
-    }
-
-    .pricingItemsGrid {
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-
-    .pricingItemBox {
-      padding: 12px 14px;
-    }
-
-    .pricingItemName {
-      font-size: 13px;
-    }
-
-    .pricingItemRate {
-      font-size: 17px;
-    }
-
-    .pricingCardActions {
-      flex-direction: column;
-      align-items: stretch;
-      text-align: center;
-      gap: 12px;
-      padding-top: 14px;
-    }
-
-    .pricingCardDisclaimer {
-      font-size: 12.5px;
+    .heroCenterContent {
+      margin-top: 3.5vh;
+      padding: 6px 0;
       max-width: 100%;
     }
 
-    .pricingCardWhatsAppBtn {
-      width: 100%;
-      padding: 13px 20px;
-      font-size: 14.5px;
+    .heroMainTitle {
+      font-size: clamp(36px, 9.2vw, 48px);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .heroTitleAccent {
+      font-size: clamp(22px, 5.6vw, 28px);
+      margin-top: 6px;
+    }
+
+    .heroSubtitle {
+      font-size: 15px;
+      line-height: 1.62;
+      margin-bottom: 22px;
+      max-width: 95%;
+    }
+
+    .heroGoldBtn {
+      padding: 14px 32px;
+      font-size: 15.5px;
+    }
+
+    .compactPricingStrip {
+      padding: 16px 16px;
+      margin-top: 18px;
+      border-radius: 18px;
+    }
+
+    .pricingStripGrid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .pricingStripCol {
+      padding: 8px 10px;
+    }
+
+    .pricingStripLabel {
+      font-size: 11.5px;
+    }
+
+    .pricingStripValue {
+      font-size: 15px;
+    }
+
+    .pricingStripFooter {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
     }
 
     .reviewsSection {
@@ -1716,19 +1728,13 @@
   <section class="heroSection">
     <div class="heroBgContainer">
       <picture>
-        <source media="(max-width: 768px)" srcset="images/hero_adir_mobile.jpg">
-        <img src="images/hero_adir_lux.jpg" alt="נוף הרים עוצר נשימה בגליל העליון" class="heroCoverImage">
+        <source media="(max-width: 768px)" srcset="images/hero_galilee_nature_zimmer_mobile.jpg">
+        <img src="images/hero_galilee_nature_zimmer_desktop.jpg" alt="צימר בוטיק יוקרתי בלב הטבע של הגליל העליון" class="heroCoverImage">
       </picture>
       <div class="heroCinematicScrim"></div>
     </div>
 
     <div class="heroCenterContent">
-      <div class="heroKickerRow">
-        <span class="heroKickerLine"></span>
-        <span class="heroTopKicker">דף הדגמה וראווה בלעדי • כך ייראה האתר של הווילה שלכם בגליל</span>
-        <span class="heroKickerLine"></span>
-      </div>
-
       <h1 class="heroMainTitle">
         אתר ראווה יוקרתי
         <span class="heroTitleAccent">לווילות נופש ולמתחמי אירוח בגליל</span>
@@ -1836,43 +1842,41 @@
           </div>
         </div>
 
-        <!-- SEPARATE DEDICATED PRICING CARD FOR VILLA -->
-        <div class="dedicatedPricingCard">
-          <div class="pricingCardHeader">
-            <div>
-              <span class="pricingCardKicker">תמחור שקוף ומשתלם</span>
-              <h4 class="pricingCardMainTitle">מחירון הווילה להזמנה ישירה</h4>
-            </div>
-            <span class="pricingDirectBadge">ללא עמלות תיווך</span>
-          </div>
-          <div class="pricingItemsGrid">
-            <div class="pricingItemBox">
-              <span class="pricingItemName">סוף שבוע וחגים (מתחם מלא בבלעדיות)</span>
-              <span class="pricingItemRate">6,500 ₪ <small>/ לילה</small></span>
-            </div>
-            <div class="pricingItemBox">
-              <span class="pricingItemName">אמצע שבוע (א׳–ד׳, עד 10 אורחים)</span>
-              <span class="pricingItemRate">4,800 ₪ <small>/ לילה</small></span>
-            </div>
-            <div class="pricingItemBox">
-              <span class="pricingItemName">חבילת אירוח מורחבת (עד 14 אורחים)</span>
-              <span class="pricingItemRate">7,400 ₪ <small>/ לילה</small></span>
-            </div>
-            <div class="pricingItemBox">
-              <span class="pricingItemName">שהות של 2 לילות ומעלה באמצע שבוע</span>
-              <span class="pricingItemRate">4,400 ₪ <small>/ לילה</small></span>
-            </div>
-          </div>
-          <div class="pricingCardActions">
-            <p class="pricingCardDisclaimer">המחירים כוללים שימוש בלעדי בכל מתקני הוילה, הבריכה והחצר. תיאום ישיר מול נחמן.</p>
-            <a href="https://wa.me/972559961167?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A0%D7%97%D7%9E%D7%9F%2C%20%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%AA%D7%99%20%D7%9E%D7%90%D7%95%D7%93%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%AA%20%D7%90%D7%AA%D7%A8%20%D7%91%D7%A9%D7%91%D7%99%D7%9C%D7%99" target="_blank" rel="noopener" class="pricingCardWhatsAppBtn">
-              <span>בדיקת זמינות לווילה בוואטסאפ</span>
+        <!-- COMPACT LUXURY PRICING STRIP FOR VILLA -->
+        <div class="compactPricingStrip">
+          <div class="pricingStripTop">
+            <h4 class="pricingStripTitle">
+              <span>תעריפי אירוח בווילת הנופש</span>
+              <span class="pricingStripBadge">הזמנה ישירה ללא עמלות</span>
+            </h4>
+            <a href="https://wa.me/972559961167?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A0%D7%97%D7%9E%D7%9F%2C%20%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%AA%D7%99%20%D7%9E%D7%90%D7%95%D7%93%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%AA%20%D7%90%D7%AA%D7%A8%20%D7%91%D7%A9%D7%91%D7%99%D7%9C%D7%99" target="_blank" rel="noopener" class="pricingStripLink">
+              <span>בדיקת תאריכים בוואטסאפ ←</span>
             </a>
+          </div>
+          <div class="pricingStripGrid">
+            <div class="pricingStripCol">
+              <span class="pricingStripLabel">אמצע שבוע (א׳–ד׳)</span>
+              <span class="pricingStripValue"><strong>4,800 ₪</strong> <small>/ לילה</small></span>
+            </div>
+            <div class="pricingStripCol">
+              <span class="pricingStripLabel">סוף שבוע וחגים</span>
+              <span class="pricingStripValue"><strong>6,500 ₪</strong> <small>/ לילה</small></span>
+            </div>
+            <div class="pricingStripCol">
+              <span class="pricingStripLabel">הרכב אירוח בסיסי</span>
+              <span class="pricingStripValue"><strong>עד 10</strong> <small>אורחים</small></span>
+            </div>
+            <div class="pricingStripCol">
+              <span class="pricingStripLabel">הרחבה לקבוצות</span>
+              <span class="pricingStripValue"><strong>עד 14</strong> <small>אורחים במתחם</small></span>
+            </div>
+          </div>
+          <div class="pricingStripFooter">
+            <span>* כולל שימוש בלעדי בבריכה, חצר עצי הזית והסלון המרווח. תיאום ישיר מול נחמן.</span>
           </div>
         </div>
       </div>
-
-      <!-- PANE 2: BOUTIQUE WOODEN SUITES -->
+<!-- PANE 2: BOUTIQUE WOODEN SUITES -->
       <div id="unitsDisplayPane" class="stayPane hiddenStayPane">
         <div class="editorialStayCard">
           <div class="cinematicPhotoStage" id="unitsStageBox">
@@ -1909,42 +1913,41 @@
           </div>
         </div>
 
-        <!-- SEPARATE DEDICATED PRICING CARD FOR SUITES -->
-        <div class="dedicatedPricingCard">
-          <div class="pricingCardHeader">
-            <div>
-              <span class="pricingCardKicker">חופשה זוגית שלווה</span>
-              <h4 class="pricingCardMainTitle">מחירון סוויטות הבוטיק לזוגות</h4>
-            </div>
-            <span class="pricingDirectBadge">ללא עמלות תיווך</span>
-          </div>
-          <div class="pricingItemsGrid">
-            <div class="pricingItemBox">
-              <span class="pricingItemName">סוויטת בוטיק זוגית (סוף שבוע וחגים)</span>
-              <span class="pricingItemRate">2,100 ₪ <small>/ לילה</small></span>
-            </div>
-            <div class="pricingItemBox">
-              <span class="pricingItemName">סוויטת בוטיק זוגית (אמצע שבוע א׳–ד׳)</span>
-              <span class="pricingItemRate">1,650 ₪ <small>/ לילה</small></span>
-            </div>
-            <div class="pricingItemBox">
-              <span class="pricingItemName">חבילה רומנטית מורחבת (כולל יין בוטיק)</span>
-              <span class="pricingItemRate">2,450 ₪ <small>/ לילה</small></span>
-            </div>
-            <div class="pricingItemBox">
-              <span class="pricingItemName">שתי סוויטות צמודות (לזוגות חברים)</span>
-              <span class="pricingItemRate">3,100 ₪ <small>/ לילה</small></span>
-            </div>
-          </div>
-          <div class="pricingCardActions">
-            <p class="pricingCardDisclaimer">המחירים לזוג ללילה בהזמנה ישירה מול נחמן. כולל פינוקי בית חמימים ואווירה גלילית שלווה.</p>
-            <a href="https://wa.me/972559961167?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A0%D7%97%D7%9E%D7%9F%2C%20%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%AA%D7%99%20%D7%9E%D7%90%D7%95%D7%93%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%AA%20%D7%90%D7%AA%D7%A8%20%D7%91%D7%A9%D7%91%D7%99%D7%9C%D7%99" target="_blank" rel="noopener" class="pricingCardWhatsAppBtn">
-              <span>בדיקת זמינות לסוויטות בוואטסאפ</span>
+        <!-- COMPACT LUXURY PRICING STRIP FOR SUITES -->
+        <div class="compactPricingStrip">
+          <div class="pricingStripTop">
+            <h4 class="pricingStripTitle">
+              <span>תעריפי סוויטות הבוטיק לזוגות</span>
+              <span class="pricingStripBadge">הזמנה ישירה ללא עמלות</span>
+            </h4>
+            <a href="https://wa.me/972559961167?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A0%D7%97%D7%9E%D7%9F%2C%20%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%AA%D7%99%20%D7%9E%D7%90%D7%95%D7%93%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%9E%D7%97%D7%99%D7%A8%20%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%AA%20%D7%90%D7%AA%D7%A8%20%D7%91%D7%A9%D7%91%D7%99%D7%9C%D7%99" target="_blank" rel="noopener" class="pricingStripLink">
+              <span>בדיקת תאריכים בוואטסאפ ←</span>
             </a>
+          </div>
+          <div class="pricingStripGrid">
+            <div class="pricingStripCol">
+              <span class="pricingStripLabel">אמצע שבוע (א׳–ד׳)</span>
+              <span class="pricingStripValue"><strong>1,650 ₪</strong> <small>/ לילה</small></span>
+            </div>
+            <div class="pricingStripCol">
+              <span class="pricingStripLabel">סוף שבוע וחגים</span>
+              <span class="pricingStripValue"><strong>2,100 ₪</strong> <small>/ לילה</small></span>
+            </div>
+            <div class="pricingStripCol">
+              <span class="pricingStripLabel">חבילה רומנטית</span>
+              <span class="pricingStripValue"><strong>2,450 ₪</strong> <small>/ כולל יין</small></span>
+            </div>
+            <div class="pricingStripCol">
+              <span class="pricingStripLabel">אירוח זוגות חברים</span>
+              <span class="pricingStripValue"><strong>3,100 ₪</strong> <small>/ 2 סוויטות</small></span>
+            </div>
+          </div>
+          <div class="pricingStripFooter">
+            <span>* כולל פינוקי בית חמימים, פטיו פרטי ואווירת רוגע מול החורש. תיאום ישיר מול נחמן.</span>
           </div>
         </div>
       </div>
-    </div>
+</div>
   </section>
 
   <!-- 5. GUEST REVIEWS SECTION (LIQUID GLASS ARROWS + TOUCH SWIPE) -->
@@ -2081,15 +2084,21 @@
     if (!btnVilla || !btnUnits || !paneVilla || !paneUnits) return;
 
     if (type === "villa") {
+      if (btnVilla.classList.contains("activeModernTab")) return;
       btnVilla.classList.add("activeModernTab");
       btnUnits.classList.remove("activeModernTab");
-      paneVilla.classList.remove("hiddenStayPane");
       paneUnits.classList.add("hiddenStayPane");
+      paneUnits.classList.remove("paneFadeIn");
+      paneVilla.classList.remove("hiddenStayPane");
+      paneVilla.classList.add("paneFadeIn");
     } else {
+      if (btnUnits.classList.contains("activeModernTab")) return;
       btnUnits.classList.add("activeModernTab");
       btnVilla.classList.remove("activeModernTab");
-      paneUnits.classList.remove("hiddenStayPane");
       paneVilla.classList.add("hiddenStayPane");
+      paneVilla.classList.remove("paneFadeIn");
+      paneUnits.classList.remove("hiddenStayPane");
+      paneUnits.classList.add("paneFadeIn");
     }
   }
 
