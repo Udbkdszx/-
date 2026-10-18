@@ -294,6 +294,101 @@
       filter: brightness(1.1);
     }
 
+    .btn-jump-objections {
+      background: rgba(224, 186, 116, 0.15);
+      border: 1px solid rgba(224, 186, 116, 0.45);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-jump-objections:hover {
+      background: var(--accent);
+      color: #000;
+      transform: translateY(-1px);
+    }
+
+    .phone-script-box {
+      font-size: 18.5px;
+      line-height: 1.65;
+      color: #F8F8F8;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 20px;
+      font-weight: 500;
+    }
+
+    .phone-script-box strong {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .card-link-bottom {
+      margin-top: 14px;
+      padding: 12px 14px;
+      background: rgba(224, 186, 116, 0.08);
+      border: 1px solid rgba(224, 186, 116, 0.25);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    @media (min-width: 600px) {
+      .card-link-bottom {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .card-link-details {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .card-link-title {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .card-link-url {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .card-link-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .copy-btn-gold {
+      background: var(--accent) !important;
+      color: #000 !important;
+      border: none !important;
+      font-weight: 800 !important;
+      width: auto !important;
+      padding: 7px 16px !important;
+    }
+
+    .copy-btn-gold:hover {
+      filter: brightness(1.15) !important;
+    }
+
     /* אקורדיון */
     .accordion-item {
       border: 1px solid rgba(255, 255, 255, 0.06);
@@ -386,11 +481,31 @@
     <!-- הגריד הרחב של הדשבורד -->
     <div class="dashboard-grid">
 
-      <!-- כרטיס 1: פולו אפ מיידי אחרי שיחה (הכי שימושי) -->
-      <div class="card card-full" style="border-color: rgba(224, 186, 116, 0.35); background: rgba(224, 186, 116, 0.05);">
+      <!-- כרטיס 1 (בראש הדף ובגדול): שיחת טלפון ישירה -->
+      <div class="card card-full" style="border-color: rgba(224, 186, 116, 0.45); background: rgba(224, 186, 116, 0.06);">
         <div class="card-header">
-          <div class="card-title">🔥 הכי שימושי: פולו אפ אחרי שיחה ("שלח לי בוואטסאפ")</div>
-          <div class="tag-pill">מוכן להעתקה מיידית (ללא קישור מובנה)</div>
+          <div class="card-title" style="font-size: 19px;">📞 שיחת טלפון ישירה (25 שניות סה״כ)</div>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <a href="#objections" class="btn-jump-objections">🛡️ קפיצה למענה להתנגדויות ⬇️</a>
+            <div class="tag-pill">נוסח פתוח ואחיד</div>
+          </div>
+        </div>
+
+        <div class="phone-script-box" id="phoneScript">"היי, שלום. מדבר נחמן, אני מעצב ובונה אתרים פה מהגליל. תפסתי אותך בדיוק לחצי דקה או שבאמצע משהו?
+
+ראיתי את המתחם היפה שלכם, ובניתי אתר הדגמה יוקרתי מותאם לנייד, שמאפשר לאורחים לראות את כל המתחם ולסגור ישירות בוואטסאפ בלי עמלות של בוקינג. אפשר לשלוח לך קישור קצרצר לוואטסאפ שרק תציצו של עשר שניות ותגידו לי מה דעתכם?"</div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 4px;">
+          <button class="copy-btn" onclick="copyFromElem('phoneScript', this)" style="width: auto; padding: 7px 18px;">📋 העתק תסריט שיחה</button>
+          <a href="#objections" style="font-size: 13.5px; color: var(--accent); text-decoration: none; font-weight: 800;">מעלים התנגדות בשיחה? לחץ כאן למענה מהיר ⬇️</a>
+        </div>
+      </div>
+
+      <!-- כרטיס 2: פולו אפ מיידי אחרי שיחה ("שלח לי בוואטסאפ") -->
+      <div class="card card-full" style="border-color: rgba(255, 255, 255, 0.12);">
+        <div class="card-header">
+          <div class="card-title">🔥 פולו אפ אחרי שיחה ("שלח לי בוואטסאפ")</div>
+          <div class="tag-pill">מוכן להעתקה מיידית + קישור מובנה למטה</div>
         </div>
 
         <div class="gender-split-row">
@@ -417,33 +532,15 @@
           </div>
         </div>
 
-        <div style="font-size: 13px; color: var(--accent); margin-top: 4px;">
-          💡 טיפ: שלח את הטקסט, ומיד אחריו לחץ על "העתק קישור בלבד" למעלה ושלח את הקישור בהודעה נפרדת.
-        </div>
-      </div>
-
-      <!-- כרטיס 2: שיחת טלפון ישירה (25 שניות) -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title">📞 שיחת טלפון ישירה</div>
-          <div class="tag-pill">25 שניות סה״כ</div>
-        </div>
-
-        <div class="gender-split-row">
-          <!-- גבר -->
-          <div class="gender-col">
-            <div class="gender-badge-male">👨 מול גבר</div>
-            <div class="bubble-box">"היי, שלום. מדבר נחמן, אני מעצב ובונה אתרים פה מהגליל. תפסתי אותך בדיוק לחצי דקה או שאתה באמצע משהו?
-
-ראיתי את המתחם היפה שלכם, ובניתי אתר הדגמה יוקרתי מותאם לנייד, שמאפשר לאורחים לראות את כל המתחם ולסגור ישירות בוואטסאפ בלי עמלות של בוקינג. אפשר לשלוח לך קישור קצרצר לוואטסאפ שרק תעיף מבט של עשר שניות ותגיד לי מה דעתך?"</div>
+        <!-- קישור ישיר להדגמה בתחתית הכרטיסייה -->
+        <div class="card-link-bottom">
+          <div class="card-link-details">
+            <span class="card-link-title">🔗 קישור לאתר ההדגמה (לשליחה מיד אחרי הודעת הטקסט):</span>
+            <span class="card-link-url">https://vilatzivon.vercel.app</span>
           </div>
-
-          <!-- אישה -->
-          <div class="gender-col">
-            <div class="gender-badge-female">👩 מול אישה</div>
-            <div class="bubble-box">"היי, שלום. מדבר נחמן, אני מעצב ובונה אתרים פה מהגליל. תפסתי אותך בדיוק לחצי דקה או שאת באמצע משהו?
-
-ראיתי את המתחם היפה שלכם, ובניתי אתר הדגמה יוקרתי מותאם לנייד, שמאפשר לאורחים לראות את כל המתחם ולסגור ישירות בוואטסאפ בלי עמלות של בוקינג. אפשר לשלוח לך קישור קצרצר לוואטסאפ שרק תעיפי מבט של עשר שניות ותגידי לי מה דעתך?"</div>
+          <div class="card-link-actions">
+            <button class="copy-btn copy-btn-gold" onclick="copyText('https://vilatzivon.vercel.app', this)">📋 העתק קישור בלבד</button>
+            <a href="https://vilatzivon.vercel.app" target="_blank" class="copy-btn" style="width: auto; text-decoration: none; padding: 7px 14px;">🌐 פתח אתר</a>
           </div>
         </div>
       </div>
@@ -506,6 +603,17 @@
             <button class="copy-btn" onclick="copyFromElem('cold2F', this)">📋 העתק שלב 2 לאישה</button>
           </div>
         </div>
+
+        <!-- קישור להדגמה בתחתית הכרטיסייה -->
+        <div class="card-link-bottom">
+          <div class="card-link-details">
+            <span class="card-link-title">🔗 קישור להדגמה:</span>
+            <span class="card-link-url">https://vilatzivon.vercel.app</span>
+          </div>
+          <div class="card-link-actions">
+            <button class="copy-btn copy-btn-gold" onclick="copyText('https://vilatzivon.vercel.app', this)">📋 העתק קישור</button>
+          </div>
+        </div>
       </div>
 
       <!-- כרטיס 5: פולו אפים מתוזמנים (Follow Ups) -->
@@ -552,8 +660,8 @@
         </div>
       </div>
 
-      <!-- כרטיס 6: מענה להתנגדויות נפוצות -->
-      <div class="card card-full">
+      <!-- כרטיס 5: מענה להתנגדויות נפוצות -->
+      <div class="card card-full" id="objections" style="scroll-margin-top: 20px;">
         <div class="card-header">
           <div class="card-title">🛡️ מענה מהיר להתנגדויות</div>
           <div class="tag-pill">לחיצה על שאלה פותחת תשובה מלאה</div>
