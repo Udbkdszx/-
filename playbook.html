@@ -9,15 +9,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0C0F0E;
-      --card-bg: rgba(22, 28, 25, 0.72);
+      --bg: #0A0D0C;
+      --card-bg: rgba(20, 26, 23, 0.85);
       --card-border: rgba(255, 255, 255, 0.08);
       --accent: #E0BA74;
       --accent-glow: rgba(224, 186, 116, 0.25);
       --text-main: #F4F6F5;
       --text-muted: #9EABA4;
       --success: #34D399;
-      --bubble-bg: rgba(255, 255, 255, 0.04);
+      --male-tag: #60A5FA;
+      --female-tag: #F472B6;
     }
 
     * {
@@ -32,7 +33,7 @@
       color: var(--text-main);
       font-family: 'Assistant', sans-serif;
       line-height: 1.5;
-      padding: 16px;
+      padding: 16px 20px;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -41,22 +42,32 @@
 
     .container {
       width: 100%;
-      max-width: 680px;
+      max-width: 1440px;
       display: flex;
       flex-direction: column;
       gap: 16px;
-      padding-bottom: 40px;
+      padding-bottom: 50px;
     }
 
     header {
-      text-align: center;
-      padding: 18px 12px;
+      width: 100%;
+      padding: 18px 24px;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 20px;
       backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .header-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
 
     .badge {
@@ -64,16 +75,16 @@
       background: rgba(224, 186, 116, 0.12);
       color: var(--accent);
       border: 1px solid rgba(224, 186, 116, 0.3);
-      padding: 4px 12px;
+      padding: 3px 10px;
       border-radius: 100px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      margin-bottom: 8px;
-      letter-spacing: 0.5px;
+      width: fit-content;
+      margin-bottom: 4px;
     }
 
     h1 {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 800;
       color: #FFF;
       letter-spacing: -0.5px;
@@ -81,156 +92,214 @@
 
     p.subtitle {
       color: var(--text-muted);
+      font-size: 13.5px;
+    }
+
+    /* פס קישור עצמאי ראשי */
+    .link-hub-card {
+      width: 100%;
+      background: rgba(224, 186, 116, 0.08);
+      border: 1px solid rgba(224, 186, 116, 0.25);
+      border-radius: 16px;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .link-details {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .link-title {
+      font-weight: 800;
+      color: var(--accent);
+      font-size: 15px;
+    }
+
+    .link-url {
+      font-family: monospace;
       font-size: 14px;
-      margin-top: 4px;
+      color: #FFF;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 4px 10px;
+      border-radius: 6px;
+      direction: ltr;
+    }
+
+    .link-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    /* גריד רחב למחשב: 2 עמודות */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      width: 100%;
+    }
+
+    @media (min-width: 960px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     .card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 20px;
-      padding: 18px;
+      padding: 20px;
       backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .card-full {
+      grid-column: 1 / -1;
     }
 
     .card-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 14px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       padding-bottom: 10px;
     }
 
     .card-title {
-      font-size: 18px;
-      font-weight: 700;
+      font-size: 17px;
+      font-weight: 800;
       color: var(--accent);
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .tag-time {
+    .tag-pill {
       font-size: 12px;
       background: rgba(255, 255, 255, 0.08);
-      padding: 2px 8px;
+      padding: 3px 8px;
       border-radius: 6px;
       color: var(--text-muted);
     }
 
-    .rule-box {
-      background: rgba(224, 186, 116, 0.08);
-      border-right: 3px solid var(--accent);
-      padding: 12px 14px;
-      border-radius: 8px;
-      font-size: 14px;
-      color: #F0E6D2;
-      margin-bottom: 14px;
+    /* חלוקה לגבר ולאישה זה לצד זה */
+    .gender-split-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
     }
 
-    .dialogue-step {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 12px;
+    @media (min-width: 600px) {
+      .gender-split-row {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
-    .dialogue-step:last-child {
-      margin-bottom: 0;
-    }
-
-    .speaker {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-
-    .bubble {
-      background: var(--bubble-bg);
+    .gender-col {
+      background: rgba(255, 255, 255, 0.02);
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 14px;
-      padding: 12px 14px;
-      font-size: 15px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .gender-badge-male {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--male-tag);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .gender-badge-female {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--female-tag);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .bubble-box {
+      font-size: 14.5px;
       line-height: 1.55;
-      color: #FFF;
-      position: relative;
-    }
-
-    .bubble-user {
-      background: rgba(224, 186, 116, 0.06);
-      border-color: rgba(224, 186, 116, 0.18);
-    }
-
-    .bubble-prospect {
-      background: rgba(255, 255, 255, 0.02);
-      color: var(--text-muted);
-      font-style: italic;
+      color: #EEE;
+      white-space: pre-wrap;
     }
 
     .copy-btn {
-      margin-top: 8px;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.12);
       color: #FFF;
-      padding: 6px 12px;
+      padding: 7px 12px;
       border-radius: 8px;
       font-size: 13px;
       font-family: inherit;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       transition: all 0.2s ease;
-      align-self: flex-start;
+      width: 100%;
+    }
+
+    .copy-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
     }
 
     .copy-btn:active {
-      transform: scale(0.96);
+      transform: scale(0.98);
       background: var(--accent);
       color: #000;
     }
 
     .copy-btn.copied {
-      background: var(--success);
+      background: var(--success) !important;
+      color: #000 !important;
+      border-color: var(--success) !important;
+    }
+
+    .btn-link-action {
+      background: var(--accent);
       color: #000;
-      border-color: var(--success);
-    }
-
-    .link-box {
-      display: flex;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px dashed rgba(224, 186, 116, 0.4);
-      padding: 10px 14px;
-      border-radius: 10px;
-      margin-top: 6px;
-      gap: 8px;
+      gap: 6px;
+      transition: all 0.2s;
     }
 
-    .link-text {
-      color: var(--accent);
-      font-family: monospace;
-      font-size: 14px;
-      direction: ltr;
-      word-break: break-all;
+    .btn-link-action:hover {
+      filter: brightness(1.1);
     }
 
+    /* אקורדיון */
     .accordion-item {
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 12px;
-      margin-bottom: 8px;
       overflow: hidden;
       background: rgba(255, 255, 255, 0.02);
-    }
-
-    .accordion-item:last-child {
-      margin-bottom: 0;
     }
 
     .accordion-header {
@@ -242,7 +311,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      user-select: none;
     }
 
     .accordion-header:hover {
@@ -250,8 +318,8 @@
     }
 
     .accordion-body {
-      padding: 0 14px 12px 14px;
-      font-size: 14px;
+      padding: 0 14px 14px 14px;
+      font-size: 13.5px;
       color: var(--text-muted);
       line-height: 1.5;
       display: none;
@@ -263,21 +331,15 @@
 
     .grid-terms {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 10px;
-    }
-
-    @media (max-width: 480px) {
-      .grid-terms {
-        grid-template-columns: 1fr;
-      }
     }
 
     .term-card {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 10px 12px;
-      border-radius: 10px;
+      padding: 12px;
+      border-radius: 12px;
     }
 
     .term-label {
@@ -288,7 +350,7 @@
 
     .term-val {
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 800;
       color: #FFF;
     }
   </style>
@@ -297,224 +359,288 @@
 
   <div class="container">
     
+    <!-- כותרת ראשית -->
     <header>
-      <div class="badge">פרוטוקול שדה חי</div>
-      <h1>תסריטי פנייה וסגירה: מתחמי אירוח</h1>
-      <p class="subtitle">אפס ספאם • מיקרו הסכמה בלבד • פתיחה מהירה בכל מכשיר</p>
+      <div class="header-info">
+        <div class="badge">פרוטוקול שדה חי 2026</div>
+        <h1>תסריטי פנייה וסגירה: מתחמי אירוח</h1>
+        <p class="subtitle">פריסה רחבה למחשב ולנייד • הפרדה מלאה לגברים ולנשים • קישור בנפרד בלחיצה אחת</p>
+      </div>
+      <div>
+        <a href="prospects.html" class="btn-link-action">📋 לפתוח את רשימת 20 הלידים</a>
+      </div>
     </header>
 
-    <div class="card">
-      <div class="rule-box">
-        <strong>כלל ברזל יחיד:</strong> לא מוכרים אתר בפנייה הראשונה. המטרה היחידה היא לקבל אישור לשלוח קישור שיציץ 10 שניות מהנייד.
+    <!-- פס קישור עצמאי ראשי (העתקה בנפרד) -->
+    <div class="link-hub-card">
+      <div class="link-details">
+        <span class="link-title">🔗 הקישור לאתר ההדגמה:</span>
+        <span class="link-url">https://vilatzivon.vercel.app</span>
       </div>
-      <div class="link-box">
-        <span class="link-text">https://vilatzivon.vercel.app</span>
-        <button class="copy-btn" onclick="copyText('https://vilatzivon.vercel.app', this)">העתק קישור</button>
-      </div>
-    </div>
-
-    <!-- ערוץ טלפון -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">📞 שיחת טלפון ישירה</div>
-        <div class="tag-time">25 שניות סה״כ</div>
-      </div>
-
-      <div class="dialogue-step">
-        <div class="speaker">פתיחה ובדיקת פניות</div>
-        <div class="bubble bubble-user">
-          "היי [שם בעל המתחם], שלום. מדבר [השם שלך], אני מעצב ובונה אתרים פה מהגליל. תפסתי אותך בדיוק לחצי דקה או שאתה באמצע משהו?"
-        </div>
-      </div>
-
-      <div class="dialogue-step">
-        <div class="speaker">תגובת בעל המתחם</div>
-        <div class="bubble bubble-prospect">
-          "במה מדובר? / דבר מהר אני עמוס."
-        </div>
-      </div>
-
-      <div class="dialogue-step">
-        <div class="speaker">הצעת המיקרו הסכמה (שקופה, ברורה וממוקדת)</div>
-        <div class="bubble bubble-user">
-          "ראיתי את המתחם היפה שלכם ב[שם הישוב], ובניתי אתר הדגמה יוקרתי מותאם במיוחד לנייד, שמאפשר לאורחים לראות את כל המתחם ולסגור ישירות בוואטסאפ בלי עמלות של בוקינג. אפשר לשלוח לך קישור קצרצר לוואטסאפ שרק תעיף מבט של עשר שניות ותגיד לי מה דעתך?"
-        </div>
-      </div>
-
-      <div class="dialogue-step">
-        <div class="speaker">סגירת השיחה</div>
-        <div class="bubble bubble-user">
-          "מעולה, שולח לך עכשיו מהמספר הזה. תציץ בנחת כשתתפנה ונדבר. תודה!"
-        </div>
+      <div class="link-actions">
+        <button class="copy-btn" style="width: auto; padding: 6px 14px;" onclick="copyText('https://vilatzivon.vercel.app', this)">📋 העתק קישור בלבד</button>
+        <a href="https://vilatzivon.vercel.app" target="_blank" class="copy-btn" style="width: auto; text-decoration: none; padding: 6px 14px;">🌐 פתח אתר</a>
       </div>
     </div>
 
-    <!-- ערוץ וואטסאפ -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">💬 הודעות וואטסאפ</div>
-        <div class="tag-time">לפי מצב</div>
-      </div>
+    <!-- הגריד הרחב של הדשבורד -->
+    <div class="dashboard-grid">
 
-      <!-- פולו אפ אחרי שיחה קצרה: "שלח לי בוואטסאפ" -->
-      <div class="dialogue-step" style="background: rgba(224, 186, 116, 0.08); border-radius: 12px; padding: 12px; margin-bottom: 14px;">
-        <div class="speaker" style="color: var(--accent);">🔥 הכי שימושי: פולו אפ מתומצת אחרי שיחה ("שלח לי בוואטסאפ")</div>
-        <div class="bubble bubble-user" id="waQuickCallFollowup">
-היי, זה נחמן, דיברנו עכשיו.
-
-הנה הקישור להדגמה:
-https://vilatzivon.vercel.app
-
-רק רציתי שתציץ/י בדוגמה לאיך שזה יכול להיראות: נטען ברגע, מציג את המקום בשיא היוקרה, ומאפשר לאורח לסגור ישירות בוואטסאפ בלי עמלות תיווך.
-
-תעיף/י מבט ותעדכנ/י אם נשמע לך מעניין!
+      <!-- כרטיס 1: פולו אפ מיידי אחרי שיחה (הכי שימושי) -->
+      <div class="card card-full" style="border-color: rgba(224, 186, 116, 0.35); background: rgba(224, 186, 116, 0.05);">
+        <div class="card-header">
+          <div class="card-title">🔥 הכי שימושי: פולו אפ אחרי שיחה ("שלח לי בוואטסאפ")</div>
+          <div class="tag-pill">מוכן להעתקה מיידית (ללא קישור מובנה)</div>
         </div>
-        <button class="copy-btn" onclick="copyFromElem('waQuickCallFollowup', this)">העתק פולו אפ קצר אחרי שיחה</button>
+
+        <div class="gender-split-row">
+          <!-- גבר -->
+          <div class="gender-col">
+            <div class="gender-badge-male">👨 פנייה לגבר</div>
+            <div class="bubble-box" id="callM">היי, זה נחמן, דיברנו עכשיו.
+
+רק רציתי שתציץ בדוגמה לאיך שזה יכול להיראות: נטען ברגע, מציג את המקום בשיא היוקרה, ומאפשר לאורח לסגור ישירות בוואטסאפ בלי עמלות תיווך.
+
+תעיף מבט ותעדכן אם נשמע לך מעניין!</div>
+            <button class="copy-btn" onclick="copyFromElem('callM', this)">📋 העתק הודעה לגבר</button>
+          </div>
+
+          <!-- אישה -->
+          <div class="gender-col">
+            <div class="gender-badge-female">👩 פנייה לאישה</div>
+            <div class="bubble-box" id="callF">היי, זה נחמן, דיברנו עכשיו.
+
+רק רציתי שתציצי בדוגמה לאיך שזה יכול להיראות: נטען ברגע, מציג את המקום בשיא היוקרה, ומאפשר לאורח לסגור ישירות בוואטסאפ בלי עמלות תיווך.
+
+תעיפי מבט ותעדכני אם נשמע לך מעניין!</div>
+            <button class="copy-btn" onclick="copyFromElem('callF', this)">📋 העתק הודעה לאישה</button>
+          </div>
+        </div>
+
+        <div style="font-size: 13px; color: var(--accent); margin-top: 4px;">
+          💡 טיפ: שלח את הטקסט, ומיד אחריו לחץ על "העתק קישור בלבד" למעלה ושלח את הקישור בהודעה נפרדת.
+        </div>
       </div>
 
-      <!-- שלב 1: פנייה קרה בוואטסאפ -->
-      <div class="dialogue-step">
-        <div class="speaker">שלב 1: פנייה קרה (ללא שיחה מקדימה)</div>
-        <div class="bubble bubble-user" id="waStep1">
-היי [שם], מה שלומך?
-זה [השם שלך] מהגליל. ראיתי את המתחם היפה שלכם ב[שם הישוב].
+      <!-- כרטיס 2: שיחת טלפון ישירה (25 שניות) -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">📞 שיחת טלפון ישירה</div>
+          <div class="tag-pill">25 שניות סה״כ</div>
+        </div>
+
+        <div class="gender-split-row">
+          <!-- גבר -->
+          <div class="gender-col">
+            <div class="gender-badge-male">👨 מול גבר</div>
+            <div class="bubble-box">"היי, שלום. מדבר נחמן, אני מעצב ובונה אתרים פה מהגליל. תפסתי אותך בדיוק לחצי דקה או שאתה באמצע משהו?
+
+ראיתי את המתחם היפה שלכם, ובניתי אתר הדגמה יוקרתי מותאם לנייד, שמאפשר לאורחים לראות את כל המתחם ולסגור ישירות בוואטסאפ בלי עמלות של בוקינג. אפשר לשלוח לך קישור קצרצר לוואטסאפ שרק תעיף מבט של עשר שניות ותגיד לי מה דעתך?"</div>
+          </div>
+
+          <!-- אישה -->
+          <div class="gender-col">
+            <div class="gender-badge-female">👩 מול אישה</div>
+            <div class="bubble-box">"היי, שלום. מדבר נחמן, אני מעצב ובונה אתרים פה מהגליל. תפסתי אותך בדיוק לחצי דקה או שאת באמצע משהו?
+
+ראיתי את המתחם היפה שלכם, ובניתי אתר הדגמה יוקרתי מותאם לנייד, שמאפשר לאורחים לראות את כל המתחם ולסגור ישירות בוואטסאפ בלי עמלות של בוקינג. אפשר לשלוח לך קישור קצרצר לוואטסאפ שרק תעיפי מבט של עשר שניות ותגידי לי מה דעתך?"</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- כרטיס 3: פנייה קרה בוואטסאפ (שלב 1 ללא שיחה) -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">💬 פנייה קרה בוואטסאפ (שלב 1)</div>
+          <div class="tag-pill">בלי קישור בהודעה הראשונה</div>
+        </div>
+
+        <div class="gender-split-row">
+          <!-- גבר -->
+          <div class="gender-col">
+            <div class="gender-badge-male">👨 פנייה לגבר</div>
+            <div class="bubble-box" id="cold1M">היי, מה שלומך?
+זה נחמן מהגליל. ראיתי את המתחם היפה שלכם.
+
 אני מעצב ובונה אתרי יוקרה לנייד לבעלי מתחמים באזור, שמאפשרים לאורחים להתרשם מכל המקום ולסגור תאריכים ישירות מולך בוואטסאפ (במקום לשלם עמלות כבדות לאתרי תיווך).
-פנוי שאשלח לך קישור קצרצר של עשר שניות להציץ באיך שזה נראה?
-        </div>
-        <button class="copy-btn" onclick="copyFromElem('waStep1', this)">העתק פנייה קרה (שלב 1)</button>
-      </div>
 
-      <div class="dialogue-step" style="margin-top: 14px;">
-        <div class="speaker">שלב 2: משלוח הקישור (רק אחרי שענה "כן / שלח")</div>
-        <div class="bubble bubble-user" id="waStep2">
-איזה יופי, הנה הקישור לאתר ההדגמה:
-https://vilatzivon.vercel.app
-פתח/י את זה מהנייד ותרגיש/י חופשי לגלול שנייה.
-אשמח לשמוע מה דעתך!
-        </div>
-        <button class="copy-btn" onclick="copyFromElem('waStep2', this)">העתק משלוח קישור (שלב 2)</button>
-      </div>
-    </div>
+פנוי שאשלח לך קישור קצרצר של עשר שניות להציץ באיך שזה נראה?</div>
+            <button class="copy-btn" onclick="copyFromElem('cold1M', this)">📋 העתק שלב 1 לגבר</button>
+          </div>
 
-    <!-- פולו אפ -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">⏱️ תסריטי פולו אפ מתוזמנים</div>
-      </div>
+          <!-- אישה -->
+          <div class="gender-col">
+            <div class="gender-badge-female">👩 פנייה לאישה</div>
+            <div class="bubble-box" id="cold1F">היי, מה שלומך?
+זה נחמן מהגליל. ראיתי את המתחם היפה שלכם.
 
-      <div class="dialogue-step">
-        <div class="speaker">פולו אפ 1: שעתיים עד שלוש אחרי שליחת הקישור</div>
-        <div class="bubble bubble-user" id="fu1">
-היי [שם], יצא לך להציץ בקישור מהנייד?
-סקרן לשמוע מה חשבת על הסגנון.
-        </div>
-        <button class="copy-btn" onclick="copyFromElem('fu1', this)">העתק פולו אפ 1</button>
-      </div>
+אני מעצב ובונה אתרי יוקרה לנייד לבעלי מתחמים באזור, שמאפשרים לאורחים להתרשם מכל המקום ולסגור תאריכים ישירות מולך בוואטסאפ (במקום לשלם עמלות כבדות לאתרי תיווך).
 
-      <div class="dialogue-step" style="margin-top: 14px;">
-        <div class="speaker">פולו אפ 2: למחרת בבוקר</div>
-        <div class="bubble bubble-user" id="fu2">
-בוקר טוב [שם],
-רק רציתי לוודא שהקישור נפתח לך כמו שצריך.
-אם אתה אוהב את הכיוון, אני יכול להתאים מערכת כזו בדיוק למתחם שלכם תוך יומיים שלושה.
-        </div>
-        <button class="copy-btn" onclick="copyFromElem('fu2', this)">העתק פולו אפ 2</button>
-      </div>
-
-      <div class="dialogue-step" style="margin-top: 14px;">
-        <div class="speaker">פולו אפ 3: 48 שעות אחרי (שחרור לחץ אחרון)</div>
-        <div class="bubble bubble-user" id="fu3">
-היי [שם], מניח שאתה עמוס עם אורחים ואירוח.
-הקישור אצלך בכל מקרה. אם תרצה לשדרג את התצוגה של המתחם מתישהו, אני זמין כאן. שיהיה שבוע מצוין!
-        </div>
-        <button class="copy-btn" onclick="copyFromElem('fu3', this)">העתק פולו אפ 3</button>
-      </div>
-    </div>
-
-    <!-- מענה מהיר להתנגדויות -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">🛡️ מענה מהיר להתנגדויות</div>
-      </div>
-
-      <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAcc(this)">
-          <span>"איך יגיעו לאתר? מאיפה מגיע קידום?"</span>
-          <span>▾</span>
-        </div>
-        <div class="accordion-body">
-          "שאלה מעולה ותכל'ס. אף צימר בגליל לא מתחרה בגוגל על המילה 'צימרים בצפון' כי אתרי ענק שורפים על זה מיליונים. האתר לא נועד לייצר פנטזיות קידום, אלא לתפקד כמנוע סגירה והצלת כסף בארבעה מקומות עיקריים:<br><br>
-          1. <strong>עקיפת עמלות בוקינג (אפקט השלט):</strong> מעל 60% מהאנשים שרואים אתכם בבוקינג מחפשים את השם שלכם בגוגל כדי לסגור ישירות. אם אין אתר נקי, הם חוזרים לבוקינג ואתם משלמים 18% עמלה. הזמנה ישירה אחת מצילה 700 עד 1,000 שקלים עמלה ישירות לכיס שלכם.<br><br>
-          2. <strong>סגירה מהירה בוואטסאפ:</strong> במקום להפציץ לקוח מתעניין ב: 30 תמונות כבדות שתוקעות לו את הטלפון, שולחים קישור אדריכלי יוקרתי אחד שמעביר תחושת יוקרה וסוגר במקום.<br><br>
-          3. <strong>המלצות מפה לאוזן:</strong> כשאורח מרוצה שולח קישור לחברים, הוא שולח את הנכס שלכם ולא דף באינדקס שבו החברים יראו פתאום 10 מתחרים לידכם.<br><br>
-          4. <strong>גוגל מפות ואינסטגרם:</strong> הקישור המרכזי שלכם בגוגל מפות וברשתות הופך לחיבור ישיר לוואטסאפ שלכם."
+פנויה שאשלח לך קישור קצרצר של עשר שניות להציץ באיך שזה נראה?</div>
+            <button class="copy-btn" onclick="copyFromElem('cold1F', this)">📋 העתק שלב 1 לאישה</button>
+          </div>
         </div>
       </div>
 
-      <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAcc(this)">
-          <span>"כמה דבר כזה עולה בכלל?"</span>
-          <span>▾</span>
+      <!-- כרטיס 4: שלב 2 (אחרי שענו "כן / שלח") -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">🚀 שלב 2 (אחרי שאישרו לשלוח)</div>
+          <div class="tag-pill">משלוח הטקסט והקישור בנפרד</div>
         </div>
-        <div class="accordion-body">
-          "המחיר הרגיל הוא 3,800 שקלים. כרגע אני פותח 3 מקומות בלבד במחיר היכרות של 2,800 שקלים פלוס מע״מ בתמורה לקרדיט קטן והמלצה. האתר כולל הכל, עולה תוך 72 שעות, וסגירה ישירה אחת במקום עמלת בוקינג כבר מחזירה לך את כל ההשקעה."
+
+        <div class="gender-split-row">
+          <!-- גבר -->
+          <div class="gender-col">
+            <div class="gender-badge-male">👨 לגבר</div>
+            <div class="bubble-box" id="cold2M">איזה יופי, שלחתי לך את הקישור להדגמה. תציץ מהנייד ותרגיש חופשי לגלול שנייה.
+אשמח לשמוע מה דעתך!</div>
+            <button class="copy-btn" onclick="copyFromElem('cold2M', this)">📋 העתק שלב 2 לגבר</button>
+          </div>
+
+          <!-- אישה -->
+          <div class="gender-col">
+            <div class="gender-badge-female">👩 לאישה</div>
+            <div class="bubble-box" id="cold2F">איזה יופי, שלחתי לך את הקישור להדגמה. תציצי מהנייד ותרגישי חופשית לגלול שנייה.
+אשמח לשמוע מה דעתך!</div>
+            <button class="copy-btn" onclick="copyFromElem('cold2F', this)">📋 העתק שלב 2 לאישה</button>
+          </div>
         </div>
       </div>
 
-      <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAcc(this)">
-          <span>"יש לי כבר אתר ישן או דף פייסבוק"</span>
-          <span>▾</span>
+      <!-- כרטיס 5: פולו אפים מתוזמנים (Follow Ups) -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">⏱️ פולו אפים מתוזמנים</div>
+          <div class="tag-pill">אם לא הגיבו עדיין</div>
         </div>
-        <div class="accordion-body">
-          "מעולה שיש בסיס. העניין הוא שהיום 90% מהאורחים גולשים מהסמארטפון. אתרים ישנים נטענים לאט ולא מראים את האיכות האמיתית של המקום. המערכת הזו נטענת ברגע ומעבירה את הלקוח ישר לוואטסאפ שלך לסגירת תאריכים."
+
+        <!-- פולו אפ 1 -->
+        <div style="font-weight: 700; font-size: 13.5px; color: var(--accent);">פולו אפ 1: שעתיים עד שלוש אחרי שליחת הקישור</div>
+        <div class="gender-split-row">
+          <div class="gender-col">
+            <div class="gender-badge-male">👨 לגבר</div>
+            <div class="bubble-box" id="fu1M">היי, יצא לך להציץ בקישור?
+סקרן לשמוע מה חשבת.</div>
+            <button class="copy-btn" onclick="copyFromElem('fu1M', this)">📋 העתק לגבר</button>
+          </div>
+          <div class="gender-col">
+            <div class="gender-badge-female">👩 לאישה</div>
+            <div class="bubble-box" id="fu1F">היי, יצא לך להציץ בקישור?
+סקרן לשמוע מה חשבת.</div>
+            <button class="copy-btn" onclick="copyFromElem('fu1F', this)">📋 העתק לאישה</button>
+          </div>
+        </div>
+
+        <!-- פולו אפ 2 -->
+        <div style="font-weight: 700; font-size: 13.5px; color: var(--accent); margin-top: 10px;">פולו אפ 2: למחרת בבוקר</div>
+        <div class="gender-split-row">
+          <div class="gender-col">
+            <div class="gender-badge-male">👨 לגבר</div>
+            <div class="bubble-box" id="fu2M">בוקר טוב,
+רק רציתי לוודא שהקישור נפתח לך חלק.
+אם אתה אוהב את הכיוון, אני יכול להעמיד לך דף כזה בדיוק תוך יומיים שלושה.</div>
+            <button class="copy-btn" onclick="copyFromElem('fu2M', this)">📋 העתק לגבר</button>
+          </div>
+          <div class="gender-col">
+            <div class="gender-badge-female">👩 לאישה</div>
+            <div class="bubble-box" id="fu2F">בוקר טוב,
+רק רציתי לוודא שהקישור נפתח לך חלק.
+אם את אוהבת את הכיוון, אני יכול להעמיד לך דף כזה בדיוק תוך יומיים שלושה.</div>
+            <button class="copy-btn" onclick="copyFromElem('fu2F', this)">📋 העתק לאישה</button>
+          </div>
         </div>
       </div>
 
-      <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAcc(this)">
-          <span>"אני עובד רק דרך בוקינג"</span>
-          <span>▾</span>
+      <!-- כרטיס 6: מענה להתנגדויות נפוצות -->
+      <div class="card card-full">
+        <div class="card-header">
+          <div class="card-title">🛡️ מענה מהיר להתנגדויות</div>
+          <div class="tag-pill">לחיצה על שאלה פותחת תשובה מלאה</div>
         </div>
-        <div class="accordion-body">
-          "בוקינג זה מעולה לחשיפה, אבל הם לוקחים לך 15% עד 18% מכל הזמנה. באתר פרטי כזה, כל לקוח שמגיע אליך חוזר ישירות אליך וחוסך לך אלפי שקלים של עמלות כל חודש."
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAcc(this)">
+              <span>"איך יגיעו לאתר? מאיפה מגיע קידום?"</span>
+              <span>▾</span>
+            </div>
+            <div class="accordion-body">
+              "שאלה מעולה ותכל'ס. אף צימר בגליל לא מתחרה בגוגל על המילה 'צימרים בצפון' כי אתרי ענק שורפים על זה מיליונים. האתר לא נועד לייצר פנטזיות קידום, אלא לתפקד כמנוע סגירה והצלת כסף בארבעה מקומות עיקריים:<br><br>
+              1. <strong>עקיפת עמלות בוקינג (אפקט השלט):</strong> מעל 60% מהאנשים שרואים אתכם בבוקינג מחפשים את השם שלכם בגוגל כדי לסגור ישירות. אם אין אתר נקי, הם חוזרים לבוקינג ואתם משלמים 18% עמלה. הזמנה ישירה אחת מצילה 700 עד 1,000 שקלים עמלה ישירות לכיס שלכם.<br><br>
+              2. <strong>סגירה מהירה בוואטסאפ:</strong> במקום להפציץ לקוח מתעניין ב: 30 תמונות כבדות שתוקעות לו את הטלפון, שולחים קישור אדריכלי יוקרתי אחד שמעביר תחושת יוקרה וסוגר במקום.<br><br>
+              3. <strong>המלצות מפה לאוזן:</strong> כשאורח מרוצה שולח קישור לחברים, הוא שולח את הנכס שלכם ולא דף באינדקס שבו החברים יראו פתאום 10 מתחרים לידכם.<br><br>
+              4. <strong>גוגל מפות ואינסטגרם:</strong> הקישור המרכזי שלכם בגוגל מפות וברשתות הופך לחיבור ישיר לוואטסאפ שלכם."
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAcc(this)">
+              <span>"כמה דבר כזה עולה בכלל?"</span>
+              <span>▾</span>
+            </div>
+            <div class="accordion-body">
+              "המחיר הרגיל הוא 3,800 שקלים. כרגע אני פותח 3 מקומות בלבד במחיר היכרות של 2,800 שקלים פלוס מע״מ בתמורה לקרדיט קטן והמלצה. האתר כולל הכל, עולה תוך 72 שעות, וסגירה ישירה אחת במקום עמלת בוקינג כבר מחזירה לך את כל ההשקעה."
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAcc(this)">
+              <span>"יש לי כבר אתר ישן או דף פייסבוק"</span>
+              <span>▾</span>
+            </div>
+            <div class="accordion-body">
+              "מעולה שיש בסיס. העניין הוא שהיום 90% מהאורחים גולשים מהסמארטפון. אתרים ישנים נטענים לאט ולא מראים את האיכות האמיתית של המקום. המערכת הזו נטענת ברגע ומעבירה את הלקוח ישר לוואטסאפ שלך לסגירת תאריכים."
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAcc(this)">
+              <span>"אני עובד רק דרך בוקינג"</span>
+              <span>▾</span>
+            </div>
+            <div class="accordion-body">
+              "בוקינג זה מעולה לחשיפה, אבל הם לוקחים לך 15% עד 18% מכל הזמנה. באתר פרטי כזה, כל לקוח שמגיע אליך חוזר ישירות אליך וחוסך לך אלפי שקלים של עמלות כל חודש."
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAcc(this)">
+              <span>"אין לי זמן להתעסק עם זה עכשיו"</span>
+              <span>▾</span>
+            </div>
+            <div class="accordion-body">
+              "בדיוק בשביל זה אנחנו כאן. אתה לא עושה כלום חוץ מלשלוח לי את התמונות והמחירים בוואטסאפ. תוך 72 שעות האתר באוויר מוכן לקבל הזמנות."
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAcc(this)">
-          <span>"אין לי זמן להתעסק עם זה עכשיו"</span>
-          <span>▾</span>
+      <!-- כרטיס 7: תנאי סגירה -->
+      <div class="card card-full">
+        <div class="card-header">
+          <div class="card-title">📋 תנאי עבודה וסגירה</div>
         </div>
-        <div class="accordion-body">
-          "בדיוק בשביל זה אנחנו כאן. אתה לא עושה כלום חוץ מלשלוח לי את התמונות והמחירים בוואטסאפ. תוך 72 שעות האתר באוויר מוכן לקבל הזמנות."
+        <div class="grid-terms">
+          <div class="term-card">
+            <div class="term-label">מחיר חדירה (3 ראשונים)</div>
+            <div class="term-val">2,800 ₪ + מע״מ</div>
+          </div>
+          <div class="term-card">
+            <div class="term-label">זמן אספקה</div>
+            <div class="term-val">72 שעות</div>
+          </div>
+          <div class="term-card">
+            <div class="term-label">סבבי דיוקים</div>
+            <div class="term-val">2 סבבים (14 יום)</div>
+          </div>
+          <div class="term-card">
+            <div class="term-label">עלות שרת ואחסון</div>
+            <div class="term-val">0 ₪ (Vercel / Cloudflare)</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- תנאי סגירה -->
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">📋 תנאי עבודה וסגירה</div>
-      </div>
-      <div class="grid-terms">
-        <div class="term-card">
-          <div class="term-label">מחיר חדירה (3 ראשונים)</div>
-          <div class="term-val">2,800 ₪ + מע״מ</div>
-        </div>
-        <div class="term-card">
-          <div class="term-label">זמן אספקה</div>
-          <div class="term-val">72 שעות</div>
-        </div>
-        <div class="term-card">
-          <div class="term-label">סבבי דיוקים</div>
-          <div class="term-val">2 סבבים (14 יום)</div>
-        </div>
-        <div class="term-card">
-          <div class="term-label">עלות שרת ואחסון</div>
-          <div class="term-val">0 ₪ (Vercel / Cloudflare)</div>
-        </div>
-      </div>
     </div>
 
   </div>
