@@ -353,29 +353,46 @@
     <div class="card">
       <div class="card-header">
         <div class="card-title">💬 הודעות וואטסאפ</div>
-        <div class="tag-time">2 שלבים בלבד</div>
+        <div class="tag-time">מותאם למצב</div>
       </div>
 
+      <!-- מצב א: דיברנו בטלפון ואמרו "שלח לי בוואטסאפ" -->
+      <div class="dialogue-step" style="background: rgba(224, 186, 116, 0.08); border-radius: 12px; padding: 12px; margin-bottom: 14px;">
+        <div class="speaker" style="color: var(--accent);">🔥 הכי נפוץ: פולו אפ אחרי שיחה ("אני באוטובוס/עסוק, שלח לי בוואטסאפ")</div>
+        <div class="bubble bubble-user" id="waAfterCall">
+היי [שם], זה מי שדיבר איתך הרגע בטלפון לגבי האתר ל[שם המתחם].
+
+הנה הקישור לאתר ההדגמה החי:
+https://vilatzivon.vercel.app
+
+בנינו דף תצוגה והזמנות יוקרתי מותאם במיוחד לנייד, שמאפשר לאורחים לראות את כל המתחם ברמה הכי גבוהה וללחוץ ישירות לוואטסאפ שלכם לסגירת תאריכים (בלי לגזור עמלות של 18% לבוקינג).
+
+תציץ/י בזה בנחת כשתתפנ/י ונשמע מה דעתך!
+        </div>
+        <button class="copy-btn" onclick="copyFromElem('waAfterCall', this)">העתק הודעת פולו אפ טלפון</button>
+      </div>
+
+      <!-- מצב ב: פנייה קרה בוואטסאפ -->
       <div class="dialogue-step">
-        <div class="speaker">שלב 1: הודעת פתיחה (בלי קישור)</div>
+        <div class="speaker">מצב ב: פנייה קרה ראשונה (ללא שיחה מקדימה)</div>
         <div class="bubble bubble-user" id="waStep1">
 היי [שם], מה שלומך?
-זה [השם שלך], אני פה מהגליל. ראיתי את המתחם המקסים שלכם ב[שם הישוב].
-הרמתי לאחרונה פרויקט מיוחד שמציג מתחמי פרימיום באזור ברמה הכי יוקרתית שיש היום.
-אפשר לשלוח לך קישור קצרצר של עשר שניות רק להתרשמות?
+זה [השם שלך] מהגליל. ראיתי את המתחם היפה שלכם ב[שם הישוב].
+אני מעצב ובונה אתרי יוקרה לנייד לבעלי מתחמים באזור, שמאפשרים לאורחים להתרשם מכל המקום ולסגור תאריכים ישירות מולך בוואטסאפ (במקום לשלם עמלות כבדות לאתרי תיווך).
+פנוי שאשלח לך קישור קצרצר של עשר שניות להציץ באיך שזה נראה?
         </div>
-        <button class="copy-btn" onclick="copyFromElem('waStep1', this)">העתק הודעה 1</button>
+        <button class="copy-btn" onclick="copyFromElem('waStep1', this)">העתק פנייה קרה (שלב 1)</button>
       </div>
 
       <div class="dialogue-step" style="margin-top: 14px;">
         <div class="speaker">שלב 2: משלוח הקישור (רק אחרי שענה "כן / שלח")</div>
         <div class="bubble bubble-user" id="waStep2">
-איזה יופי, הנה הקישור:
+איזה יופי, הנה הקישור לאתר ההדגמה:
 https://vilatzivon.vercel.app
-פתח את זה מהנייד ותרגיש חופשי לגלול שנייה.
+פתח/י את זה מהנייד ותרגיש/י חופשי לגלול שנייה.
 אשמח לשמוע מה דעתך!
         </div>
-        <button class="copy-btn" onclick="copyFromElem('waStep2', this)">העתק הודעה 2</button>
+        <button class="copy-btn" onclick="copyFromElem('waStep2', this)">העתק משלוח קישור (שלב 2)</button>
       </div>
     </div>
 
