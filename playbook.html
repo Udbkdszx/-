@@ -353,31 +353,12 @@
     <div class="card">
       <div class="card-header">
         <div class="card-title">💬 הודעות וואטסאפ</div>
-        <div class="tag-time">מותאם למצב</div>
+        <div class="tag-time">2 שלבים בלבד</div>
       </div>
 
-      <!-- מקרה א: התקשרת, אמרו שלא שומעים/באוטובוס/עסוקים וביקשו הודעה -->
-      <div class="dialogue-step" style="background: rgba(224, 186, 116, 0.08); border-radius: 12px; padding: 12px; margin-bottom: 14px;">
-        <div class="speaker" style="color: var(--accent);">🔥 מקרה לינדה: התקשרת, אמרו שלא שומעים / באוטובוס וביקשו הודעה</div>
-        <div class="bubble bubble-user" id="waNoisyCall">
-היי [שם], מה שלומך?
-זה מי שהתקשר לפני כמה דקות ולא שמעת טוב ברעש / באוטובוס.
-
-קוראים לי [השם שלך], אני מעצב ובונה אתרים פה מהגליל. ראיתי את המתחם המהמם שלכם ב[שם הישוב].
-
-בניתי אתר הדגמה יוקרתי מותאם במיוחד לנייד, שמאפשר לאורחים לראות את כל המתחם ברמה הכי גבוהה ולסגור תאריכים ישירות מולכם בוואטסאפ (במקום לשלם עמלות של 18% לבוקינג).
-
-הנה הקישור להדגמה החיה:
-https://vilatzivon.vercel.app
-
-תציץ/י בזה בנחת כשתתפנ/י, ואשמח לשמוע מה דעתך!
-        </div>
-        <button class="copy-btn" onclick="copyFromElem('waNoisyCall', this)">העתק הודעה למקרה שלא שמעו בטלפון</button>
-      </div>
-
-      <!-- מצב ב: פנייה קרה בוואטסאפ -->
+      <!-- שלב 1: פנייה קרה בוואטסאפ -->
       <div class="dialogue-step">
-        <div class="speaker">מצב ב: פנייה קרה ראשונה (ללא שיחה מקדימה)</div>
+        <div class="speaker">שלב 1: פנייה קצרה (בלי קישור)</div>
         <div class="bubble bubble-user" id="waStep1">
 היי [שם], מה שלומך?
 זה [השם שלך] מהגליל. ראיתי את המתחם היפה שלכם ב[שם הישוב].
