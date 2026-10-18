@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>רשימת 20 מתחמי יוקרה לפנייה: גליל עליון וסביבת ציבון</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0C0F0E;
+      --card-bg: rgba(22, 28, 25, 0.76);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent: #E0BA74;
+      --accent-glow: rgba(224, 186, 116, 0.25);
+      --text-main: #F4F6F5;
+      --text-muted: #9EABA4;
+      --success: #34D399;
+      --wa-color: #25D366;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Assistant', sans-serif;
+      line-height: 1.5;
+      padding: 16px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding-bottom: 50px;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 14px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(224, 186, 116, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(224, 186, 116, 0.3);
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #FFF;
+      letter-spacing: -0.5px;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .top-nav-bar {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    .top-link-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #FFF;
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .top-link-btn:hover {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+    }
+
+    .prospect-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 16px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .prospect-card:hover {
+      border-color: rgba(224, 186, 116, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .item-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      background: rgba(224, 186, 116, 0.15);
+      color: var(--accent);
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 800;
+      margin-left: 6px;
+    }
+
+    .place-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: #FFF;
+      display: flex;
+      align-items: center;
+    }
+
+    .location-tag {
+      font-size: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .owner-row {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .detail-box {
+      background: rgba(255, 255, 255, 0.03);
+      border-right: 3px solid var(--accent);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      color: #E2E8E5;
+      line-height: 1.45;
+    }
+
+    .status-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-top: 4px;
+      background: rgba(239, 68, 68, 0.12);
+      color: #F87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .action-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .action-btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-call {
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFF;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-call:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .btn-wa {
+      background: rgba(37, 211, 102, 0.15);
+      color: var(--wa-color);
+      border: 1px solid rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-wa:hover {
+      background: var(--wa-color);
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <header>
+      <div class="badge">מאגר לידים מאומת 2026</div>
+      <h1>20 מתחמי יוקרה מובילים לפנייה</h1>
+      <p class="subtitle">הגליל העליון וסביבת ציבון • ללא אתר או עם אתר גרוע • לחיצה לחיוג ולוואטסאפ</p>
+      <div class="top-nav-bar">
+        <a href="playbook.html" class="top-link-btn">📖 לפתוח תסריטי שיחה ופנייה</a>
+        <a href="https://vilatzivon.vercel.app" target="_blank" class="top-link-btn">✨ אתר ההדגמה החי</a>
+      </div>
+    </header>
+
+    <!-- 1 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">1</span>אחוזת טגנגה</div>
+        <div class="location-tag">ספסופה (5 דקות מציבון)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: מעיין ונוי</div>
+      <div class="detail-box">
+        וילת נופש קסומה עם בריכה מחוממת וציון 4.9. נקראת על שם כפר דייגים בקולומביה. אין להם אתר עצמאי כלל, רק דפי פרסום בפסגה ובפייסבוק.
+      </div>
+      <div><span class="status-badge">ללא אתר כלל</span></div>
+      <div class="action-row">
+        <a href="tel:0508567451" class="action-btn btn-call">📞 חייג 050-8567451</a>
+        <a href="https://wa.me/972508567451?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%A2%D7%99%D7%99%D7%9F%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%9a%D7%99%20%D7%90%D7%AA%20%D7%90%D7%97%D7%95%D7%96%D7%AA%20%D7%98%D7%92%D7%A0%D7%92%D7%94%20%D7%94%D7%9E%D7%94%D7%9E%D7%9E%D7%AA%20%D7%91%D7%A1%D7%A4%D7%A1%D7%95%D7%A4%D7%94.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%9C%D7%90%D7%97%D7%A8%D7%95%D7%A0%D7%94%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8%20%D7%91%D7%A8%D7%9E%D7%94%20%D7%94%D7%9B%D7%99%20%D7%99%D7%95%D7%A7%D7%A8%D7%AA%D7%99%D7%AA%20%D7%A9%D7%99%D7%A9.%20%D7%A4%D7%A0%D7%95%D7%99%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%9C%D7%9a%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">2</span>וילה לוזון</div>
+        <div class="location-tag">כרם בן זמרה (6 דקות מציבון)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: לינדה</div>
+      <div class="detail-box">
+        4 חדרי שינה יוקרתיים מול כרמי היין, בריכה מחוממת ומקורה עם סאונה. לוקחים 3,000+ ₪ ללילה. ללא אתר עצמאי רשמי, תלות מוחלטת בפורטלי עמלות.
+      </div>
+      <div><span class="status-badge">ללא אתר כלל</span></div>
+      <div class="action-row">
+        <a href="tel:0506370434" class="action-btn btn-call">📞 חייג 050-6370434</a>
+        <a href="https://wa.me/972506370434?text=%D7%94%D7%99%D7%99%20%D7%9C%D7%99%D7%A0%D7%93%D7%94%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%95%D7%99%D7%9C%D7%94%20%D7%9C%D7%95%D7%96%D7%95%D7%9F%20%D7%94%D7%9E%D7%A7%D7%A1%D7%99%D7%9E%D7%94%20%D7%91%D7%9B%D7%A8%D7%95%20%D7%91%D7%9F%20%D7%96%D7%9E%D7%A8%D7%94.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">3</span>יו אנד מי (You & Me)</div>
+        <div class="location-tag">מתת (10 דקות מציבון)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: יובל ומירה תלם</div>
+      <div class="detail-box">
+        סוויטות זוגיות אקסקלוסיביות בשיא רכס מתת בלב יער אלונים מול נוף פנורמי. האתר שלהם (yuandmi.in) ישן מאוד, מבוסס דומיין הודי ולא מותאם לנייד.
+      </div>
+      <div><span class="status-badge">אתר ישן ואיטי</span></div>
+      <div class="action-row">
+        <a href="tel:0544371415" class="action-btn btn-call">📞 חייג 054-4371415</a>
+        <a href="https://wa.me/972544371415?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%99%D7%A8%D7%94%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%A1%D7%95%D7%95%D7%99%D7%98%D7%95%D7%AA%20%D7%94%D7%9E%D7%93%D7%94%D7%99%D7%9E%D7%95%D7%AA%20%D7%A9%D7%9C%D7%9B%D7%9D%20%D7%91%D7%9E%D7%AA%D7%AA.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%D7%94%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">4</span>קפלנד - חוויה גלילית</div>
+        <div class="location-tag">מתת (10 דקות מציבון)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: גל וקרן</div>
+      <div class="detail-box">
+        בית נופש ענק וסוויטות יוקרה בתוך היער עם בריכת זרמים מחוממת ומקורה וסאונה. מתחם יקר מאוד ללילה ללא אתר בית עצמאי מודרני.
+      </div>
+      <div><span class="status-badge">ללא אתר כלל</span></div>
+      <div class="action-row">
+        <a href="tel:0544993840" class="action-btn btn-call">📞 חייג 054-4993840</a>
+        <a href="https://wa.me/972544993840?text=%D7%94%D7%99%D7%99%20%D7%92%D7%9C%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%A7%D7%A4%D7%9C%D7%A0%D7%93%20%D7%94%D7%9E%D7%A8%D7%A9%D7%99%D7%9E%D7%94%20%D7%91%D7%9E%D7%AA%D7%AA.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">5</span>הבית של יוסף</div>
+        <div class="location-tag">ספסופה (למרגלות מירון)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: יוסף דדון</div>
+      <div class="detail-box">
+        וילה כפרית יוקרתית עם בריכת שחייה פרטית מול נוף מרהיב של הר מירון. מדורגת 4.8, ללא אתר בית עצמאי, מקבלת פניות רק מאינדקסים ישנים.
+      </div>
+      <div><span class="status-badge">ללא אתר כלל</span></div>
+      <div class="action-row">
+        <a href="tel:0554537736" class="action-btn btn-call">📞 חייג 055-4537736</a>
+        <a href="https://wa.me/972554537736?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A3%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%AA%D7%97%D7%9D%20%D7%94%D7%99%D7%A4%D7%94%20%D7%A9%D7%9C%D7%9B%D7%9D%20%D7%91%D7%A1%D7%A4%D7%A1%D7%95%D7%A4%D7%94.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">6</span>וילה מור ולבונה</div>
+        <div class="location-tag">ספסופה (5 דקות מציבון)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: אסי</div>
+      <div class="detail-box">
+        וילת נופש גדולה ומאובזרת עם בריכה מחוממת ומתחם ג'קוזי ספא. תלוי לחלוטין באינדקסים של באלי וילה ואיזי, ללא מיתוג עצמאי.
+      </div>
+      <div><span class="status-badge">ללא אתר כלל</span></div>
+      <div class="action-row">
+        <a href="tel:0586014322" class="action-btn btn-call">📞 חייג 058-6014322</a>
+        <a href="https://wa.me/972586014322?text=%D7%94%D7%99%D7%99%20%D7%90%D7%A1%D7%99%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%9E%D7%95%D7%A8%20%D7%95%D7%9C%D7%91%D7%95%D7%A0%D7%94%20%D7%91%D7%A1%D7%A4%D7%A1%D7%95%D7%A4%D7%94.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">7</span>הבית של בלה</div>
+        <div class="location-tag">כרם בן זמרה (6 דקות מציבון)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: נאווה וגבי</div>
+      <div class="detail-box">
+        סוויטות יוקרה ומתחם חיצוני מוקפד עם בריכה מחוממת מול כרמים. מקום פרימיום שלוקח אלפי שקלים ללילה, ללא אתר בית עצמאי.
+      </div>
+      <div><span class="status-badge">ללא אתר כלל</span></div>
+      <div class="action-row">
+        <a href="tel:0529098844" class="action-btn btn-call">📞 חייג 052-9098844</a>
+        <a href="https://wa.me/972529098844?text=%D7%94%D7%99%D7%99%20%D7%A0%D7%90%D7%95%D7%95%D7%94%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%91%D7%99%D7%AA%20%D7%A9%D7%9C%20%D7%91%D7%9C%D7%94%20%D7%94%D7%9E%D7%A7%D7%A1%D7%99%D7%9D%20%D7%91%D7%9B%D7%A8%D7%95%20%D7%91%D7%9F%20%D7%96%D7%9E%D7%A8%D7%94.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%D7%94%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">8</span>לה וילה (La Villa)</div>
+        <div class="location-tag">בית ג'אן (פסגת הר הארי)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: זיאד סלאלחה</div>
+      <div class="detail-box">
+        וילה יוקרתית מעל העננים בגובה 1,040 מטר עם בריכה מחוממת ונוף פנורמי מדהים. האתר הנוכחי (la-villa-beit-jean.co.il) מיושן מאוד ואיטי.
+      </div>
+      <div><span class="status-badge">אתר ישן ואיטי</span></div>
+      <div class="action-row">
+        <a href="tel:0542353556" class="action-btn btn-call">📞 חייג 054-2353556</a>
+        <a href="https://wa.me/972542353556?text=%D7%94%D7%99%D7%99%20%D7%96%D7%99%D7%90%D7%93%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%9C%D7%94%20%D7%95%D7%99%D7%9C%D7%94%20%D7%94%D7%9E%D7%A8%D7%A9%D7%99%D7%9E%D7%94%20%D7%91%D7%91%D7%99%D7%AA%20%D7%92%27%D7%90%D7%9F.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">9</span>אור בכרם</div>
+        <div class="location-tag">כרם בן זמרה (6 דקות מציבון)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: אנט</div>
+      <div class="detail-box">
+        בקתות עץ יוקרתיות ורומנטיות לזוגות בתוך גן פורח וכרם ענבים. ללא אתר בית עצמאי, תלות מוחלטת בפורטלי עמלות כגון בורדו 100 והפסגה.
+      </div>
+      <div><span class="status-badge">ללא אתר כלל</span></div>
+      <div class="action-row">
+        <a href="tel:0554537243" class="action-btn btn-call">📞 חייג 055-4537243</a>
+        <a href="https://wa.me/972554537243?text=%D7%94%D7%99%D7%99%20%D7%90%D7%A0%D7%98%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%90%D7%95%D7%A8%20%D7%91%D7%9B%D7%A8%D7%9D%20%D7%94%D7%A4%D7%A1%D7%98%D7%95%D7%A8%D7%9C%D7%99%20%D7%91%D7%9B%D7%A8%D7%95%20%D7%91%D7%9F%20%D7%96%D7%9E%D7%A8%D7%94.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%D7%94%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">10</span>וילה ויו (Vila View)</div>
+        <div class="location-tag">עמוקה (יער ביריה מול החולה)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: דורית ויוסף</div>
+      <div class="detail-box">
+        וילה כפרית ובקתות עץ יוקרתיות מבודדות בתוך יער עמוקה מול נוף עמק החולה. ללא אתר בית עצמאי, מקבלים פניות רק מאינדקסים.
+      </div>
+      <div><span class="status-badge">ללא אתר כלל</span></div>
+      <div class="action-row">
+        <a href="tel:0554537579" class="action-btn btn-call">📞 חייג 055-4537579</a>
+        <a href="https://wa.me/972554537579?text=%D7%94%D7%99%D7%99%20%D7%93%D7%95%D7%A8%D7%99%D7%AA%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%95%D7%99%D7%9C%D7%94%20%D7%95%D7%99%D7%95%20%D7%94%D7%A4%D7%A1%D7%98%D7%95%D7%A8%D7%9C%D7%99%D7%AA%20%D7%91%D7%A2%D7%9E%D7%95%D7%A7%D7%94.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%D7%94%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">11</span>וילה נובה</div>
+        <div class="location-tag">דלתון (8 דקות מציבון)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: מוטי / דוד</div>
+      <div class="detail-box">
+        וילת נופש גדולה עם בריכת שחייה בנויה, מתחם ספא ושולחנות משחק. ללא אתר בית עצמאי, נשענים על אינדקס וילות בצפון.
+      </div>
+      <div><span class="status-badge">ללא אתר כלל</span></div>
+      <div class="action-row">
+        <a href="tel:0529172984" class="action-btn btn-call">📞 חייג 052-9172984</a>
+        <a href="https://wa.me/972529172984?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%95%D7%98%D7%99%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%95%D7%99%D7%9C%D7%94%20%D7%A0%D7%95%D7%91%D7%94%20%D7%91%D7%93%D7%9C%D7%AA%D7%95%D7%9F.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">12</span>וילה בלו בוטיק</div>
+        <div class="location-tag">דלתון (8 דקות מציבון)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: דגנית ולורן</div>
+      <div class="detail-box">
+        וילת בוטיק מעוצבת למשפחות עם בריכה מחוממת ומתחם גן מטופח. אין אתר בית עצמאי, רק כרטיס פרסום באתר וילות.
+      </div>
+      <div><span class="status-badge">ללא אתר כלל</span></div>
+      <div class="action-row">
+        <a href="tel:0529172679" class="action-btn btn-call">📞 חייג 052-9172679</a>
+        <a href="https://wa.me/972529172679?text=%D7%94%D7%99%D7%99%20%D7%93%D7%92%D7%A0%D7%99%D7%AA%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%91%D7%9C%D7%95%20%D7%91%D7%95%D7%98%D7%99%D7%A7%20%D7%91%D7%93%D7%9C%D7%AA%D7%95%D7%9F.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%D7%94%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 13 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">13</span>סבן דרים (Seven Dream)</div>
+        <div class="location-tag">דלתון (8 דקות מציבון)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: בת שבע</div>
+      <div class="detail-box">
+        מתחם וילה יוקרתי ומפנק עם בריכת שחייה גדולה ומתחם ספא סגור. ללא אתר עצמאי, תלות מלאה בעמלות מתווכים ופורטלים.
+      </div>
+      <div><span class="status-badge">ללא אתר כלל</span></div>
+      <div class="action-row">
+        <a href="tel:0529709511" class="action-btn btn-call">📞 חייג 052-9709511</a>
+        <a href="https://wa.me/972529709511?text=%D7%94%D7%99%D7%99%20%D7%91%D7%AA%20%D7%A9%D7%91%D7%A2%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%A1%D7%91%D7%9F%20%D7%93%D7%A8%D7%99%D7%9D%20%D7%91%D7%93%D7%9C%D7%AA%D7%95%D7%9F.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%D7%94%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 14 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">14</span>אור במרום</div>
+        <div class="location-tag">ספסופה (5 דקות מציבון)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: נתן ושלומית</div>
+      <div class="detail-box">
+        וילת נופש מול נוף הרי מירון לאירוח משפחות עם בריכה פרטית וחצר מטופחת. ללא אתר בית עצמאי מותאם לנייד.
+      </div>
+      <div><span class="status-badge">ללא אתר כלל</span></div>
+      <div class="action-row">
+        <a href="tel:0529126285" class="action-btn btn-call">📞 חייג 052-9126285</a>
+        <a href="https://wa.me/972529126285?text=%D7%94%D7%99%D7%99%20%D7%A0%D7%AA%D7%9F%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%90%D7%95%D7%A8%20%D7%91%D7%9E%D7%A8%D7%95%D7%9D%20%D7%91%D7%A1%D7%A4%D7%A1%D7%95%D7%A4%D7%94.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 15 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">15</span>אחוזת שבעת הכוכבים</div>
+        <div class="location-tag">ספסופה (5 דקות מציבון)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: אליקו</div>
+      <div class="detail-box">
+        אחוזת נופש גדולה עם בריכה מחוממת ומקורה ומתקני אירוח יוקרתיים. מופיעה רק באינדקסים ישנים (villas.co.il) ללא נוכחות עצמאית.
+      </div>
+      <div><span class="status-badge">ללא אתר כלל</span></div>
+      <div class="action-row">
+        <a href="tel:0529708132" class="action-btn btn-call">📞 חייג 052-9708132</a>
+        <a href="https://wa.me/972529708132?text=%D7%94%D7%99%D7%99%20%D7%90%D7%9C%D7%99%D7%A7%D7%95%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%A9%D7%91%D7%A2%D7%AA%20%D7%94%D7%9 prospective%20%D7%91%D7%A1%D7%A4%D7%A1%D7%95%D7%A4%D7%94.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 16 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">16</span>וילה אצל ירדנה</div>
+        <div class="location-tag">ספסופה (5 דקות מציבון)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: ירדנה</div>
+      <div class="detail-box">
+        מתחם וילות ותיק ומבוקש עם דירוג גבוה ברחוב תרשיש. האתר הקיים שלהם (villayardena.co.il) ישן מאוד, איטי ולא מותאם לסמארטפונים.
+      </div>
+      <div><span class="status-badge">אתר ישן ולא מותאם</span></div>
+      <div class="action-row">
+        <a href="tel:0529708118" class="action-btn btn-call">📞 חייג 052-9708118</a>
+        <a href="https://wa.me/972529708118?text=%D7%94%D7%99%D7%99%20%D7%99%D7%A8%D7%93%D7%A0%D7%94%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%AA%D7%97%D7%9D%20%D7%94%D7%99%D7%A4%D7%94%20%D7%A9%D7%9C%D7%9B%D7%9D%20%D7%91%D7%A1%D7%A4%D7%A1%D7%95%D7%A4%D7%94.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%D7%94%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 17 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">17</span>וילה קסטלו</div>
+        <div class="location-tag">ראש פינה (עמק החולה והחרמון)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: דביר ודור</div>
+      <div class="detail-box">
+        וילת נופש אקסקלוסיבית עם בריכה ונוף פנורמי לחרמון. פועלת דרך פורטלי באלי וילה ואיזי ללא אתר בית עצמאי ייצוגי.
+      </div>
+      <div><span class="status-badge">ללא אתר כלל</span></div>
+      <div class="action-row">
+        <a href="tel:0529707742" class="action-btn btn-call">📞 חייג 052-9707742</a>
+        <a href="https://wa.me/972529707742?text=%D7%94%D7%99%D7%99%20%D7%93%D7%91%D7%99%D7%A8%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%A7%D7%A1%D7%98%D7%9C%D7%95%20%D7%91%D7%A8%D7%90%D7%A9%20%D7%A4%D7%99%D7%A0%D7%94.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 18 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">18</span>רום אמירים (Rom Amirim)</div>
+        <div class="location-tag">אמירים (מול הכנרת וההרים)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: משפחת רום</div>
+      <div class="detail-box">
+        וילות יוקרה וסוויטות ספא מבודדות מול נוף הכנרת. האתר הנוכחי (rom-amirim.co.il) מיושן, כבד וחסר חוויית פרימיום מהירה מותאמת לנייד.
+      </div>
+      <div><span class="status-badge">אתר ישן ואיטי</span></div>
+      <div class="action-row">
+        <a href="tel:0523327720" class="action-btn btn-call">📞 חייג 052-3327720</a>
+        <a href="https://wa.me/972523327720?text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9B%D7%9D%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%A8%D7%95%D7%9D%20%D7%90%D7%9E%D7%99%D7%A8%D7%99%D7%9D%20%D7%94%D7%9E%D7%A8%D7%A9%D7%99%D7%9D.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%D7%9D%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 19 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">19</span>וילה מונסון</div>
+        <div class="location-tag">עין יעקב (גליל מערבי / עליון)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: נאור</div>
+      <div class="detail-box">
+        וילת נופש ענקית ויוקרתית מבודדת עם בריכה וספא. האתר הישן (villamonsoon.co.il) מיושן מאוד, בנוי בטכנולוגיה עתיקה ולא מותאם לסטנדרט 2026.
+      </div>
+      <div><span class="status-badge">אתר עתיק ואיטי</span></div>
+      <div class="action-row">
+        <a href="tel:0522851964" class="action-btn btn-call">📞 חייג 052-2851964</a>
+        <a href="https://wa.me/972522851964?text=%D7%94%D7%99%D7%99%20%D7%A0%D7%90%D7%95%D7%A8%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%95%D7%99%D7%9C%D7%94%20%D7%9E%D7%95%D7%A0%D7%A1%D7%95%D7%9F%20%D7%91%D7%A2%D7%99%D7%9F%20%D7%99%D7%A2%D7%A7%D7%91.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+    <!-- 20 -->
+    <div class="prospect-card">
+      <div class="card-top">
+        <div class="place-name"><span class="item-num">20</span>גבעת השלווה</div>
+        <div class="location-tag">חורפיש (12 דקות מציבון)</div>
+      </div>
+      <div class="owner-row">👤 בעלים: שאדי וראנא</div>
+      <div class="detail-box">
+        סוויטות ומתחם אירוח פסטורלי על רכס ההר עם בריכה מחוממת מול נוף גלילי עוצר נשימה. ללא אתר עצמאי כלל, רק כרטיס בצימר.קואיל.
+      </div>
+      <div><span class="status-badge">ללא אתר כלל</span></div>
+      <div class="action-row">
+        <a href="tel:0554541992" class="action-btn btn-call">📞 חייג 055-4541992</a>
+        <a href="https://wa.me/972554541992?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%90%D7%93%D7%99%2C%20%D7%9E%D7%94%20%D7%A9%D7%9C%D7%95%D7%9E%D7%9A%3F%20%D7%96%D7%94%20%D7%A4%D7%94%20%D7%9E%D7%94%D7%92%D7%9C%D7%99%D7%9C.%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%92%D7%91%D7%A2%D7%AA%20%D7%94%D7%A9%D7%9C%D7%95%D7%95%D7%94%20%D7%91%D7%97%D7%95%D7%A8%D7%A4%D7%99%D7%A9.%20%D7%94%D7%A8%D7%9E%D7%AA%D7%99%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%9E%D7%99%D7%95%D7%97%D7%93%20%D7%A9%D7%9E%D7%A6%D7%99%D7%92%20%D7%9E%D7%AA%D7%97%D7%9E%D7%99%20%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%96%D7%95%D7%A8.%20%D7%A4%D7%A0%D7%95%D7%99%20%D7%A9%D7%90%D7%A9%D7%9C%D7%97%20%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%A7%D7%A6%D7%A8%D7%A6%D7%A8%20%D7%A9%D7%9C%2010%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%20%D7%A8%D7%A7%20%D7%9C%D7%94%D7%AA%D7%A8%D7%A9%D7%9E%D7%95%D7%AA%3F" target="_blank" class="action-btn btn-wa">💬 וואטסאפ ישיר</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
